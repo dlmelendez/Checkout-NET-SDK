@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Collections.Generic;
 
 
-namespace PayPalCheckoutSdk.Payments
+namespace PayPalCheckoutSdk.Core
 {
     /// <summary>
     /// The currency and amount for a financial transaction, such as a balance or payment due.

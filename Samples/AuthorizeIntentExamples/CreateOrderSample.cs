@@ -9,6 +9,7 @@ using PayPalHttp;
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
+using PayPalCheckoutSdk.Core;
 
 namespace Samples.AuthorizeIntentExamples
 {
@@ -147,7 +148,7 @@ namespace Samples.AuthorizeIntentExamples
                 Console.WriteLine("Order Id: {0}", result.Id);
                 Console.WriteLine("Intent: {0}", result.CheckoutPaymentIntent);
                 Console.WriteLine("Links:");
-                foreach(LinkDescription link in result.Links)
+                foreach(var link in result.Links)
                 {
                     Console.WriteLine("\t{0}: {1}\tCall Type: {2}", link.Rel, link.Href, link.Method);
                 }
@@ -201,7 +202,7 @@ namespace Samples.AuthorizeIntentExamples
                 Console.WriteLine("Order Id: {0}", result.Id);
                 Console.WriteLine("Intent: {0}", result.CheckoutPaymentIntent);
                 Console.WriteLine("Links:");
-                foreach(LinkDescription link in result.Links)
+                foreach(var link in result.Links)
                 {
                     Console.WriteLine("\t{0}: {1}\tCall Type: {2}", link.Rel, link.Href, link.Method);
                 }

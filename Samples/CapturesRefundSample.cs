@@ -33,7 +33,7 @@ namespace Samples
                 Console.WriteLine("Status: {0}", result.Status);
                 Console.WriteLine("Refund Id: {0}", result.Id);
                 Console.WriteLine("Links:");
-                foreach (LinkDescription link in result.Links)
+                foreach (var link in result.Links)
                 {
                     Console.WriteLine("\t{0}: {1}\tCall Type: {2}", link.Rel, link.Href, link.Method);
                 }

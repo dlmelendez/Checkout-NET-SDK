@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Collections.Generic;
 
 
-namespace PayPalCheckoutSdk.Orders
+namespace PayPalCheckoutSdk.Core
 {
     /// <summary>
     /// The request-related [HATEOAS link](/docs/api/reference/api-responses/#hateoas-links) information.
