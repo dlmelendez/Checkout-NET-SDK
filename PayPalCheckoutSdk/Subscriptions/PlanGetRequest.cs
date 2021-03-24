@@ -17,44 +17,13 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// <summary>
     /// Shows details for an order, by ID.
     /// </summary>
-    public class PlansGetRequest : HttpRequest
+    public class PlanGetRequest : HttpRequest
     {
-        public PlansGetRequest(string productId = null, 
-            List<string> planIds = null, 
-            int pageSize = 20,
-            int page = 1,
-            bool totalRequired = true) : base("/v1/billing/plans?{queryParms}", HttpMethod.Get, typeof(PlanCollection))
+        public PlanGetRequest(string planId) : base("/v1/billing/plans/{id}", HttpMethod.Get, typeof(Plan))
         {
             try 
-            {
-                StringBuilder queryParms = new StringBuilder();
-                queryParms.Append("page_size=");
-                queryParms.Append(pageSize);
-                queryParms.Append("&");
-
-                queryParms.Append("page=");
-                queryParms.Append(page);
-                queryParms.Append("&");
-
-                queryParms.Append("total_required=");
-                queryParms.Append(totalRequired);
-
-                if (!string.IsNullOrWhiteSpace(productId))
-                {
-                    queryParms.Append("&");
-                    queryParms.Append("product_id=");
-                    queryParms.Append(Uri.EscapeDataString(productId));
-                }
-
-                if (planIds != null)
-                {
-                    string planidsValue = string.Join(",", planIds);
-                    queryParms.Append("&");
-                    queryParms.Append("plan_ids=");
-                    queryParms.Append(Uri.EscapeDataString(planidsValue));
-                }
-
-                this.Path = this.Path.Replace("{queryParms}", queryParms.ToString());
+            {                
+                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(planId));
             } 
             catch (IOException) {}
             
