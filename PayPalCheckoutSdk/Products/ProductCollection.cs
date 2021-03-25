@@ -14,7 +14,7 @@ namespace PayPalCheckoutSdk.Products
         /// An array of products.
         /// </summary>
         [DataMember(Name = "products", EmitDefaultValue = false)]
-        public List<Product> products { get; set; }
+        public List<Product> Products { get; set; }
 
         /// <summary>
         /// The total number of items.

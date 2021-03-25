@@ -7,7 +7,9 @@ using PayPalHttp;
 using Xunit;
 using PayPalCheckoutSdk.Test;
 using static PayPalCheckoutSdk.Test.TestHarness;
-
+using PayPalCheckoutSdk.Products.Test;
+using PayPalCheckoutSdk.Products;
+using System.Linq;
 
 namespace PayPalCheckoutSdk.Subscriptions.Test
 {
@@ -17,45 +19,32 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
         [Fact]
         public async void TestPlansGetRequest()
         {
-            //var response = await OrdersCreateTest.CreateOrder();
-            //Order createdOrder = response.Result<Order>();
+            var createProductResponse = await ProductsCreateTest.CreateProduct();
+            Product product1 = createProductResponse.Result<Product>();
+            var plan1Response = await PlansCreateTest.CreatePlan(product1.Id, false, false);
+            Plan plan1 = plan1Response.Result<Plan>();
+            var plan2Response = await PlansCreateTest.CreatePlan(product1.Id, true, true);
+            Plan plan2 = plan2Response.Result<Plan>();
 
-            PlansGetRequest request = new PlansGetRequest();
+            List<string> planIds = new List<string>() { plan1.Id, plan2.Id };
+            Console.WriteLine(planIds[0] + " " + planIds[1]);
+
+            PlansGetRequest request = new PlansGetRequest(product1.Id);
 
             var response = await TestHarness.client().Execute(request);
             Assert.Equal(200, (int) response.StatusCode);
             
             PlanCollection retrievedPlanCollection = response.Result<PlanCollection>();
             Assert.NotNull(retrievedPlanCollection);
-            //Assert.Equal(retrievedPlanCollection.Id, createdOrder.Id);
-            //Assert.NotNull(retrievedPlanCollection.PurchaseUnits);
-            //Assert.Equal(retrievedPlanCollection.PurchaseUnits.Count, createdOrder.PurchaseUnits.Count);
+            Assert.NotEmpty(retrievedPlanCollection.Plans);
+            Assert.Equal(2, retrievedPlanCollection.Plans.Count);
+            Assert.NotNull(retrievedPlanCollection.Plans.FirstOrDefault(f => f.Id == plan1.Id));
+            Assert.NotNull(retrievedPlanCollection.Plans.FirstOrDefault(f => f.Id == plan2.Id));
 
-            //for (int count = 0; count < retrievedPlanCollection.PurchaseUnits.Count; count++) {
-            //    PurchaseUnit retrievedOrderPurchaseUnit = retrievedPlanCollection.PurchaseUnits[count];
-            //    PurchaseUnit createdOrderPurchaseUnit = createdOrder.PurchaseUnits[count];
-            //    Assert.Equal(retrievedOrderPurchaseUnit.ReferenceId, createdOrderPurchaseUnit.ReferenceId);
-            //    Assert.Equal(retrievedOrderPurchaseUnit.AmountWithBreakdown.CurrencyCode, createdOrderPurchaseUnit.AmountWithBreakdown.CurrencyCode);
-            //    Assert.Equal(retrievedOrderPurchaseUnit.AmountWithBreakdown.Value, createdOrderPurchaseUnit.AmountWithBreakdown.Value);
-            //}
 
-            //Assert.NotNull(retrievedPlanCollection.CreateTime);
+            Assert.NotNull(retrievedPlanCollection.Links);            
 
-            Assert.NotNull(retrievedPlanCollection.Links);
-            //bool foundApproveURL = false;
-            //foreach (var linkDescription in retrievedPlanCollection.Links) {
-            //    if ("approve".Equals(linkDescription.Rel)) {
-            //        foundApproveURL = true;
-            //        Assert.NotNull(linkDescription.Href);
-            //        Assert.Equal("GET", linkDescription.Method);
-            //        Console.WriteLine(linkDescription.Href);
-            //    }
-            //}
+        }       
 
-            //Console.WriteLine(createdOrder.Id);
-            //Assert.True(foundApproveURL);
-            //Assert.Equal("CREATED", createdOrder.Status);
-
-        }
     }
 }

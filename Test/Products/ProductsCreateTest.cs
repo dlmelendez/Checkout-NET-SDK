@@ -9,16 +9,22 @@ using Xunit;
 using Xunit.Abstractions;
 using PayPalCheckoutSdk.Test;
 using static PayPalCheckoutSdk.Test.TestHarness;
-
+using System.Diagnostics;
 
 namespace PayPalCheckoutSdk.Products.Test
 {
     [Collection("Products")]
     public class ProductsCreateTest
     {
-        private static ProductRequest buildRequestBody()
+        public const string ProductId1 = "test-product1";
+        public const string ProductId2 = "test-product2";
+
+        private static ProductRequest buildRequestBody(string id)
         {
-            string id = Guid.NewGuid().ToString();
+            if (id == null)
+            {
+                id = Guid.NewGuid().ToString();
+            }
             var product = new ProductRequest()
             {
                 Category = "COMPUTER_AND_DATA_PROCESSING_SERVICES",
@@ -31,12 +37,44 @@ namespace PayPalCheckoutSdk.Products.Test
             };
             return product;
         }
-        public async static Task<HttpResponse> CreateProduct() 
+        public async static Task<HttpResponse> CreateProduct(string id = null)
         {
             var request = new ProductsCreateRequest();
             request.Prefer("return=representation");
-            request.RequestBody(buildRequestBody());
+            request.RequestBody(buildRequestBody(id));
             return await TestHarness.client().Execute(request);
+        }
+
+        public async static Task<Product> CreateProductIfNotExists(string id)
+        {
+            var getRequest = new ProductGetRequest(id);
+            Product getProduct = null;
+            try
+            {
+                var getResponse = await TestHarness.client().Execute(getRequest);
+                getProduct = getResponse.Result<Product>();
+            }
+            catch (PayPalHttp.HttpException httpEx)
+                when (httpEx.GetError() != null && httpEx.GetError().Name == "RESOURCE_NOT_FOUND")
+            {
+                getProduct = null;
+            }
+            if(getProduct == null)
+            {
+                var request = new ProductsCreateRequest();
+                request.Prefer("return=representation");
+                request.RequestBody(buildRequestBody(id));
+                var createResponse = await TestHarness.client().Execute(request);
+                getProduct = createResponse.Result<Product>();
+            }
+            return getProduct;
+        }
+
+        public async static Task<List<Product>> CreateDefaultProductsIfNotExitsAsync()
+        {
+            Product product1 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId1);
+            Product product2 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId2);
+            return new List<Product>() { product1, product2 };
         }
 
         [Fact]

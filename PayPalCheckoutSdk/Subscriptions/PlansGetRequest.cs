@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     public class PlansGetRequest : HttpRequest
     {
         public PlansGetRequest(string productId = null, 
-            List<string> planIds = null, 
+            //List<string> planIds = null, 
             int pageSize = 20,
             int page = 1,
             bool totalRequired = true) : base("/v1/billing/plans?{queryParms}", HttpMethod.Get, typeof(PlanCollection))
@@ -39,19 +39,20 @@ namespace PayPalCheckoutSdk.Subscriptions
                 queryParms.Append("total_required=");
                 queryParms.Append(totalRequired);
 
+                //PlanIds doesn't seem to filter like the api should
+                //Formatting of this parameter is suspect
+                //if (planIds != null)
+                //{
+                //    string planidsValue = string.Join(",", planIds.Select(s => "\"" + s + "\""));
+                //    queryParms.Append("&");
+                //    queryParms.Append("plan_ids=");
+                //    queryParms.Append(Uri.EscapeDataString("{[" + planidsValue + "]}"));
+                //}
                 if (!string.IsNullOrWhiteSpace(productId))
                 {
                     queryParms.Append("&");
                     queryParms.Append("product_id=");
                     queryParms.Append(Uri.EscapeDataString(productId));
-                }
-
-                if (planIds != null)
-                {
-                    string planidsValue = string.Join(",", planIds);
-                    queryParms.Append("&");
-                    queryParms.Append("plan_ids=");
-                    queryParms.Append(Uri.EscapeDataString(planidsValue));
                 }
 
                 this.Path = this.Path.Replace("{queryParms}", queryParms.ToString());

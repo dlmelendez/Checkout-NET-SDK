@@ -6,7 +6,7 @@ using PayPalCheckoutSdk.Core;
 namespace PayPalCheckoutSdk.Products
 {
     /// <summary>
-    /// The Plan.
+    /// The Product.
     /// </summary>
     [DataContract]
     public class Product

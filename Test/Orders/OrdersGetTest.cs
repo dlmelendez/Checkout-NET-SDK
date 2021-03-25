@@ -30,7 +30,8 @@ namespace PayPalCheckoutSdk.Orders.Test
             Assert.NotNull(retrievedOrder.PurchaseUnits);
             Assert.Equal(retrievedOrder.PurchaseUnits.Count, createdOrder.PurchaseUnits.Count);
 
-            for (int count = 0; count < retrievedOrder.PurchaseUnits.Count; count++) {
+            for (int count = 0; count < retrievedOrder.PurchaseUnits.Count; count++) 
+            {
                 PurchaseUnit retrievedOrderPurchaseUnit = retrievedOrder.PurchaseUnits[count];
                 PurchaseUnit createdOrderPurchaseUnit = createdOrder.PurchaseUnits[count];
                 Assert.Equal(retrievedOrderPurchaseUnit.ReferenceId, createdOrderPurchaseUnit.ReferenceId);
@@ -42,8 +43,10 @@ namespace PayPalCheckoutSdk.Orders.Test
 
             Assert.NotNull(createdOrder.Links);
             bool foundApproveURL = false;
-            foreach (var linkDescription in createdOrder.Links) {
-                if ("approve".Equals(linkDescription.Rel)) {
+            foreach (var linkDescription in createdOrder.Links) 
+            {
+                if ("approve".Equals(linkDescription.Rel)) 
+                {
                     foundApproveURL = true;
                     Assert.NotNull(linkDescription.Href);
                     Assert.Equal("GET", linkDescription.Method);
