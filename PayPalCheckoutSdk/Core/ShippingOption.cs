@@ -6,9 +6,8 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-using PayPalCheckoutSdk.Core;
 
-namespace PayPalCheckoutSdk.Orders
+namespace PayPalCheckoutSdk.Core
 {
     /// <summary>
     /// The options that the payee or merchant offers to the payer to ship or pick up their items.

@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Collections.Generic;
 
 
-namespace PayPalCheckoutSdk.Orders
+namespace PayPalCheckoutSdk.Core
 {
     /// <summary>
     /// The JSON patch object to apply partial updates to resources.

@@ -9,7 +9,7 @@ using Xunit;
 using Xunit.Abstractions;
 using PayPalCheckoutSdk.Test;
 using static PayPalCheckoutSdk.Test.TestHarness;
-
+using PayPalCheckoutSdk.Core;
 
 namespace PayPalCheckoutSdk.Orders.Test
 {

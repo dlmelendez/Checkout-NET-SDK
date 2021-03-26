@@ -12,23 +12,27 @@ using System.Collections.Generic;
 using PayPalHttp;
 using PayPalCheckoutSdk.Core;
 
-namespace PayPalCheckoutSdk.Orders
+namespace PayPalCheckoutSdk.Subscriptions
 {
     /// <summary>
-    /// Updates an order that has the `CREATED` or `APPROVED` status. You cannot update an order with `COMPLETED` status. You can patch these attributes and objects:<table><thead><tr><th align="left">Attribute or object</th><th align="left">Operations</th></tr></thead><tbody><tr><td><code>intent</code></td><td align="left">Replace</td></tr><tr><td><code>purchase_units</code></td><td align="left">Replace, add</td></tr><tr><td><code>purchase_units[].custom_id</code></td><td align="left">Replace, add, remove</td></tr><tr><td><code>purchase_units[].description</code></td><td align="left">Replace, add, remove</td></tr><tr><td><code>purchase_units[].payee.email</code></td><td align="left">Replace, add</td></tr><tr><td><code>purchase_units[].shipping</code></td><td align="left">Replace, add, remove</td></tr><tr><td><code>purchase_units[].soft_descriptor</code></td><td align="left">Replace, add, remove</td></tr><tr><td><code>purchase_units[].amount</code></td><td align="left">Replace</td></tr><tr><td><code>purchase_units[].invoice_id</code></td><td align="left">Replace, add, remove</td></tr></tbody></table>
+    /// Updates a subscription which could be in ACTIVE or SUSPENDED status. You can override plan level default attributes by providing customised values for plan path in the patch request.
+    /// You cannot update attributes that have already completed(Example - trial cycles can’t be updated if completed).
+    /// Once overridden, changes to plan resource will not impact subscription.
+    /// Any price update will not impact billing cycles within next 10 days(Applicable only for subscriptions funded by PayPal account).
+    /// https://developer.paypal.com/docs/api/subscriptions/v1/#subscriptions_patch
     /// </summary>
-    public class OrdersPatchRequest<T> : HttpRequest
+    public class SubscriptionsPatchRequest<T> : HttpRequest
     {
-        public OrdersPatchRequest(string OrderId) : base("/v2/checkout/orders/{order_id}?", new HttpMethod("PATCH"), typeof(void))
+        public SubscriptionsPatchRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}?", new HttpMethod("PATCH"), typeof(void))
         {
             try {
-                this.Path = this.Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
+                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
             } catch (IOException) {}
             
             this.ContentType =  "application/json";
         }
         
-        public OrdersPatchRequest<T> RequestBody(List<Patch<T>> PatchRequest)
+        public SubscriptionsPatchRequest<T> RequestBody(List<Patch<T>> PatchRequest)
         {
             this.Body = PatchRequest;
             return this;
