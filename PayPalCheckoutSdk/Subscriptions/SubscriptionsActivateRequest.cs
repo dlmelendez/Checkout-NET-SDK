@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// </summary>
     public class SubscriptionsActivateRequest : HttpRequest
     {
-        public SubscriptionsActivateRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/activate", HttpMethod.Get, typeof(void))
+        public SubscriptionsActivateRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/activate", HttpMethod.Post, typeof(void))
         {
             try
             {

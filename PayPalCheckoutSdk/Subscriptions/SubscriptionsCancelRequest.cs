@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// </summary>
     public class SubscriptionsCancelRequest : HttpRequest
     {
-        public SubscriptionsCancelRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/cancel", HttpMethod.Get, typeof(void))
+        public SubscriptionsCancelRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/cancel", HttpMethod.Post, typeof(void))
         {
             try
             {

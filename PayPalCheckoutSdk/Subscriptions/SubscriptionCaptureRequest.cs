@@ -34,7 +34,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The amount of the outstanding balance. This value cannot be greater than the current outstanding balance amount.
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public string Amount { get; set; }
+        public Money Amount { get; set; }
     }
 }
 

@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// </summary>
     public class SubscriptionsReviseRequest : HttpRequest
     {
-        public SubscriptionsReviseRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/revise", HttpMethod.Get, typeof(SubscriptionReviseResponse))
+        public SubscriptionsReviseRequest(string subscriptionId) : base("/v1/billing/subscriptions/{id}/revise", HttpMethod.Post, typeof(SubscriptionReviseResponse))
         {
             try
             {
