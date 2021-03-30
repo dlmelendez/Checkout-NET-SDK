@@ -7,7 +7,7 @@ using PayPalHttp;
 using Xunit;
 using PayPalCheckoutSdk.Test;
 using static PayPalCheckoutSdk.Test.TestHarness;
-
+using System.Threading.Tasks;
 
 namespace PayPalCheckoutSdk.Products.Test
 {
@@ -31,6 +31,22 @@ namespace PayPalCheckoutSdk.Products.Test
 
             Assert.NotNull(retrievedProductCollection.Links);
             
+
+        }
+
+        [Fact]
+        public async Task TestProductGetDetailsRequest()
+        {
+            var product = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId1);
+            ProductGetRequest request = new ProductGetRequest(product.Id);
+
+            var response = await TestHarness.client().Execute(request);
+            Assert.Equal(200, (int)response.StatusCode);
+
+            Product retrievedProduct = response.Result<Product>();
+            Assert.NotNull(retrievedProduct);
+
+            Assert.NotNull(retrievedProduct.Links);
 
         }
     }
