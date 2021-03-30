@@ -12,12 +12,10 @@ using static PayPalCheckoutSdk.Test.TestHarness;
 using System.Diagnostics;
 using PayPalCheckoutSdk.Core;
 using System.Linq;
-using PayPalCheckoutSdk.Products;
-using PayPalCheckoutSdk.Products.Test;
 
-namespace PayPalCheckoutSdk.Products.Test
+namespace PayPalCheckoutSdk.Subscriptions.Test
 {
-    [Collection("Products")]
+    [Collection("Subscriptions")]
     public class PlansUpdateTest
     {
         private List<Patch<string>> buildRequestBody()
@@ -34,14 +32,14 @@ namespace PayPalCheckoutSdk.Products.Test
         }
 
         [Theory]
-        [InlineData(new object[] { "ERRCAT011", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRCAT012", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRCAT013", "INVALID_REQUEST" })]
-        [InlineData(new object[] { "ERRCAT014", "UNPROCESSABLE_ENTITY" })]
-        public async void TestProductsNegativeUpdate(string productId, string errorName)
+        [InlineData(new object[] { "ERRSUB011", "INTERNAL_SERVER_ERROR" })]
+        [InlineData(new object[] { "ERRSUB012", "NOT_AUTHORIZED" })]
+        [InlineData(new object[] { "ERRSUB013", "RESOURCE_NOT_FOUND" })]
+        [InlineData(new object[] { "ERRSUB014", "INVALID_REQUEST" })]
+        public async void TestPlansNegativeUpdate(string planId, string errorName)
         {
-            // - Update Product
-            ProductsPatchRequest<string> patchRequest = new ProductsPatchRequest<string>(productId);
+            // - Update Plan
+            PlansPatchRequest<string> patchRequest = new PlansPatchRequest<string>(planId);
             patchRequest.RequestBody(buildRequestBody());
 
             PayPalHttp.HttpException httpException = await Assert.ThrowsAsync<PayPalHttp.HttpException>(() => 
