@@ -4,9 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
     <PackageVersion>1.0.3</PackageVersion>
     <IsPackable>false</IsPackable>
+    <UserSecretsId>4dbe0d9e-0d79-4e71-b5dd-44b90dbe3ee9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
