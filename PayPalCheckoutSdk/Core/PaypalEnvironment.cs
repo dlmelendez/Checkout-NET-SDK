@@ -24,7 +24,7 @@ namespace PayPalCheckoutSdk.Core
 
         public string BaseUrl()
         {
-            return this.baseUrl;
+            return baseUrl;
         }
 
         public string AuthorizationString()
@@ -39,7 +39,7 @@ namespace PayPalCheckoutSdk.Core
 
         public string WebUrl()
         {
-            return this.webUrl;
+            return webUrl;
         }
     }
 

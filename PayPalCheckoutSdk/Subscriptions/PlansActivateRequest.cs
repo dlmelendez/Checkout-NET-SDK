@@ -19,11 +19,11 @@ namespace PayPalCheckoutSdk.Subscriptions
         {
             try
             {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
             }
             catch (IOException) { }
 
-            this.ContentType = "application/json";
+            ContentType = "application/json";
         }
         
     }

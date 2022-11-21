@@ -19,12 +19,12 @@ namespace PayPalCheckoutSdk.Core
 
         public AccessToken()
         {
-            this.createDate = DateTime.Now;
+            createDate = DateTime.Now;
         }
 
         public bool IsExpired()
         {
-            DateTime expireDate = this.createDate.Add(TimeSpan.FromSeconds(this.ExpiresIn));
+            DateTime expireDate = createDate.Add(TimeSpan.FromSeconds(ExpiresIn));
             return DateTime.Now.CompareTo(expireDate) > 0;
         }
     }

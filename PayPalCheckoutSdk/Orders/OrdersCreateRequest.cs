@@ -22,24 +22,24 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersCreateRequest() : base("/v2/checkout/orders?", HttpMethod.Post, typeof(Order))
         {
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public OrdersCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            this.Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
             return this;
         }
         
         public OrdersCreateRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public OrdersCreateRequest RequestBody(OrderRequest Order)
         {
-            this.Body = Order;
+            Body = Order;
             return this;
         }
     }

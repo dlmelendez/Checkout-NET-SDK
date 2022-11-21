@@ -16,10 +16,10 @@ namespace PayPalCheckoutSdk.Core
         {
             this.refreshToken = refreshToken;
             gzipInjector = new GzipInjector();
-            authorizationInjector = new AuthorizationInjector(this, environment, refreshToken);
+            authorizationInjector = new AuthorizationInjector(environment, refreshToken);
 
-            AddInjector(this.gzipInjector);
-            AddInjector(this.authorizationInjector);
+            AddInjector(gzipInjector);
+            AddInjector(authorizationInjector);
         }
 
         protected override string GetUserAgent()
@@ -29,36 +29,34 @@ namespace PayPalCheckoutSdk.Core
 
         class AuthorizationInjector : IInjector
         {
-            private HttpClient client;
-            private PayPalEnvironment environment;
-            private AccessToken accessToken;
-            private string refreshToken;
+            private PayPalEnvironment _environment;
+            private AccessToken _accessToken;
+            private string _refreshToken;
 
-            public AuthorizationInjector(HttpClient client, PayPalEnvironment environment, string refreshToken)
+            public AuthorizationInjector(PayPalEnvironment environment, string refreshToken)
             {
-                this.environment = environment;
-                this.client = client;
-                this.refreshToken = refreshToken;
+                _environment = environment;
+                _refreshToken = refreshToken;
             }
 
             public void Inject(HttpRequest request)
             {
                 if (!request.Headers.Contains("Authorization") && !(request is AccessTokenRequest || request is RefreshTokenRequest))
                 {
-                    if (this.accessToken == null || this.accessToken.IsExpired())
+                    if (_accessToken == null || _accessToken.IsExpired())
                     {
                         var accessTokenResponse = fetchAccessToken();
-                        this.accessToken = accessTokenResponse.Result<AccessToken>();
+                        _accessToken = accessTokenResponse.Result<AccessToken>();
                     }
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken.Token);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
                 }
             }
 
             private HttpResponse fetchAccessToken()
             {
                 //create a new client for access token.
-                HttpClient AccessTokenClient = new HttpClient(environment);
-                AccessTokenRequest request = new AccessTokenRequest(environment, refreshToken);
+                HttpClient AccessTokenClient = new HttpClient(_environment);
+                AccessTokenRequest request = new AccessTokenRequest(_environment, _refreshToken);
                 //make fetch access token call sync to avoid deadlock.
                 Task<HttpResponse> executeTask = Task.Run<HttpResponse>(async () => await AccessTokenClient.Execute(request));
                 return executeTask.Result;

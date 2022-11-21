@@ -55,11 +55,11 @@ namespace PayPalCheckoutSdk.Subscriptions
                     queryParms.Append(Uri.EscapeDataString(productId));
                 }
 
-                this.Path = this.Path.Replace("{queryParms}", queryParms.ToString());
+                Path = Path.Replace("{queryParms}", queryParms.ToString());
             } 
             catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

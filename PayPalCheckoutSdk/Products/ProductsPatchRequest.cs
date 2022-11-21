@@ -18,15 +18,15 @@ namespace PayPalCheckoutSdk.Products
         public ProductsPatchRequest(string productId) : base("/v1/catalogs/products/{id}", new HttpMethod("PATCH"), typeof(void))
         {
             try {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(productId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(productId));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
         public ProductsPatchRequest<T> RequestBody(List<Patch<T>> patchRequest)
         {
-            this.Body = patchRequest;
+            Body = patchRequest;
             return this;
         }
     }

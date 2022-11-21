@@ -19,11 +19,11 @@ namespace PayPalCheckoutSdk.Subscriptions
         {
             try
             {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
             }
             catch (IOException) { }
 
-            this.ContentType = "application/json";
+            ContentType = "application/json";
         }
 
         /// <summary>
@@ -36,13 +36,13 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCaptureRequest PayPalRequestId(string payPalRequestId)
         {
-            this.Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add("PayPal-Request-Id", payPalRequestId);
             return this;
         }
 
         public SubscriptionsCaptureRequest RequestBody(SubscriptionCaptureRequest subscription)
         {
-            this.Body = subscription;
+            Body = subscription;
             return this;
         }
     }

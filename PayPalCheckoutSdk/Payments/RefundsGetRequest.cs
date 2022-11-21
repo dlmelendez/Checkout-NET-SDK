@@ -22,10 +22,10 @@ namespace PayPalCheckoutSdk.Payments
         public RefundsGetRequest(string RefundId) : base("/v2/payments/refunds/{refund_id}?", HttpMethod.Get, typeof(Refund))
         {
             try {
-                this.Path = this.Path.Replace("{refund_id}", Uri.EscapeDataString(Convert.ToString(RefundId) ));
+                Path = Path.Replace("{refund_id}", Uri.EscapeDataString(Convert.ToString(RefundId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

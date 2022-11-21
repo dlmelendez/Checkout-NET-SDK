@@ -18,11 +18,11 @@ namespace PayPalCheckoutSdk.Products
         {
             try 
             {                
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(productId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(productId));
             } 
             catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

@@ -18,15 +18,15 @@ namespace PayPalCheckoutSdk.Subscriptions
         public PlansPatchRequest(string planId) : base("/v1/billing/plans/{id}?", new HttpMethod("PATCH"), typeof(void))
         {
             try {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(planId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(planId));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
         public PlansPatchRequest<T> RequestBody(List<Patch<T>> PatchRequest)
         {
-            this.Body = PatchRequest;
+            Body = PatchRequest;
             return this;
         }
     }

@@ -22,27 +22,27 @@ namespace PayPalCheckoutSdk.Payments
         public AuthorizationsCaptureRequest(string AuthorizationId) : base("/v2/payments/authorizations/{authorization_id}/capture?", HttpMethod.Post, typeof(Capture))
         {
             try {
-                this.Path = this.Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
+                Path = Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public AuthorizationsCaptureRequest PayPalRequestId(string PayPalRequestId) 
         {
-            this.Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add("PayPal-Request-Id", PayPalRequestId);
             return this;
         }
         
         public AuthorizationsCaptureRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public AuthorizationsCaptureRequest RequestBody(CaptureRequest Capture)
         {
-            this.Body = Capture;
+            Body = Capture;
             return this;
         }
     }

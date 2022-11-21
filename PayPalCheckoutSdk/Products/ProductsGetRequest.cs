@@ -33,11 +33,11 @@ namespace PayPalCheckoutSdk.Products
                 queryParms.Append("total_required=");
                 queryParms.Append(totalRequired);
 
-                this.Path = this.Path.Replace("{queryParms}", queryParms.ToString());
+                Path = Path.Replace("{queryParms}", queryParms.ToString());
             } 
             catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

@@ -16,24 +16,24 @@ namespace PayPalCheckoutSdk.Products
         public ProductsCreateRequest() : base("/v1/catalogs/products", HttpMethod.Post, typeof(Product))
         {
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public ProductsCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            this.Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
             return this;
         }
         
         public ProductsCreateRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public ProductsCreateRequest RequestBody(ProductRequest Plan)
         {
-            this.Body = Plan;
+            Body = Plan;
             return this;
         }
     }
