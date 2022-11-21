@@ -1,5 +1,6 @@
-﻿# Deprecation Notice:
-This SDK is deprecated; you can continue to use it, but no new features or support requests will be accepted. A direct [REST API integration](https://developer.paypal.com/docs/api/orders/v2/) is recommended. Review the [docs on authorization](https://developer.paypal.com/api/rest/authentication/) for authenticating requests with the REST API.
+﻿## ElCamino.PayPalCheckoutSdk
+Added recurring billing support via products, plans and subscriptions. Forked from deprecated https://github.com/paypal/Checkout-NET-SDK
+Uses the regex and threading performance and current .NET frameworks in [ElCamino.PayPalHttp library](https://github.com/dlmelendez/paypalhttp_dotnet).
 
 ## REST API SDK for Dotnet V2
 
