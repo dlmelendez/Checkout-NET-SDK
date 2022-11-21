@@ -10,14 +10,19 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/dlmelendez/Checkout-NET-SDK</PackageProjectUrl>
     <PackageReleaseNotes>Added recurring billing support via products, plans and subscriptions. Fork from https://github.com/paypal/Checkout-NET-SDK </PackageReleaseNotes>
-    <Description>.NET SDK for Checkout RESTful APIs with recurring billing support</Description>
+    <Description>.NET SDK for Checkout RESTful APIs with recurring billing support via products, plans and subscriptions.</Description>
     <Authors>PayPal, David Melendez</Authors>
     <AssemblyName>ElCamino.PayPalCheckoutSdk</AssemblyName>
+	<PackageId>ElCamino.PayPalCheckoutSdk</PackageId>
+	<PackageTags>ElCamino;ASP.NET;Paypal;PaypalHttp;PayPalCheckoutSdk;.NET SDK</PackageTags>
     <RootNamespace>PayPalCheckoutSdk</RootNamespace>
     <PackageIcon>projectNugetPic.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<NeutralLanguage>en-US</NeutralLanguage>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,7 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE">
+	  <None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+	  </None>
+
+	  <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
