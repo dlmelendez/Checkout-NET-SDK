@@ -9,37 +9,37 @@ namespace PayPalCheckoutSdk.Core
     /// </summary>
     public class PayPalEnvironment : PayPalHttp.Environment
     {
-        private string baseUrl;
-        private string clientId;
-        private string clientSecret;
-        private string webUrl;
+        private readonly string _baseUrl;
+        private readonly string _clientId;
+        private readonly string _clientSecret;
+        private readonly string _webUrl;
 
         public PayPalEnvironment(string clientId, string clientSecret, string baseUrl, string webUrl)
         {
-            this.clientId = clientId;
-            this.clientSecret = clientSecret;
-            this.baseUrl = baseUrl;
-            this.webUrl = webUrl;
+            _clientId = clientId;
+            _clientSecret = clientSecret;
+            _baseUrl = baseUrl;
+            _webUrl = webUrl;
         }
 
         public string BaseUrl()
         {
-            return baseUrl;
+            return _baseUrl;
         }
 
         public string AuthorizationString()
         {
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes($"{clientId}:{clientSecret}"));
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}"));
         }
 
         public string ClientId()
         {
-            return clientId;
+            return _clientId;
         }
 
         public string WebUrl()
         {
-            return webUrl;
+            return _webUrl;
         }
     }
 

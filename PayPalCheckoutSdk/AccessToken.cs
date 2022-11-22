@@ -15,17 +15,17 @@ namespace PayPalCheckoutSdk.Core
         [DataMember(Name = "expires_in")]
         public int ExpiresIn;
 
-        private DateTime createDate;
+        private readonly DateTime _createDate;
 
         public AccessToken()
         {
-            createDate = DateTime.Now;
+            _createDate = DateTime.UtcNow;
         }
 
         public bool IsExpired()
         {
-            DateTime expireDate = createDate.Add(TimeSpan.FromSeconds(ExpiresIn));
-            return DateTime.Now.CompareTo(expireDate) > 0;
+            DateTime expireDate = _createDate.Add(TimeSpan.FromSeconds(ExpiresIn));
+            return DateTime.UtcNow.CompareTo(expireDate) > 0;
         }
     }
 }

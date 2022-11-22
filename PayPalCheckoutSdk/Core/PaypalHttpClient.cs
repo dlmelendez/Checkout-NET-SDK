@@ -5,21 +5,19 @@ namespace PayPalCheckoutSdk.Core
 {
     public class PayPalHttpClient : HttpClient
     {
-        private string refreshToken;
-        private IInjector gzipInjector;
-        private IInjector authorizationInjector;
+        private readonly IInjector _gzipInjector;
+        private readonly IInjector _authorizationInjector;
 
         public PayPalHttpClient(PayPalEnvironment environment) : this(environment, null)
         { }
 
         public PayPalHttpClient(PayPalEnvironment environment, string refreshToken) : base(environment)
         {
-            this.refreshToken = refreshToken;
-            gzipInjector = new GzipInjector();
-            authorizationInjector = new AuthorizationInjector(environment, refreshToken);
+            _gzipInjector = new GzipInjector();
+            _authorizationInjector = new AuthorizationInjector(environment, refreshToken);
 
-            AddInjector(gzipInjector);
-            AddInjector(authorizationInjector);
+            AddInjector(_gzipInjector);
+            AddInjector(_authorizationInjector);
         }
 
         protected override string GetUserAgent()
@@ -29,9 +27,9 @@ namespace PayPalCheckoutSdk.Core
 
         class AuthorizationInjector : IInjector
         {
-            private PayPalEnvironment _environment;
+            private readonly PayPalEnvironment _environment;
             private AccessToken _accessToken;
-            private string _refreshToken;
+            private readonly string _refreshToken;
 
             public AuthorizationInjector(PayPalEnvironment environment, string refreshToken)
             {
@@ -45,14 +43,14 @@ namespace PayPalCheckoutSdk.Core
                 {
                     if (_accessToken == null || _accessToken.IsExpired())
                     {
-                        var accessTokenResponse = fetchAccessToken();
+                        var accessTokenResponse = FetchAccessToken();
                         _accessToken = accessTokenResponse.Result<AccessToken>();
                     }
                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
                 }
             }
 
-            private HttpResponse fetchAccessToken()
+            private HttpResponse FetchAccessToken()
             {
                 //create a new client for access token.
                 HttpClient AccessTokenClient = new HttpClient(_environment);
