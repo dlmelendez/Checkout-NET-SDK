@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
     <LangVersion>10.0</LangVersion>
-    <Version>1.7.0</Version>
+    <Version>1.8.0</Version>
     <Owners>David Melendez</Owners>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/dlmelendez/Checkout-NET-SDK.git</RepositoryUrl>
