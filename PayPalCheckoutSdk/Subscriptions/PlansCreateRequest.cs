@@ -18,24 +18,24 @@ namespace PayPalCheckoutSdk.Subscriptions
         public PlansCreateRequest() : base("/v1/billing/plans", HttpMethod.Post, typeof(Plan))
         {
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public PlansCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            this.Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
             return this;
         }
         
         public PlansCreateRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public PlansCreateRequest RequestBody(PlanRequest Plan)
         {
-            this.Body = Plan;
+            Body = Plan;
             return this;
         }
     }

@@ -18,15 +18,15 @@ namespace PayPalCheckoutSdk.Subscriptions
         public PlansChangePricingRequest(string planId) : base("/v1/billing/plans/{id}/update-pricing-schemes", HttpMethod.Post, typeof(void))
         {
             try {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(planId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(planId));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
         public PlansChangePricingRequest RequestBody(List<UpdatePricingSchemeRequest> updatePricingRequest)
         {
-            this.Body = updatePricingRequest;
+            Body = updatePricingRequest;
             return this;
         }
     }

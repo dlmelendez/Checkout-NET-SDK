@@ -22,33 +22,33 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersAuthorizeRequest(string OrderId) : base("/v2/checkout/orders/{order_id}/authorize?", HttpMethod.Post, typeof(Order))
         {
             try {
-                this.Path = this.Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
+                Path = Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public OrdersAuthorizeRequest PayPalClientMetadataId(string PayPalClientMetadataId) 
         {
-            this.Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
+            Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
             return this;
         }
         
         public OrdersAuthorizeRequest PayPalRequestId(string PayPalRequestId) 
         {
-            this.Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add("PayPal-Request-Id", PayPalRequestId);
             return this;
         }
         
         public OrdersAuthorizeRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public OrdersAuthorizeRequest RequestBody(AuthorizeRequest authorizeRequest)
         {
-            this.Body = authorizeRequest;
+            Body = authorizeRequest;
             return this;
         }
     }

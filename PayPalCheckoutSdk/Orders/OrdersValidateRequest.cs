@@ -22,21 +22,21 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersValidateRequest(string OrderId) : base("/v2/checkout/orders/{order_id}/validate-payment-method?", HttpMethod.Post, typeof(Order))
         {
             try {
-                this.Path = this.Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
+                Path = Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public OrdersValidateRequest PayPalClientMetadataId(string PayPalClientMetadataId) 
         {
-            this.Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
+            Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
             return this;
         }
         
         
         public OrdersValidateRequest RequestBody(OrderActionRequest OrderActionRequest)
         {
-            this.Body = OrderActionRequest;
+            Body = OrderActionRequest;
             return this;
         }
     }

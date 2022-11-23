@@ -22,10 +22,10 @@ namespace PayPalCheckoutSdk.Payments
         public AuthorizationsGetRequest(string AuthorizationId) : base("/v2/payments/authorizations/{authorization_id}?", HttpMethod.Get, typeof(Authorization))
         {
             try {
-                this.Path = this.Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
+                Path = Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

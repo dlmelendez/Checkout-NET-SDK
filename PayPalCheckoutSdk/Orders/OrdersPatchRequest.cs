@@ -22,15 +22,15 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersPatchRequest(string OrderId) : base("/v2/checkout/orders/{order_id}?", new HttpMethod("PATCH"), typeof(void))
         {
             try {
-                this.Path = this.Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
+                Path = Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
         public OrdersPatchRequest<T> RequestBody(List<Patch<T>> PatchRequest)
         {
-            this.Body = PatchRequest;
+            Body = PatchRequest;
             return this;
         }
     }

@@ -22,10 +22,10 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersGetRequest(string OrderId) : base("/v2/checkout/orders/{order_id}?", HttpMethod.Get, typeof(Order))
         {
             try {
-                this.Path = this.Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
+                Path = Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

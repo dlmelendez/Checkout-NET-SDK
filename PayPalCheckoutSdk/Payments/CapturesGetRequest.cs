@@ -22,10 +22,10 @@ namespace PayPalCheckoutSdk.Payments
         public CapturesGetRequest(string CaptureId) : base("/v2/payments/captures/{capture_id}?", HttpMethod.Get, typeof(Capture))
         {
             try {
-                this.Path = this.Path.Replace("{capture_id}", Uri.EscapeDataString(Convert.ToString(CaptureId) ));
+                Path = Path.Replace("{capture_id}", Uri.EscapeDataString(Convert.ToString(CaptureId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

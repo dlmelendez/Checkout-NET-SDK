@@ -5,21 +5,19 @@ namespace PayPalCheckoutSdk.Core
 {
     public class PayPalHttpClient : HttpClient
     {
-        private string refreshToken;
-        private IInjector gzipInjector;
-        private IInjector authorizationInjector;
+        private readonly IInjector _gzipInjector;
+        private readonly IInjector _authorizationInjector;
 
         public PayPalHttpClient(PayPalEnvironment environment) : this(environment, null)
         { }
 
         public PayPalHttpClient(PayPalEnvironment environment, string refreshToken) : base(environment)
         {
-            this.refreshToken = refreshToken;
-            gzipInjector = new GzipInjector();
-            authorizationInjector = new AuthorizationInjector(this, environment, refreshToken);
+            _gzipInjector = new GzipInjector();
+            _authorizationInjector = new AuthorizationInjector(environment, refreshToken);
 
-            AddInjector(this.gzipInjector);
-            AddInjector(this.authorizationInjector);
+            AddInjector(_gzipInjector);
+            AddInjector(_authorizationInjector);
         }
 
         protected override string GetUserAgent()
@@ -29,47 +27,47 @@ namespace PayPalCheckoutSdk.Core
 
         class AuthorizationInjector : IInjector
         {
-            private HttpClient client;
-            private PayPalEnvironment environment;
-            private AccessToken accessToken;
-            private string refreshToken;
+            private readonly PayPalEnvironment _environment;
+            private AccessToken _accessToken;
+            private readonly string _refreshToken;
 
-            public AuthorizationInjector(HttpClient client, PayPalEnvironment environment, string refreshToken)
+            public AuthorizationInjector(PayPalEnvironment environment, string refreshToken)
             {
-                this.environment = environment;
-                this.client = client;
-                this.refreshToken = refreshToken;
+                _environment = environment;
+                _refreshToken = refreshToken;
             }
 
-            public void Inject(HttpRequest request)
+            public async Task<T> InjectAsync<T>(T request) where T : HttpRequest
             {
                 if (!request.Headers.Contains("Authorization") && !(request is AccessTokenRequest || request is RefreshTokenRequest))
                 {
-                    if (this.accessToken == null || this.accessToken.IsExpired())
+                    if (_accessToken == null || _accessToken.IsExpired())
                     {
-                        var accessTokenResponse = fetchAccessToken();
-                        this.accessToken = accessTokenResponse.Result<AccessToken>();
+                        _accessToken = await FetchAccessTokenAsync().ConfigureAwait(false);
                     }
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken.Token);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
                 }
+                return request;
             }
 
-            private HttpResponse fetchAccessToken()
+            private async Task<AccessToken> FetchAccessTokenAsync()
             {
                 //create a new client for access token.
-                HttpClient AccessTokenClient = new HttpClient(environment);
-                AccessTokenRequest request = new AccessTokenRequest(environment, refreshToken);
+                HttpClient AccessTokenClient = new HttpClient(_environment);
+                AccessTokenRequest request = new AccessTokenRequest(_environment, _refreshToken);
                 //make fetch access token call sync to avoid deadlock.
-                Task<HttpResponse> executeTask = Task.Run<HttpResponse>(async () => await AccessTokenClient.Execute(request));
-                return executeTask.Result;
+                var accessTokenResponse = await AccessTokenClient.Execute(request).ConfigureAwait(false);
+                return accessTokenResponse.Result<AccessToken>();
             }
+
         }
 
         private class GzipInjector : IInjector
         {
-            public void Inject(HttpRequest request)
+            public Task<T> InjectAsync<T>(T request) where T : HttpRequest
             {
                 request.Headers.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                return Task.FromResult(request);
             }
         }
     }

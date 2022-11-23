@@ -22,27 +22,27 @@ namespace PayPalCheckoutSdk.Payments
         public AuthorizationsReauthorizeRequest(string AuthorizationId) : base("/v2/payments/authorizations/{authorization_id}/reauthorize?", HttpMethod.Post, typeof(Authorization))
         {
             try {
-                this.Path = this.Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
+                Path = Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public AuthorizationsReauthorizeRequest PayPalRequestId(string PayPalRequestId) 
         {
-            this.Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add("PayPal-Request-Id", PayPalRequestId);
             return this;
         }
         
         public AuthorizationsReauthorizeRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public AuthorizationsReauthorizeRequest RequestBody(ReauthorizeRequest ReauthorizeRequest)
         {
-            this.Body = ReauthorizeRequest;
+            Body = ReauthorizeRequest;
             return this;
         }
     }

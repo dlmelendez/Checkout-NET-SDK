@@ -25,12 +25,12 @@ namespace PayPalCheckoutSdk.Subscriptions
             : base("/v1/billing/subscriptions/{id}/transactions?start_time={start_time}&end_time={end_time}", HttpMethod.Get, typeof(TransactionList))
         {
             try {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(subscriptionId))
+                Path = Path.Replace("{id}", Uri.EscapeDataString(subscriptionId))
                     .Replace("{start_time}", Uri.EscapeDataString(startTime))
                     .Replace("{end_time}", Uri.EscapeDataString(endTime));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

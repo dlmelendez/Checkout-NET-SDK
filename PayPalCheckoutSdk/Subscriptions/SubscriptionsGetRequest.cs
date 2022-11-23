@@ -24,15 +24,15 @@ namespace PayPalCheckoutSdk.Subscriptions
         {
             try 
             {
-                this.Path = this.Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
+                Path = Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
                 if(fields != null)
                 {
-                    this.Path = this.Path + "?fields=" + Uri.EscapeDataString(fields);
+                    Path = Path + "?fields=" + Uri.EscapeDataString(fields);
                 }
 
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         
     }

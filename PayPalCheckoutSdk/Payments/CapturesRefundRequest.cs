@@ -22,27 +22,27 @@ namespace PayPalCheckoutSdk.Payments
         public CapturesRefundRequest(string CaptureId) : base("/v2/payments/captures/{capture_id}/refund?", HttpMethod.Post, typeof(Refund))
         {
             try {
-                this.Path = this.Path.Replace("{capture_id}", Uri.EscapeDataString(Convert.ToString(CaptureId) ));
+                Path = Path.Replace("{capture_id}", Uri.EscapeDataString(Convert.ToString(CaptureId) ));
             } catch (IOException) {}
             
-            this.ContentType =  "application/json";
+            ContentType =  "application/json";
         }
         public CapturesRefundRequest PayPalRequestId(string PayPalRequestId) 
         {
-            this.Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add("PayPal-Request-Id", PayPalRequestId);
             return this;
         }
         
         public CapturesRefundRequest Prefer(string Prefer) 
         {
-            this.Headers.Add("Prefer", Prefer);
+            Headers.Add("Prefer", Prefer);
             return this;
         }
         
         
         public CapturesRefundRequest RequestBody(RefundRequest RefundRequest)
         {
-            this.Body = RefundRequest;
+            Body = RefundRequest;
             return this;
         }
     }
