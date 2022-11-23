@@ -37,35 +37,37 @@ namespace PayPalCheckoutSdk.Core
                 _refreshToken = refreshToken;
             }
 
-            public void Inject(HttpRequest request)
+            public async Task<T> InjectAsync<T>(T request) where T : HttpRequest
             {
                 if (!request.Headers.Contains("Authorization") && !(request is AccessTokenRequest || request is RefreshTokenRequest))
                 {
                     if (_accessToken == null || _accessToken.IsExpired())
                     {
-                        var accessTokenResponse = FetchAccessToken();
-                        _accessToken = accessTokenResponse.Result<AccessToken>();
+                        _accessToken = await FetchAccessTokenAsync().ConfigureAwait(false);
                     }
                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken.Token);
                 }
+                return request;
             }
 
-            private HttpResponse FetchAccessToken()
+            private async Task<AccessToken> FetchAccessTokenAsync()
             {
                 //create a new client for access token.
                 HttpClient AccessTokenClient = new HttpClient(_environment);
                 AccessTokenRequest request = new AccessTokenRequest(_environment, _refreshToken);
                 //make fetch access token call sync to avoid deadlock.
-                Task<HttpResponse> executeTask = Task.Run<HttpResponse>(async () => await AccessTokenClient.Execute(request));
-                return executeTask.Result;
+                var accessTokenResponse = await AccessTokenClient.Execute(request).ConfigureAwait(false);
+                return accessTokenResponse.Result<AccessToken>();
             }
+
         }
 
         private class GzipInjector : IInjector
         {
-            public void Inject(HttpRequest request)
+            public Task<T> InjectAsync<T>(T request) where T : HttpRequest
             {
                 request.Headers.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                return Task.FromResult(request);
             }
         }
     }

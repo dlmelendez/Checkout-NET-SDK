@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using PayPalHttp;
 
@@ -7,7 +7,7 @@ namespace PayPalCheckoutSdk.Core
     /// <summary>
     /// Recommended to use SandboxEnvironment for testing or LiveEnvironment for production.
     /// </summary>
-    public class PayPalEnvironment : PayPalHttp.Environment
+    public class PayPalEnvironment : PayPalHttp.IEnvironment
     {
         private readonly string _baseUrl;
         private readonly string _clientId;
