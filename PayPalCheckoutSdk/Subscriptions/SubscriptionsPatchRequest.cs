@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // OrdersPatchRequest.cs
 // @version 0.1.0-dev+904328-dirty
 // @type request
@@ -16,7 +16,7 @@ namespace PayPalCheckoutSdk.Subscriptions
 {
     /// <summary>
     /// Updates a subscription which could be in ACTIVE or SUSPENDED status. You can override plan level default attributes by providing customised values for plan path in the patch request.
-    /// You cannot update attributes that have already completed(Example - trial cycles can�t be updated if completed).
+    /// You cannot update attributes that have already completed(Example - trial cycles can’t be updated if completed).
     /// Once overridden, changes to plan resource will not impact subscription.
     /// Any price update will not impact billing cycles within next 10 days(Applicable only for subscriptions funded by PayPal account).
     /// https://developer.paypal.com/docs/api/subscriptions/v1/#subscriptions_patch
@@ -29,7 +29,7 @@ namespace PayPalCheckoutSdk.Subscriptions
                 Path = Path.Replace("{id}", Uri.EscapeDataString(subscriptionId));
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         
         public SubscriptionsPatchRequest<T> RequestBody(List<Patch<T>> PatchRequest)

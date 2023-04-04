@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -16,7 +16,7 @@ namespace PayPalCheckoutSdk.Products
         public ProductsCreateRequest() : base("/v1/catalogs/products", HttpMethod.Post, typeof(Product))
         {
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         public ProductsCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
