@@ -29,7 +29,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// Identifier for the event type example: 1.0/2.0 etc.
         /// </summary>
         [DataMember(Name = "resource_versions", EmitDefaultValue = false)]
-        public List<ResourceVersion> resourceVersions { get; set; } 
+        public List<ResourceVersion> ResourceVersions { get; set; } 
 
         /// <summary>
         /// The status of a webhook event.
