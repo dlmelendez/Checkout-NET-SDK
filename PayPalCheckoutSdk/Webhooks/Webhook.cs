@@ -11,7 +11,7 @@ namespace PayPalCheckoutSdk.Webhooks
     /// https://developer.paypal.com/docs/api/webhooks/v1/#definition-webhook
     /// </summary>
     [DataContract]
-    public class Webhook 
+    public class Webhook
     {
         /// <summary>
         /// The ID of the webhook.
@@ -37,45 +37,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// To replace the event_types array, specify the asterisk wild card. To list all supported events, list available events.
         /// </summary>
         [DataMember(Name = "event_types", EmitDefaultValue = false)]
-        public object EventTypesObject { get; set; }
-
-        [IgnoreDataMember]
-        public bool IsEventTypesWildcard
-        {
-            get
-            {
-                return EventTypesObject is not null
-                    && EventTypesObject is string
-                    && EventTypesObject.ToString() == EventType.Wildcard;
-            }
-            set
-            {
-                if (value)
-                {
-                    EventTypesObject = EventType.Wildcard;
-                }
-            }
-        }
-
-        [IgnoreDataMember]
-        public IEnumerable<EventType> EventTypes 
-        {
-            get
-            {
-                if (EventTypesObject is IEnumerable<EventType> et)
-                {
-                    return et;
-                }
-                return Array.Empty<EventType>();
-            }
-            set
-            {
-                if (value != null)
-                {
-                    EventTypesObject = value;
-                }
-            }
-        }
+        public List<EventType> EventTypes { get; set; } = new List<EventType>();
 
     }
 }
