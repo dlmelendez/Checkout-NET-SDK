@@ -8,16 +8,26 @@ using Xunit;
 using PayPalCheckoutSdk.Test;
 using static PayPalCheckoutSdk.Test.TestHarness;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Products;
+using Xunit.Sdk;
 
 namespace PayPalCheckoutSdk.Webhooks.Test
 {
     [Collection("Webhooks")]
     public class WebhooksTests
     {
-        [Fact]
-        public async void TestWebhooksGetEmptyRequest()
+        [Theory]
+        [InlineData(AnchorType.APPLICATION)]
+        [InlineData(AnchorType.ACCOUNT)]
+        public async void TestWebhooksGetEmptyRequest(AnchorType anchor)
         {
-            //TODO: Tests
+            WebhooksGetRequest request = new WebhooksGetRequest(anchor);
+
+            var response = await TestHarness.client().Execute(request);
+            Assert.Equal(200, (int)response.StatusCode);
+
+            WebhookList webhookList = response.Result<WebhookList>();
+            Assert.NotNull(webhookList);
         }
 
         [Fact]
