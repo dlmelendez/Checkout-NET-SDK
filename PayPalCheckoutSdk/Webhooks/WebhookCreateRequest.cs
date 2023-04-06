@@ -21,7 +21,7 @@ namespace PayPalCheckoutSdk.Webhooks
         }
         public WebhookCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
@@ -30,11 +30,11 @@ namespace PayPalCheckoutSdk.Webhooks
         /// return=minimal.The server returns a minimal response to optimize communication between the API caller and the server.A minimal response includes the id, status and HATEOAS links.
         /// return=representation.The server returns a complete resource representation, including the current state of the resource.
         /// </summary>
-        /// <param name="Prefer"></param>
+        /// <param name="prefer"></param>
         /// <returns></returns>
-        public WebhookCreateRequest Prefer(string Prefer) 
+        public WebhookCreateRequest Prefer(string prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, prefer);
             return this;
         }
 
@@ -48,7 +48,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <returns></returns>
         public WebhookCreateRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

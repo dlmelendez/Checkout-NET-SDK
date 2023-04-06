@@ -20,13 +20,13 @@ namespace PayPalCheckoutSdk.Products
         }
         public ProductsCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
         public ProductsCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

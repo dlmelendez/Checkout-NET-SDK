@@ -27,7 +27,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         }
         public SubscriptionsCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
 
@@ -54,7 +54,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCreateRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

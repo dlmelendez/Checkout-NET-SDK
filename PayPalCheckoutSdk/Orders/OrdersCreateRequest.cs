@@ -26,13 +26,13 @@ namespace PayPalCheckoutSdk.Orders
         }
         public OrdersCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
         public OrdersCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

@@ -17,7 +17,7 @@ namespace PayPalCheckoutSdk.Webhooks
         }
         public VerifyWebhookSignatureRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId)
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
 
@@ -30,7 +30,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <returns></returns>
         public VerifyWebhookSignatureRequest Prefer(string Prefer)
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
 
@@ -44,7 +44,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <returns></returns>
         public VerifyWebhookSignatureRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

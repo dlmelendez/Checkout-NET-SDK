@@ -35,7 +35,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         public async Task TestCreateGetDeleteWebhooksRequest()
         {
             WebhookCreateRequest request = new WebhookCreateRequest();
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             var webhook = new Webhook()
             {
                 Url = "https://example.com/65432123456",

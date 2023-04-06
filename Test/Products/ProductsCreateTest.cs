@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Net.Http;
@@ -40,7 +40,7 @@ namespace PayPalCheckoutSdk.Products.Test
         public async static Task<HttpResponse> CreateProduct(string id = null)
         {
             var request = new ProductsCreateRequest();
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(buildRequestBody(id));
             return await TestHarness.client().Execute(request);
         }
@@ -62,7 +62,7 @@ namespace PayPalCheckoutSdk.Products.Test
             if(getProduct == null)
             {
                 var request = new ProductsCreateRequest();
-                request.Prefer("return=representation");
+                request.Prefer(HeaderValueConstants.PreferValueRepresentation);
                 request.RequestBody(buildRequestBody(id));
                 var createResponse = await TestHarness.client().Execute(request);
                 getProduct = createResponse.Result<Product>();

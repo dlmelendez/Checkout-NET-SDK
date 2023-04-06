@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using PayPalCheckoutSdk;
 using PayPalCheckoutSdk.Core;
 using PayPalCheckoutSdk.Orders;
 using PayPalHttp;
@@ -18,7 +18,7 @@ namespace Samples.CaptureIntentExamples
         public async static Task<HttpResponse> CaptureOrder(string OrderId, bool debug = false)
         {
             var request = new OrdersCaptureRequest(OrderId);
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(new OrderActionRequest());
             var response = await PayPalClient.client().Execute(request);
 

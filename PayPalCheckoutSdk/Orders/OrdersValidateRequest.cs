@@ -29,7 +29,7 @@ namespace PayPalCheckoutSdk.Orders
         }
         public OrdersValidateRequest PayPalClientMetadataId(string PayPalClientMetadataId) 
         {
-            Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
+            Headers.Add(HeaderNameConstants.PayPalClientMetadataId, PayPalClientMetadataId);
             return this;
         }
         

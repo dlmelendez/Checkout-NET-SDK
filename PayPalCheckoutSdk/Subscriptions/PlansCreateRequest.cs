@@ -22,13 +22,13 @@ namespace PayPalCheckoutSdk.Subscriptions
         }
         public PlansCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
         public PlansCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

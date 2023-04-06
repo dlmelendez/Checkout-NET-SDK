@@ -36,7 +36,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCaptureRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

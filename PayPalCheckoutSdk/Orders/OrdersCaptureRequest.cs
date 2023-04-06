@@ -29,19 +29,19 @@ namespace PayPalCheckoutSdk.Orders
         }
         public OrdersCaptureRequest PayPalClientMetadataId(string PayPalClientMetadataId) 
         {
-            Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
+            Headers.Add(HeaderNameConstants.PayPalClientMetadataId, PayPalClientMetadataId);
             return this;
         }
         
         public OrdersCaptureRequest PayPalRequestId(string PayPalRequestId) 
         {
-            Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, PayPalRequestId);
             return this;
         }
         
         public OrdersCaptureRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

@@ -22,7 +22,7 @@ namespace PayPalCheckoutSdk.Webhooks
 
         public EventSimulateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
@@ -35,7 +35,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <returns></returns>
         public EventSimulateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
 
@@ -49,7 +49,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <returns></returns>
         public EventSimulateRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

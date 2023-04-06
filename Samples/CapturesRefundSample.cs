@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using PayPalCheckoutSdk;
 using PayPalCheckoutSdk.Core;
 using PayPalCheckoutSdk.Payments;
 using PayPalHttp;
@@ -17,7 +17,7 @@ namespace Samples
         public async static Task<HttpResponse> CapturesRefund(string CaptureId, bool debug = false)
         {
             var request = new CapturesRefundRequest(CaptureId);
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             RefundRequest refundRequest = new RefundRequest(){
                 Amount = new Money{
                   Value = "20.00",

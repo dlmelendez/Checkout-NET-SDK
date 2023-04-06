@@ -29,13 +29,13 @@ namespace PayPalCheckoutSdk.Payments
         }
         public AuthorizationsReauthorizeRequest PayPalRequestId(string PayPalRequestId) 
         {
-            Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, PayPalRequestId);
             return this;
         }
         
         public AuthorizationsReauthorizeRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         
