@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The payment source definition.
         /// </summary>
         [DataMember(Name="payment_source", EmitDefaultValue = false)]
-        public PaymentSource PaymentSource;
+        public PaymentSource? PaymentSource;
     }
 }
 

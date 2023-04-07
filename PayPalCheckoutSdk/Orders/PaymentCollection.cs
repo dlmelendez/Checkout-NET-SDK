@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // PaymentCollection.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Orders
         /// An array of authorized payments for a purchase unit. A purchase unit can have zero or more authorized payments.
         /// </summary>
         [DataMember(Name="authorizations", EmitDefaultValue = false)]
-        public List<Authorization> Authorizations;
+        public List<Authorization>? Authorizations { get; set; }
 
         /// <summary>
         /// An array of captured payments for a purchase unit. A purchase unit can have zero or more captured payments.
         /// </summary>
         [DataMember(Name="captures", EmitDefaultValue = false)]
-        public List<Capture> Captures;
+        public List<Capture>? Captures { get; set; }
 
         /// <summary>
         /// An array of refunds for a purchase unit. A purchase unit can have zero or more refunds.
         /// </summary>
         [DataMember(Name="refunds", EmitDefaultValue = false)]
-        public List<Refund> Refunds;
+        public List<Refund>? Refunds { get; set; }
     }
 }
 

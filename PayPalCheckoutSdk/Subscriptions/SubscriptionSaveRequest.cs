@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The identifier of session for which subscription needs to be saved.
         /// </summary>
         [DataMember(Name = "token_id", EmitDefaultValue = false)]
-        public string TokenId { get; set; }
+        public string? TokenId { get; set; }
         
     }
 }

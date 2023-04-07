@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // PaymentSource.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,13 +25,13 @@ namespace PayPalCheckoutSdk.Core
         /// The payment card to use to fund a payment. Can be a credit or debit card.
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue = false)]
-        public Card Card;
+        public Card? Card { get; set; }
 
         /// <summary>
         /// The tokenized payment source to fund a payment.
         /// </summary>
         [DataMember(Name="token", EmitDefaultValue = false)]
-        public Token Token;
+        public Token? Token { get; set; }
     }
 }
 

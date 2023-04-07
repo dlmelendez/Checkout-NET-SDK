@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // OrderRequest.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,32 +25,32 @@ namespace PayPalCheckoutSdk.Orders
         /// Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>brand_name</code> and <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
         /// </summary>
         [DataMember(Name="application_context", EmitDefaultValue = false)]
-        public ApplicationContext ApplicationContext;
+        public ApplicationContext? ApplicationContext { get; set; }
 
         /// <summary>
         /// The intent to either capture payment immediately or authorize a payment for an order after order creation.
         /// </summary>
         [DataMember(Name="intent", EmitDefaultValue = false)]
-        public string CheckoutPaymentIntent;
+        public string? CheckoutPaymentIntent { get; set; }
 
         /// <summary>
         /// The customer who approves and pays for the order. The customer is also known as the payer.
         /// </summary>
         [DataMember(Name="payer", EmitDefaultValue = false)]
-        public Payer Payer;
+        public Payer? Payer { get; set; }
 
         /// <summary>
         /// The instruction to process an order.
         /// </summary>
         [DataMember(Name="processing_instruction", EmitDefaultValue = false)]
-        public string ProcessingInstruction;
+        public string? ProcessingInstruction { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// An array of purchase units. At present only 1 purchase_unit is supported. Each purchase unit establishes a contract between a payer and the payee. Each purchase unit represents either a full or partial order that the payer intends to purchase from the payee.
         /// </summary>
         [DataMember(Name="purchase_units", EmitDefaultValue = false)]
-        public List<PurchaseUnitRequest> PurchaseUnits;
+        public List<PurchaseUnitRequest>? PurchaseUnits { get; set; }
     }
 }
 

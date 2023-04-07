@@ -1,4 +1,4 @@
-
+﻿
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
@@ -14,43 +14,43 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
-        public AmountWithBreakdown() {}
+        public AmountWithBreakdown() { }
 
         /// <summary>
         /// The amount for this transaction.
         /// </summary>
         [DataMember(Name= "gross_amount", EmitDefaultValue = false)]
-        public Money GrossAmount;
+        public Money? GrossAmount;
 
         /// <summary>
         /// The item total for the transaction.
         /// </summary>
         [DataMember(Name = "total_item_amount", EmitDefaultValue = false)]
-        public Money TotalItemAmount;
+        public Money? TotalItemAmount;
 
         /// <summary>
         /// The fee details for the transaction.
         /// </summary>
         [DataMember(Name = "fee_amount", EmitDefaultValue = false)]
-        public Money FeeAmount;
+        public Money? FeeAmount;
 
         /// <summary>
         /// The shipping amount for the transaction.
         /// </summary>
         [DataMember(Name = "shipping_amount", EmitDefaultValue = false)]
-        public Money ShippingAmount;
+        public Money? ShippingAmount;
 
         /// <summary>
         /// The tax amount for the transaction.
         /// </summary>
         [DataMember(Name = "tax_amount", EmitDefaultValue = false)]
-        public Money TaxAmount;
+        public Money? TaxAmount;
 
         /// <summary>
         /// The net amount that the payee receives for this transaction in their PayPal account. The net amount is computed as gross_amount minus the paypal_fee.
         /// </summary>
         [DataMember(Name = "net_amount", EmitDefaultValue = false)]
-        public Money NetAmount;
+        public Money? NetAmount;
 
     }
 }

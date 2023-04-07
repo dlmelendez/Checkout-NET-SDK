@@ -23,11 +23,11 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <param name="pageSize">The number of webhook event notifications to return in the response.</param>
         /// <param name="startTime">Filters the webhook event notifications in the response to those created on or after this date and time and on or before the end_time value. Both values are in Internet date and time format format. Example: start_time=2013-03-06T11:00:00Z.</param>
         /// <param name="transactionId">Filters the response to a single transaction, by ID.</param>
-        public EventsGetRequest(string endTime = null,
-            string eventType = null,
+        public EventsGetRequest(string? endTime = null,
+            string? eventType = null,
             int? pageSize = null,
-            string startTime = null,
-            string transactionId = null) : base("/v1/notifications/webhooks-events{params}", HttpMethod.Get, typeof(EventList))
+            string? startTime = null,
+            string? transactionId = null) : base("/v1/notifications/webhooks-events{params}", HttpMethod.Get, typeof(EventList))
         {
             try
             {

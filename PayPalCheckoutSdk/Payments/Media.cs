@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // Media.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,13 +25,13 @@ namespace PayPalCheckoutSdk.Payments
         /// The content-encoding scheme. See [Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://tools.ietf.org/html/rfc2045).
         /// </summary>
         [DataMember(Name="binaryEncoding", EmitDefaultValue = false)]
-        public string BinaryEncoding;
+        public string? BinaryEncoding;
 
         /// <summary>
         /// The media type. See [Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types](https://tools.ietf.org/html/rfc2046).
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue = false)]
-        public string Type;
+        public string? Type;
     }
 }
 

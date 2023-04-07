@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
-        public Money Amount;
+        public Money? Amount;
 
         /// <summary>
         /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="invoice_id", EmitDefaultValue = false)]
-        public string InvoiceId;
+        public string? InvoiceId;
 
         /// <summary>
         /// The reason for the refund. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="note_to_payer", EmitDefaultValue = false)]
-        public string NoteToPayer;
+        public string? NoteToPayer;
     }
 }
 

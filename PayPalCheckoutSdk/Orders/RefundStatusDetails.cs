@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The reason why the refund has the `PENDING` or `FAILED` status.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
-        public string Reason;
+        public string? Reason;
     }
 }
 

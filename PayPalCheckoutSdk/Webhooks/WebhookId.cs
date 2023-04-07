@@ -9,6 +9,6 @@ namespace PayPalCheckoutSdk.Webhooks
     public class WebhookId
     {
         [DataMember(Name = "webhook_id", EmitDefaultValue = false)]
-        public string Webhook_Id { get; set; }
+        public string? Webhook_Id { get; set; }
     }
 }

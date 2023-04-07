@@ -8,7 +8,7 @@ namespace PayPalCheckoutSdk.Core
 {
     public class AccessTokenRequest : HttpRequest
     {
-        public AccessTokenRequest(PayPalEnvironment environment, string refreshToken = null) : base("/v1/oauth2/token", HttpMethod.Post, typeof(AccessToken))
+        public AccessTokenRequest(PayPalEnvironment environment, string? refreshToken = null) : base("/v1/oauth2/token", HttpMethod.Post, typeof(AccessToken))
         {
             Headers.Authorization = new AuthenticationHeaderValue("Basic", environment.AuthorizationString());
             var body = new Dictionary<string, string>()

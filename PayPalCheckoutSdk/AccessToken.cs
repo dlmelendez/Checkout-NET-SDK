@@ -7,10 +7,10 @@ namespace PayPalCheckoutSdk.Core
     public class AccessToken
     {
         [DataMember(Name = "access_token")]
-        public string Token;
+        public string? Token;
 
         [DataMember(Name = "token_type")]
-        public string TokenType;
+        public string? TokenType;
 
         [DataMember(Name = "expires_in")]
         public int ExpiresIn;

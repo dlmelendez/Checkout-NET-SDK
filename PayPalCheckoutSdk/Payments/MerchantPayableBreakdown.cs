@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // MerchantPayableBreakdown.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,37 +25,37 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="gross_amount", EmitDefaultValue = false)]
-        public Money GrossAmount;
+        public Money? GrossAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="net_amount", EmitDefaultValue = false)]
-        public Money NetAmount;
+        public Money? NetAmount { get; set; }
 
         /// <summary>
         /// An array of breakdown values for the net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
         /// </summary>
         [DataMember(Name="net_amount_breakdown", EmitDefaultValue = false)]
-        public List<NetAmountBreakdownItem> NetAmountBreakdown;
+        public List<NetAmountBreakdownItem>? NetAmountBreakdown { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
-        public Money PaypalFee;
+        public Money? PaypalFee { get; set; }
 
         /// <summary>
         /// An array of platform or partner fees, commissions, or brokerage fees for the refund.
         /// </summary>
         [DataMember(Name="platform_fees", EmitDefaultValue = false)]
-        public List<PlatformFee> PlatformFees;
+        public List<PlatformFee>? PlatformFees { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="total_refunded_amount", EmitDefaultValue = false)]
-        public Money TotalRefundedAmount;
+        public Money? TotalRefundedAmount { get; set; }
     }
 }
 

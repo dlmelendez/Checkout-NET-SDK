@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The reason for suspenson of the subscription.
         /// </summary>
         [DataMember(Name = "reason", EmitDefaultValue = false)]
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
         
     }
 }

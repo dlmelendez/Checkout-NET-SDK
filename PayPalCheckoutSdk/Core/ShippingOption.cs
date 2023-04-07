@@ -24,21 +24,21 @@ namespace PayPalCheckoutSdk.Core
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
-        public Money Amount;
+        public Money? Amount;
 
         /// <summary>
         /// REQUIRED
         /// A unique ID that identifies a payer-selected shipping option.
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue = false)]
-        public string Id;
+        public string? Id;
 
         /// <summary>
         /// REQUIRED
         /// A description that the payer sees, which helps them choose an appropriate shipping option. For example, `Free Shipping`, `USPS Priority Shipping`, `Expédition prioritaire USPS`, or `USPS yōuxiān fā huò`. Localize this description to the payer's locale.
         /// </summary>
         [DataMember(Name="label", EmitDefaultValue = false)]
-        public string Label;
+        public string? Label;
 
         /// <summary>
         /// REQUIRED
@@ -51,7 +51,7 @@ namespace PayPalCheckoutSdk.Core
         /// The method by which the payer wants to get their items.
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue = false)]
-        public string ShippingType;
+        public string? ShippingType;
     }
 }
 

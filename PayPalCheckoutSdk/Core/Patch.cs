@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // Patch.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,26 +25,26 @@ namespace PayPalCheckoutSdk.Core
         /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location from which to move the value. Required for the <code>move</code> operation.
         /// </summary>
         [DataMember(Name="from", EmitDefaultValue = false)]
-        public string From;
+        public string? From;
 
         /// <summary>
         /// REQUIRED
         /// The operation.
         /// </summary>
         [DataMember(Name="op", EmitDefaultValue = false)]
-        public string Op;
+        public string? Op;
 
         /// <summary>
         /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location at which to complete the operation.
         /// </summary>
         [DataMember(Name="path", EmitDefaultValue = false)]
-        public string Path;
+        public string? Path;
 
         /// <summary>
         /// The value to apply. The <code>remove</code> operation does not require a value.
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue = false)]
-        public T Value;
+        public T? Value;
     }
 }
 

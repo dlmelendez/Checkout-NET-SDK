@@ -25,25 +25,25 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="gross_amount", EmitDefaultValue = false)]
-        public Money GrossAmount;
+        public Money? GrossAmount;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="net_amount", EmitDefaultValue = false)]
-        public Money NetAmount;
+        public Money? NetAmount;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
-        public Money PaypalFee;
+        public Money? PaypalFee;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="receivable_amount", EmitDefaultValue = false)]
-        public Money ReceivableAmount;
+        public Money? ReceivableAmount;
     }
 }
 

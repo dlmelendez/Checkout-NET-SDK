@@ -16,7 +16,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// Extract this value from the PAYPAL-AUTH-ALGO response header, which is received with the webhook notification.
         /// </summary>
         [DataMember(Name = "auth_algo", EmitDefaultValue = false)]
-        public string AuthAlgo { get; set; }
+        public string? AuthAlgo { get; set; }
 
         /// <summary>
         /// The X.509 public key certificate. 
@@ -24,37 +24,37 @@ namespace PayPalCheckoutSdk.Webhooks
         /// Extract this value from the PAYPAL-CERT-URL response header, which is received with the webhook notification.
         /// </summary>
         [DataMember(Name = "cert_url", EmitDefaultValue = false)]
-        public string CertUrl { get; set; }
+        public string? CertUrl { get; set; }
 
         /// <summary>
         /// The ID of the HTTP transmission. Contained in the PAYPAL-TRANSMISSION-ID header of the notification message.
         /// </summary>
         [DataMember(Name = "transmission_id", EmitDefaultValue = false)]
-        public string TransmissionId { get; set; }
+        public string? TransmissionId { get; set; }
 
         /// <summary>
         /// The PayPal-generated asymmetric signature. Appears in the PAYPAL-TRANSMISSION-SIG header of the notification message.
         /// </summary>
         [DataMember(Name = "transmission_sig", EmitDefaultValue = false)]
-        public string TransmissionSig { get; set; }
+        public string? TransmissionSig { get; set; }
 
         /// <summary>
         /// The date and time of the HTTP transmission, in Internet date and time format. Appears in the PAYPAL-TRANSMISSION-TIME header of the notification message.
         /// </summary>
         [DataMember(Name = "transmission_time", EmitDefaultValue = false)]
-        public string TransmissionTime { get; set; }
+        public string? TransmissionTime { get; set; }
 
         /// <summary>
         /// A webhook event notification.
         /// </summary>
         [DataMember(Name = "webhook_event", EmitDefaultValue = false)]
-        public Event WebhookEvent { get; set; }
+        public Event? WebhookEvent { get; set; }
 
         /// <summary>
         /// The ID of the webhook as configured in your Developer Portal account.
         /// </summary>
         [DataMember(Name = "webhook_id", EmitDefaultValue = false)]
-        public string WebhookId { get; set; }
+        public string? WebhookId { get; set; }
 
     }
 }

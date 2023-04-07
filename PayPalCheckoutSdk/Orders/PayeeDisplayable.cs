@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // PayeeDisplayable.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Orders
         /// The name of the merchant. Appears to the customer in checkout, payment transactions, email receipts, and transaction history.
         /// </summary>
         [DataMember(Name="brand_name", EmitDefaultValue = false)]
-        public string BrandName;
+        public string? BrandName { get; set; }
 
         /// <summary>
         /// The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
         /// </summary>
         [DataMember(Name="business_phone", EmitDefaultValue = false)]
-        public Phone BusinessPhone;
+        public Phone? BusinessPhone { get; set; }
 
         /// <summary>
         /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
         /// </summary>
         [DataMember(Name="business_email", EmitDefaultValue = false)]
-        public string Email;
+        public string? Email { get; set; }
     }
 }
 

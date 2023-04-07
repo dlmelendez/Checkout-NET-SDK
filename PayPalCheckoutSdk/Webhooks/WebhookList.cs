@@ -15,6 +15,6 @@ namespace PayPalCheckoutSdk.Webhooks
         /// An array of <see cref="Webhook"/>.
         /// </summary>
         [DataMember(Name = "webhooks", EmitDefaultValue = false)]
-        public List<Webhook> Webhooks { get; set; } 
+        public List<Webhook>? Webhooks { get; set; } 
     }
 }

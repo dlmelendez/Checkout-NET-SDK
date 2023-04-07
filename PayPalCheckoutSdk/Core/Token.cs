@@ -26,14 +26,14 @@ namespace PayPalCheckoutSdk.Core
         /// The PayPal-generated ID for the token.
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue = false)]
-        public string Id;
+        public string? Id;
 
         /// <summary>
         /// REQUIRED
         /// The tokenization method that generated the ID.
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue = false)]
-        public string Type;
+        public string? Type;
     }
 }
 

@@ -19,7 +19,7 @@ namespace PayPalCheckoutSdk.Core
         /// The initial set-up fee for the service.
         /// </summary>
         [DataMember(Name = "setup_fee", EmitDefaultValue = false)]
-        public Money SetupFee { get; set; }
+        public Money? SetupFee { get; set; }
 
         /// <summary>
         /// The action to take on the subscription if the initial payment for the setup fails.
@@ -31,7 +31,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^[A-Z_]+$.
         /// </summary>
         [DataMember(Name = "setup_fee_failure_action", EmitDefaultValue = false)]
-        public string SetupFeeFailureAction { get; set; }
+        public string? SetupFeeFailureAction { get; set; }
 
         /// <summary>
         /// The maximum number of payment failures before a subscription is suspended. 

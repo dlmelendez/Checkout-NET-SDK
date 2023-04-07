@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // Item.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,46 +25,46 @@ namespace PayPalCheckoutSdk.Orders
         /// The item category type.
         /// </summary>
         [DataMember(Name="category", EmitDefaultValue = false)]
-        public string Category;
+        public string? Category;
 
         /// <summary>
         /// The detailed item description.
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue = false)]
-        public string Description;
+        public string? Description;
 
         /// <summary>
         /// REQUIRED
         /// The item name or title.
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue = false)]
-        public string Name;
+        public string? Name;
 
         /// <summary>
         /// REQUIRED
         /// The item quantity. Must be a whole number.
         /// </summary>
         [DataMember(Name="quantity", EmitDefaultValue = false)]
-        public string Quantity;
+        public string? Quantity;
 
         /// <summary>
         /// The stock keeping unit (SKU) for the item.
         /// </summary>
         [DataMember(Name="sku", EmitDefaultValue = false)]
-        public string Sku;
+        public string? Sku;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="tax", EmitDefaultValue = false)]
-        public Money Tax;
+        public Money? Tax;
 
         /// <summary>
         /// REQUIRED
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="unit_amount", EmitDefaultValue = false)]
-        public Money UnitAmount;
+        public Money? UnitAmount;
     }
 }
 

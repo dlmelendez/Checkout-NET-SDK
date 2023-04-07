@@ -19,7 +19,7 @@ namespace PayPalCheckoutSdk.Webhooks
         {
             try 
             {                
-                Path = Path.Replace("{webhook_id}", Uri.EscapeUriString(webhookId));
+                Path = Path.Replace("{webhook_id}", Uri.EscapeDataString(webhookId));
             } 
             catch (IOException) {}
             

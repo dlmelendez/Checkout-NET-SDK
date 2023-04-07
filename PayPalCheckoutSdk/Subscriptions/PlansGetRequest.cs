@@ -19,7 +19,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// </summary>
     public class PlansGetRequest : HttpRequest
     {
-        public PlansGetRequest(string productId = null, 
+        public PlansGetRequest(string? productId = null, 
             //List<string> planIds = null, 
             int pageSize = 20,
             int page = 1,

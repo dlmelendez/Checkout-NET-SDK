@@ -17,24 +17,24 @@ namespace PayPalCheckoutSdk.Webhooks
         /// Note: To subscribe to all events, including events as they are added, specify an * as the value to represent a wildcard.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// A human-readable description of the event.
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Identifier for the event type example: 1.0/2.0 etc.
         /// </summary>
         [DataMember(Name = "resource_versions", EmitDefaultValue = false)]
-        public List<ResourceVersion> ResourceVersions { get; set; } 
+        public List<ResourceVersion>? ResourceVersions { get; set; } 
 
         /// <summary>
         /// The status of a webhook event.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
-        public string Status { get; set; }
+        public string? Status { get; set; }
     }
 }

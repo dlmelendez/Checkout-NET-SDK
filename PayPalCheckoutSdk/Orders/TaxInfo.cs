@@ -26,14 +26,14 @@ namespace PayPalCheckoutSdk.Orders
         /// The customer's tax ID. Supported for the PayPal payment method only. Typically, the tax ID is 11 characters long for individuals and 14 characters long for businesses.
         /// </summary>
         [DataMember(Name="tax_id", EmitDefaultValue = false)]
-        public string TaxId;
+        public string? TaxId;
 
         /// <summary>
         /// REQUIRED
         /// The customer's tax ID type. Supported for the PayPal payment method only.
         /// </summary>
         [DataMember(Name="tax_id_type", EmitDefaultValue = false)]
-        public string TaxIdType;
+        public string? TaxIdType;
     }
 }
 

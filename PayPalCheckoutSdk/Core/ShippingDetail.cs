@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // ShippingDetail.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Core
         /// The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute).
         /// </summary>
         [DataMember(Name="address", EmitDefaultValue = false)]
-        public AddressPortable Address;
+        public AddressPortable? Address { get; set; }
 
         /// <summary>
         /// The name of the party.
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue = false)]
-        public Name Name;
+        public Name? Name { get; set; }
 
         /// <summary>
         /// An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items
         /// </summary>
         [DataMember(Name="options", EmitDefaultValue = false)]
-        public List<ShippingOption> Options;
+        public List<ShippingOption>? Options { get; set; }
     }
 }
 

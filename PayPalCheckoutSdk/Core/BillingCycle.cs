@@ -14,13 +14,13 @@ namespace PayPalCheckoutSdk.Core
         /// The active pricing scheme for this billing cycle. A free trial billing cycle does not require a pricing scheme.
         /// </summary>
         [DataMember(Name = "pricing_scheme", EmitDefaultValue = false)]
-        public PricingScheme PricingScheme { get; set; }
+        public PricingScheme? PricingScheme { get; set; }
 
         /// <summary>
         /// The frequency details for this billing cycle.
         /// </summary>
         [DataMember(Name = "frequency", EmitDefaultValue = false)]
-        public Frequency Frequency { get; set; }
+        public Frequency? Frequency { get; set; }
 
         /// <summary>
         /// The tenure type of the billing cycle. In case of a plan having trial cycle, only 2 trial cycles are allowed per plan.
@@ -29,7 +29,7 @@ namespace PayPalCheckoutSdk.Core
         /// TRIAL.A trial billing cycle.
         /// </summary>
         [DataMember(Name = "tenure_type", EmitDefaultValue = false)]
-        public string TenureType { get; set; }
+        public string? TenureType { get; set; }
 
         /// <summary>
         /// The order in which this cycle is to run among other billing cycles. 

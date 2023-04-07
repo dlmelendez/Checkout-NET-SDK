@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // PhoneWithType.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -26,13 +26,13 @@ namespace PayPalCheckoutSdk.Orders
         /// The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
         /// </summary>
         [DataMember(Name="phone_number", EmitDefaultValue = false)]
-        public Phone PhoneNumber;
+        public Phone? PhoneNumber { get; set; }
 
         /// <summary>
         /// The phone type.
         /// </summary>
         [DataMember(Name="phone_type", EmitDefaultValue = false)]
-        public string PhoneType;
+        public string? PhoneType { get; set; }
     }
 }
 

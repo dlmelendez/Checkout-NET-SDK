@@ -25,43 +25,43 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="discount", EmitDefaultValue = false)]
-        public Money Discount;
+        public Money? Discount;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="handling", EmitDefaultValue = false)]
-        public Money Handling;
+        public Money? Handling;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="insurance", EmitDefaultValue = false)]
-        public Money Insurance;
+        public Money? Insurance;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="item_total", EmitDefaultValue = false)]
-        public Money ItemTotal;
+        public Money? ItemTotal;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="shipping", EmitDefaultValue = false)]
-        public Money Shipping;
+        public Money? Shipping;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="shipping_discount", EmitDefaultValue = false)]
-        public Money ShippingDiscount;
+        public Money? ShippingDiscount;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="tax_total", EmitDefaultValue = false)]
-        public Money TaxTotal;
+        public Money? TaxTotal;
     }
 }
 

@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>11.0</LangVersion>
     <Version>1.9.0</Version>
+    <Nullable>enable</Nullable>
     <Owners>David Melendez</Owners>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/dlmelendez/Checkout-NET-SDK.git</RepositoryUrl>
@@ -26,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ElCamino.PayPalHttp" Version="1.8.0" />
+    <PackageReference Include="ElCamino.PayPalHttp" Version="1.9.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>
 

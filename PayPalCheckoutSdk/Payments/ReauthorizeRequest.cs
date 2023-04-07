@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
-        public Money Amount;
+        public Money? Amount;
     }
 }
 

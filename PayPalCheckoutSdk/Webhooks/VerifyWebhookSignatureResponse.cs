@@ -18,7 +18,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// Possible values: SUCCESS,FAILURE.
         /// </summary>
         [DataMember(Name = "verification_status", EmitDefaultValue = false)]
-        public string VerificationStatus { get; set; }
+        public string? VerificationStatus { get; set; }
 
         [IgnoreDataMember]
         public bool ValidSignature => VerificationStatus == Success;

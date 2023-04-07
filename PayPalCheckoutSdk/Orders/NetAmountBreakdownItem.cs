@@ -25,13 +25,13 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="converted_amount", EmitDefaultValue = false)]
-        public Money ConvertedAmount;
+        public Money? ConvertedAmount;
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="payable_amount", EmitDefaultValue = false)]
-        public Money PayableAmount;
+        public Money? PayableAmount;
     }
 }
 

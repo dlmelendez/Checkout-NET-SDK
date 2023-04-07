@@ -15,6 +15,6 @@ namespace PayPalCheckoutSdk.Webhooks
         /// An array of webhook events. <see cref="EventType"/>
         /// </summary>
         [DataMember(Name = "event_types", EmitDefaultValue = false)]
-        public List<EventType> EventTypes { get; set; }
+        public List<EventType>? EventTypes { get; set; }
     }
 }

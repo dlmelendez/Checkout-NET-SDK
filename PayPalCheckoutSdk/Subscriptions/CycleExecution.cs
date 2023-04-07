@@ -14,7 +14,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// TRIAL.A trial billing cycle.
         /// </summary>
         [DataMember(Name = "tenure_type", EmitDefaultValue = false)]
-        public string TenureType { get; set; }
+        public string? TenureType { get; set; }
 
         /// <summary>
         /// The order in which to run this cycle among other billing cycles.

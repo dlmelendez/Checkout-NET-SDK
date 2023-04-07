@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Payments
         /// The reason why the captured payment status is `PENDING` or `DENIED`.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
-        public string Reason;
+        public string? Reason;
     }
 }
 

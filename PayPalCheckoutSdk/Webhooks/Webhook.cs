@@ -17,19 +17,19 @@ namespace PayPalCheckoutSdk.Webhooks
         /// The ID of the webhook.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// The Internet accessible URL configured to listen for incoming POST notification messages containing event information.
         /// </summary>
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
+        public string? Url { get; set; }
 
         /// <summary>
         /// An array of request-related HATEOAS links.
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = false)]
-        public List<LinkDescription> Links { get; set; }
+        public List<LinkDescription>? Links { get; set; }
 
         /// <summary>
         /// An array of events to which to subscribe your webhook. 

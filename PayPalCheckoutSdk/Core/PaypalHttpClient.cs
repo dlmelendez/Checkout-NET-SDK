@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using PayPalHttp;
 namespace PayPalCheckoutSdk.Core
@@ -11,7 +11,7 @@ namespace PayPalCheckoutSdk.Core
         public PayPalHttpClient(PayPalEnvironment environment) : this(environment, null)
         { }
 
-        public PayPalHttpClient(PayPalEnvironment environment, string refreshToken) : base(environment)
+        public PayPalHttpClient(PayPalEnvironment environment, string? refreshToken) : base(environment)
         {
             _gzipInjector = new GzipInjector();
             _authorizationInjector = new AuthorizationInjector(environment, refreshToken);
@@ -28,10 +28,10 @@ namespace PayPalCheckoutSdk.Core
         class AuthorizationInjector : IInjector
         {
             private readonly PayPalEnvironment _environment;
-            private AccessToken _accessToken;
-            private readonly string _refreshToken;
+            private AccessToken? _accessToken;
+            private readonly string? _refreshToken;
 
-            public AuthorizationInjector(PayPalEnvironment environment, string refreshToken)
+            public AuthorizationInjector(PayPalEnvironment environment, string? refreshToken)
             {
                 _environment = environment;
                 _refreshToken = refreshToken;
