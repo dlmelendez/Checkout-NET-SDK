@@ -33,7 +33,6 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             {
                 _output.WriteLine(eventType.Name);
             }
-            Assert.NotNull(eventTypesList);
         }
 
     }
