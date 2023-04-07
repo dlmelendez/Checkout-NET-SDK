@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using PayPalCheckoutSdk.Test;
@@ -59,6 +60,8 @@ namespace PayPalCheckoutSdk.Webhooks.Test
                 Assert.Equal(HttpStatusCode.OK, getResponse.StatusCode);
 
                 var getDetailsResult = getResponse.Result<Webhook>();
+                var eventType = getDetailsResult.EventTypes.FirstOrDefault(f => f.Name == EventType.Wildcard);
+                Assert.NotNull(eventType);
                 Assert.Equal<string>(createResult.Url, getDetailsResult.Url, StringComparer.OrdinalIgnoreCase);
                 Assert.Equal<string>(createResult.Id, getDetailsResult.Id, StringComparer.OrdinalIgnoreCase);
             }
