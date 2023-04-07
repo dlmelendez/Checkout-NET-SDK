@@ -7,6 +7,7 @@ namespace PayPalCheckoutSdk
 {
     public static class DateTimeExtensions
     {
+        public const string PaypalDateTimeFormatter = "yyyy-MM-ddTHH\\:mm\\:ssZ";
         /// <summary>
         /// The date and time when the webhook event notification was created, in Internet date and time format.
         /// https://www.rfc-editor.org/rfc/rfc3339#section-5.6
@@ -16,7 +17,7 @@ namespace PayPalCheckoutSdk
         /// <returns></returns>
         public static string ToPaypalString(this DateTime dateTime) 
         { 
-            return dateTime.ToString("o");
+            return dateTime.ToString(PaypalDateTimeFormatter);
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace PayPalCheckoutSdk
         {
             if (paypalIso8601FormattedDatetime != null)
             {
-                if (DateTime.TryParseExact(paypalIso8601FormattedDatetime, "o", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out DateTime parsedDateTime))
+                if (DateTime.TryParseExact(paypalIso8601FormattedDatetime, PaypalDateTimeFormatter, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out DateTime parsedDateTime))
                 {
                     return parsedDateTime;
                 }
