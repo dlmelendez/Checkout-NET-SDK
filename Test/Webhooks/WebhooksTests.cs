@@ -54,8 +54,8 @@ namespace PayPalCheckoutSdk.Webhooks.Test
 
             try
             {
+                //Get Webhook Details
                 var getDetailsRequest = new WebhookGetRequest(createResult.Id);
-                Assert.NotNull(getDetailsRequest);
                 var getResponse = await TestHarness.client().Execute(getDetailsRequest);
                 Assert.Equal(HttpStatusCode.OK, getResponse.StatusCode);
 
@@ -64,6 +64,16 @@ namespace PayPalCheckoutSdk.Webhooks.Test
                 Assert.NotNull(eventType);
                 Assert.Equal<string>(createResult.Url, getDetailsResult.Url, StringComparer.OrdinalIgnoreCase);
                 Assert.Equal<string>(createResult.Id, getDetailsResult.Id, StringComparer.OrdinalIgnoreCase);
+                //
+                // Get Event Types by Webhook
+                var getEventTypesRequest = new EventTypesGetRequest(createResult.Id);
+                var getEventTypesResponse = await TestHarness.client().Execute(getEventTypesRequest);
+                Assert.Equal(HttpStatusCode.OK, getResponse.StatusCode);
+
+                var getEventTypesResult = getEventTypesResponse.Result<EventTypeList>();
+                var eventType2 = getEventTypesResult.EventTypes.FirstOrDefault(f => f.Name == EventType.Wildcard);
+                Assert.NotNull(eventType2);
+                //
             }
             finally
             {
