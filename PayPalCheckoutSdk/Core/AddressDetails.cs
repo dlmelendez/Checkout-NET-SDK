@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // AddressDetails.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,37 +25,37 @@ namespace PayPalCheckoutSdk.Core
         /// A named locations that represents the premise. Usually a building name or number or collection of buildings with a common name or number. For example, <code>Craven House</code>.
         /// </summary>
         [DataMember(Name="building_name", EmitDefaultValue = false)]
-        public string BuildingName;
+        public string? BuildingName { get; set; }
 
         /// <summary>
         /// The delivery service. Post office box, bag number, or post office name.
         /// </summary>
         [DataMember(Name="delivery_service", EmitDefaultValue = false)]
-        public string DeliveryService;
+        public string? DeliveryService { get; set; }
 
         /// <summary>
         /// The street name. Just `Drury` in `Drury Lane`.
         /// </summary>
         [DataMember(Name="street_name", EmitDefaultValue = false)]
-        public string StreetName;
+        public string? StreetName { get; set; }
 
         /// <summary>
         /// The street number.
         /// </summary>
         [DataMember(Name="street_number", EmitDefaultValue = false)]
-        public string StreetNumber;
+        public string? StreetNumber { get; set; }
 
         /// <summary>
         /// The street type. For example, avenue, boulevard, road, or expressway.
         /// </summary>
         [DataMember(Name="street_type", EmitDefaultValue = false)]
-        public string StreetType;
+        public string? StreetType { get; set; }
 
         /// <summary>
         /// The first-order entity below a named building or location that represents the sub-premise. Usually a single building within a collection of buildings with a common name. Can be a flat, story, floor, room, or apartment.
         /// </summary>
         [DataMember(Name="sub_building", EmitDefaultValue = false)]
-        public string SubBuilding;
+        public string? SubBuilding { get; set; }
     }
 }
 

@@ -7,15 +7,15 @@ namespace PayPalCheckoutSdk.Core
     public class RefreshToken
     {
         [DataMember(Name = "refresh_token")]
-        public string Token;
+        public string? Token;
 
         [DataMember(Name = "token_type")]
-        public string TokenType;
+        public string? TokenType;
 
         [DataMember(Name = "expires_in")]
-        public string ExpiresIn;
+        public string? ExpiresIn;
 
         [DataMember(Name = "id_token")]
-        public string IdToken;
+        public string? IdToken;
     }
 }

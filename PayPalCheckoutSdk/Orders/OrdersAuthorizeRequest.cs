@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // OrdersAuthorizeRequest.cs
 // @version 0.1.0-dev+904328-dirty
 // @type request
@@ -25,23 +25,23 @@ namespace PayPalCheckoutSdk.Orders
                 Path = Path.Replace("{order_id}", Uri.EscapeDataString(Convert.ToString(OrderId) ));
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         public OrdersAuthorizeRequest PayPalClientMetadataId(string PayPalClientMetadataId) 
         {
-            Headers.Add("PayPal-Client-Metadata-Id", PayPalClientMetadataId);
+            Headers.Add(HeaderNameConstants.PayPalClientMetadataId, PayPalClientMetadataId);
             return this;
         }
         
         public OrdersAuthorizeRequest PayPalRequestId(string PayPalRequestId) 
         {
-            Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, PayPalRequestId);
             return this;
         }
         
         public OrdersAuthorizeRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

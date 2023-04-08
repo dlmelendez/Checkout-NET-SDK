@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The reason or note for the subscription charge.
         /// </summary>
         [DataMember(Name = "note", EmitDefaultValue = false)]
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// The type of capture.
@@ -28,13 +28,13 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// OUTSTANDING_BALANCE.The outstanding balance that the subscriber must clear.
         /// </summary>
         [DataMember(Name = "capture_type", EmitDefaultValue = false)]
-        public string CaptureType { get; set; }
+        public string? CaptureType { get; set; }
 
         /// <summary>
         /// The amount of the outstanding balance. This value cannot be greater than the current outstanding balance amount.
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public Money Amount { get; set; }
+        public Money? Amount { get; set; }
     }
 }
 

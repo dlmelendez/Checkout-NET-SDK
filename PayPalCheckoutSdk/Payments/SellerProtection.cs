@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // SellerProtection.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,13 +25,13 @@ namespace PayPalCheckoutSdk.Payments
         /// An array of conditions that are covered for the transaction.
         /// </summary>
         [DataMember(Name="dispute_categories", EmitDefaultValue = false)]
-        public List<string> DisputeCategories;
+        public List<string>? DisputeCategories { get; set; }
 
         /// <summary>
         /// Indicates whether the transaction is eligible for seller protection.
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue = false)]
-        public string Status;
+        public string? Status { get; set; }
     }
 }
 

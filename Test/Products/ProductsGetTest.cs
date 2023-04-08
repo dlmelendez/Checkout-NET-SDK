@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Net.Http;
@@ -31,6 +31,21 @@ namespace PayPalCheckoutSdk.Products.Test
 
             Assert.NotNull(retrievedProductCollection.Links);
             
+
+        }
+
+
+        [Fact]
+        public async void TestProductsGetEmptyRequest()
+        {
+            int pageSize = 2;
+            ProductsGetRequest request = new ProductsGetRequest(page: 1, pageSize: pageSize, totalRequired: true);
+
+            var response = await TestHarness.client().Execute(request);
+            Assert.Equal(200, (int)response.StatusCode);
+
+            ProductCollection retrievedProductCollection = response.Result<ProductCollection>();
+            Assert.NotNull(retrievedProductCollection);
 
         }
 

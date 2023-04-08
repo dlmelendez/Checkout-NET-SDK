@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // MerchantBase.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Payments
         /// The public identifier for app created by the merchant/payee. Introduced to support use cases (for e.g. BrainTree integration with PayPal) where payee email_address or merchant_id is not available.
         /// </summary>
         [DataMember(Name="client_id", EmitDefaultValue = false)]
-        public string ClientId;
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
         /// </summary>
         [DataMember(Name="email_address", EmitDefaultValue = false)]
-        public string EmailAddress;
+        public string? EmailAddress { get; set; }
 
         /// <summary>
         /// The PayPal payer ID, which is a masked version of the PayPal account number intended for use with third parties. The account number is reversibly encrypted and a proprietary variant of Base32 is used to encode the result.
         /// </summary>
         [DataMember(Name="merchant_id", EmitDefaultValue = false)]
-        public string MerchantId;
+        public string? MerchantId { get; set; }
     }
 }
 

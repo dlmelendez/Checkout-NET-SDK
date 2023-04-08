@@ -20,19 +20,19 @@ namespace PayPalCheckoutSdk.Products
         /// The ID of the order.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// The plan name.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The detailed description of the plan.
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// The product type. Indicates whether the product is physical or digital goods, or a service.
@@ -42,7 +42,7 @@ namespace PayPalCheckoutSdk.Products
         /// SERVICE.Product representing a service.Example: Tech Support
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// The product category.
@@ -495,37 +495,37 @@ namespace PayPalCheckoutSdk.Products
         /// WOMEN_CLOTHING.Women's clothing
         /// </summary>
         [DataMember(Name = "category", EmitDefaultValue = false)]
-        public string Category { get; set; }
+        public string? Category { get; set; }
 
         /// <summary>
         /// The image URL for the product.
         /// </summary>
         [DataMember(Name = "image_url", EmitDefaultValue = false)]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         /// <summary>
         /// The home page URL for the product.
         /// </summary>
         [DataMember(Name = "home_url", EmitDefaultValue = false)]
-        public string HomeUrl { get; set; }
+        public string? HomeUrl { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
-        public string CreateTime { get; set; }
+        public string? CreateTime { get; set; }
   
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "update_time", EmitDefaultValue = false)]
-        public string UpdateTime { get; set; }
+        public string? UpdateTime { get; set; }
 
         /// <summary>
         /// An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links). To complete payer approval, use the `approve` link with the `GET` method.
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = false)]
-        public List<LinkDescription> Links { get; set; }
+        public List<LinkDescription>? Links { get; set; }
 
     }
 }

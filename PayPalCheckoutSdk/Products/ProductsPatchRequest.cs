@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -21,7 +21,7 @@ namespace PayPalCheckoutSdk.Products
                 Path = Path.Replace("{id}", Uri.EscapeDataString(productId));
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         
         public ProductsPatchRequest<T> RequestBody(List<Patch<T>> patchRequest)

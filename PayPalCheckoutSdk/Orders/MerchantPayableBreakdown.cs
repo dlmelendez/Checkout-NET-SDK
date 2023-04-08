@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // MerchantPayableBreakdown.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -19,37 +19,52 @@ namespace PayPalCheckoutSdk.Orders
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
-        public MerchantPayableBreakdown() {}
+        public MerchantPayableBreakdown() { }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
-        [DataMember(Name="gross_amount", EmitDefaultValue = false)]
-        public Money GrossAmount;
+        [DataMember(Name = "gross_amount", EmitDefaultValue = false)]
+        public Money? GrossAmount
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
-        [DataMember(Name="net_amount", EmitDefaultValue = false)]
-        public Money NetAmount;
+        [DataMember(Name = "net_amount", EmitDefaultValue = false)]
+        public Money? NetAmount
+        {
+            get; set;
+        }
 
         /// <summary>
         /// An array of breakdown values for the net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the payee holds their funds.
         /// </summary>
-        [DataMember(Name="net_amount_breakdown", EmitDefaultValue = false)]
-        public List<NetAmountBreakdownItem> NetAmountBreakdown;
+        [DataMember(Name = "net_amount_breakdown", EmitDefaultValue = false)]
+        public List<NetAmountBreakdownItem>? NetAmountBreakdown
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
-        [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
-        public Money PaypalFee;
+        [DataMember(Name = "paypal_fee", EmitDefaultValue = false)]
+        public Money? PaypalFee
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
-        [DataMember(Name="total_refunded_amount", EmitDefaultValue = false)]
-        public Money TotalRefundedAmount;
+        [DataMember(Name = "total_refunded_amount", EmitDefaultValue = false)]
+        public Money? TotalRefundedAmount
+        {
+            get; set;
+        }
     }
 }
 

@@ -22,7 +22,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^[A-Z_]+$.
         /// </summary>
         [DataMember(Name = "interval_unit", EmitDefaultValue = false)]
-        public string IntervalUnit { get; set; }
+        public string? IntervalUnit { get; set; }
 
         /// <summary>
         /// The number of intervals after which a subscriber is billed. 

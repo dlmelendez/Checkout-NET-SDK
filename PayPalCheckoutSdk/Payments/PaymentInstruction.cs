@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // PaymentInstruction.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,13 +25,13 @@ namespace PayPalCheckoutSdk.Payments
         /// The funds that are held on behalf of the merchant.
         /// </summary>
         [DataMember(Name="disbursement_mode", EmitDefaultValue = false)]
-        public string DisbursementMode;
+        public string? DisbursementMode { get; set; }
 
         /// <summary>
         /// An array of various fees, commissions, tips, or donations.
         /// </summary>
         [DataMember(Name="platform_fees", EmitDefaultValue = false)]
-        public List<PlatformFee> PlatformFees;
+        public List<PlatformFee>? PlatformFees { get; set; }
     }
 }
 

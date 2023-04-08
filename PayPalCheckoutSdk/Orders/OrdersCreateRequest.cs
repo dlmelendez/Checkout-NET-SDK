@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // OrdersCreateRequest.cs
 // @version 0.1.0-dev+904328-dirty
 // @type request
@@ -22,17 +22,17 @@ namespace PayPalCheckoutSdk.Orders
         public OrdersCreateRequest() : base("/v2/checkout/orders?", HttpMethod.Post, typeof(Order))
         {
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         public OrdersCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
         public OrdersCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

@@ -14,6 +14,6 @@ namespace PayPalCheckoutSdk.Core
         /// The national number consists of a national destination code (NDC) and subscriber number (SN).
         /// </summary>
         [DataMember(Name = "national_number", EmitDefaultValue = false)]
-        public string NationalNumber { get; set; }
+        public string? NationalNumber { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -22,7 +22,7 @@ namespace PayPalCheckoutSdk.Products
             } 
             catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         
     }

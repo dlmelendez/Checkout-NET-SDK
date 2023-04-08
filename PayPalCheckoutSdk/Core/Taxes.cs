@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^((-?[0-9]+)|(-?([0 - 9]+)?[.] [0-9]+))$.
         /// </summary>
         [DataMember(Name = "percentage", EmitDefaultValue = false)]
-        public string Percentage { get; set; }
+        public string? Percentage { get; set; }
 
         /// <summary>
         /// Indicates whether the tax was already included in the billing amount.

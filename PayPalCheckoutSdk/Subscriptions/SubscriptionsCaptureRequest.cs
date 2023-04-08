@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -23,7 +23,7 @@ namespace PayPalCheckoutSdk.Subscriptions
             }
             catch (IOException) { }
 
-            ContentType = "application/json";
+            ContentType = MimeTypeConstants.ApplicationJson;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCaptureRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

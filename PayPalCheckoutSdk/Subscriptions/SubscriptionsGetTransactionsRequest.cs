@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -30,7 +30,7 @@ namespace PayPalCheckoutSdk.Subscriptions
                     .Replace("{end_time}", Uri.EscapeDataString(endTime));
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         
     }

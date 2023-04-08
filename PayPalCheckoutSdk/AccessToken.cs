@@ -7,13 +7,13 @@ namespace PayPalCheckoutSdk.Core
     public class AccessToken
     {
         [DataMember(Name = "access_token")]
-        public string Token;
+        public string? Token { get; set; }
 
         [DataMember(Name = "token_type")]
-        public string TokenType;
+        public string? TokenType { get; set; }
 
         [DataMember(Name = "expires_in")]
-        public int ExpiresIn;
+        public int ExpiresIn { get; set; }
 
         private readonly DateTime _createDate;
 

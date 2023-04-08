@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // SubscriptionsCreateRequest.cs
 // @version 0.1.0-dev+904328-dirty
 // @type request
@@ -23,11 +23,11 @@ namespace PayPalCheckoutSdk.Subscriptions
         public SubscriptionsCreateRequest() : base("/v1/billing/subscriptions", HttpMethod.Post, typeof(Subscription))
         {
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         public SubscriptionsCreateRequest PayPalPartnerAttributionId(string PayPalPartnerAttributionId) 
         {
-            Headers.Add("PayPal-Partner-Attribution-Id", PayPalPartnerAttributionId);
+            Headers.Add(HeaderNameConstants.PayPalPartnerAttributionId, PayPalPartnerAttributionId);
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCreateRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
 
@@ -54,7 +54,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// <returns></returns>
         public SubscriptionsCreateRequest PayPalRequestId(string payPalRequestId)
         {
-            Headers.Add("PayPal-Request-Id", payPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, payPalRequestId);
             return this;
         }
 

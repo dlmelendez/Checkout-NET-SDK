@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Net.Http;
@@ -101,7 +101,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
         public async static Task<HttpResponse> CreatePlan(string productId, bool freeTrial, bool qtySupported)
         {
             var request = new PlansCreateRequest();
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(buildRequestBody(productId, freeTrial, qtySupported));
             return await TestHarness.client().Execute(request);
         }       

@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// </summary>
         /// <param name="subscriptionId">subscription id</param>
         /// <param name="fields">List of fields that are to be returned in the response. Possible value for fields are last_failed_payment and plan.</param>
-        public SubscriptionsGetRequest(string subscriptionId, string fields = null) : base("/v1/billing/subscriptions/{id}", HttpMethod.Get, typeof(Subscription))
+        public SubscriptionsGetRequest(string subscriptionId, string? fields = null) : base("/v1/billing/subscriptions/{id}", HttpMethod.Get, typeof(Subscription))
         {
             try 
             {
@@ -32,7 +32,7 @@ namespace PayPalCheckoutSdk.Subscriptions
 
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         
     }

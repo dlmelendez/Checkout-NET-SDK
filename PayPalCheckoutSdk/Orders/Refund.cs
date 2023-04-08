@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // Refund.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,61 +25,61 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
-        public Money Amount;
+        public Money? Amount { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name="create_time", EmitDefaultValue = false)]
-        public string CreateTime;
+        public string? CreateTime { get; set; }
 
         /// <summary>
         /// The PayPal-generated ID for the refund.
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue = false)]
-        public string Id;
+        public string? Id { get; set; }
 
         /// <summary>
         /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="invoice_id", EmitDefaultValue = false)]
-        public string InvoiceId;
+        public string? InvoiceId { get; set; }
 
         /// <summary>
         /// An array of related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).
         /// </summary>
         [DataMember(Name="links", EmitDefaultValue = false)]
-        public List<LinkDescription> Links;
+        public List<LinkDescription>? Links { get; set; }
 
         /// <summary>
         /// The reason for the refund. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="note_to_payer", EmitDefaultValue = false)]
-        public string NoteToPayer;
+        public string? NoteToPayer { get; set; }
 
         /// <summary>
         /// The details of the refund status.
         /// </summary>
         [DataMember(Name="status_details", EmitDefaultValue = false)]
-        public RefundStatusDetails RefundStatusDetails;
+        public RefundStatusDetails? RefundStatusDetails { get; set; }
 
         /// <summary>
         /// The breakdown of the refund.
         /// </summary>
         [DataMember(Name="seller_payable_breakdown", EmitDefaultValue = false)]
-        public MerchantPayableBreakdown SellerPayableBreakdown;
+        public MerchantPayableBreakdown? SellerPayableBreakdown { get; set; }
 
         /// <summary>
         /// The status of the capture.
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue = false)]
-        public string Status;
+        public string? Status { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name="update_time", EmitDefaultValue = false)]
-        public string UpdateTime;
+        public string? UpdateTime { get; set; }
     }
 }
 

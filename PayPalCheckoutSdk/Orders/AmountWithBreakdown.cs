@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // AmountWithBreakdown.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,21 +25,21 @@ namespace PayPalCheckoutSdk.Orders
         /// The breakdown of the amount. Breakdown provides details such as total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.
         /// </summary>
         [DataMember(Name="breakdown", EmitDefaultValue = false)]
-        public AmountBreakdown AmountBreakdown;
+        public AmountBreakdown? AmountBreakdown { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// The [three-character ISO-4217 currency code](/docs/integration/direct/rest/currency-codes/) that identifies the currency.
         /// </summary>
         [DataMember(Name="currency_code", EmitDefaultValue = false)]
-        public string CurrencyCode;
+        public string? CurrencyCode { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// The value, which might be:<ul><li>An integer for currencies like `JPY` that are not typically fractional.</li><li>A decimal fraction for currencies like `TND` that are subdivided into thousandths.</li></ul>For the required number of decimal places for a currency code, see [Currency Codes](/docs/integration/direct/rest/currency-codes/).
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue = false)]
-        public string Value;
+        public string? Value { get; set; }
     }
 }
 

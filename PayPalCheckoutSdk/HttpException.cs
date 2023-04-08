@@ -12,7 +12,7 @@ namespace PayPalHttp
     {
         private static readonly DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(Error), new List<Type>() { typeof(ErrorDetails) });
 
-        public static Error GetError(this HttpException httpEx)
+        public static Error? GetError(this HttpException httpEx)
         {
             if(!string.IsNullOrWhiteSpace(httpEx.Message))
             {

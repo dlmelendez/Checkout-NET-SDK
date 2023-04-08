@@ -19,7 +19,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The pricing scheme details.
         /// </summary>
         [DataMember(Name = "pricing_scheme", EmitDefaultValue = false)]
-        public PricingScheme PricingScheme { get; set; }
+        public PricingScheme? PricingScheme { get; set; }
 
     }
 }

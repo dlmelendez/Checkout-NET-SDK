@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // NetAmountBreakdownItem.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="converted_amount", EmitDefaultValue = false)]
-        public Money ConvertedAmount;
+        public Money? ConvertedAmount { get; set; }
 
         /// <summary>
         /// The exchange rate that determines the amount to convert from one currency to another currency.
         /// </summary>
         [DataMember(Name="exchange_rate", EmitDefaultValue = false)]
-        public ExchangeRate ExchangeRate;
+        public ExchangeRate? ExchangeRate { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="payable_amount", EmitDefaultValue = false)]
-        public Money PayableAmount;
+        public Money? PayableAmount { get; set; }
     }
 }
 

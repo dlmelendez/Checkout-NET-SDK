@@ -6,6 +6,7 @@ using Samples;
 using PayPalCheckoutSdk.Orders;
 using PayPalHttp;
 using PayPalCheckoutSdk.Core;
+using PayPalCheckoutSdk;
 
 namespace Samples.AuthorizeIntentExamples
 {
@@ -16,7 +17,7 @@ namespace Samples.AuthorizeIntentExamples
         public async static Task<HttpResponse> AuthorizeOrder(string OrderId, bool debug = false)
         {
             var request = new OrdersAuthorizeRequest(OrderId);
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(new AuthorizeRequest());
             var response = await PayPalClient.client().Execute(request);
 

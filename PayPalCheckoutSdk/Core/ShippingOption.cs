@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // ShippingOption.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -24,34 +24,46 @@ namespace PayPalCheckoutSdk.Core
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
-        public Money Amount;
+        public Money? Amount { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// A unique ID that identifies a payer-selected shipping option.
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue = false)]
-        public string Id;
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string? Id
+        {
+            get; set;
+        }
 
         /// <summary>
         /// REQUIRED
         /// A description that the payer sees, which helps them choose an appropriate shipping option. For example, `Free Shipping`, `USPS Priority Shipping`, `Expédition prioritaire USPS`, or `USPS yōuxiān fā huò`. Localize this description to the payer's locale.
         /// </summary>
-        [DataMember(Name="label", EmitDefaultValue = false)]
-        public string Label;
+        [DataMember(Name = "label", EmitDefaultValue = false)]
+        public string? Label
+        {
+            get; set;
+        }
 
         /// <summary>
         /// REQUIRED
         /// If the API request sets `selected = true`, it represents the shipping option that the payee or merchant expects to be pre-selected for the payer when they first view the `shipping.options` in the PayPal Checkout experience. As part of the response if a `shipping.option` contains `selected=true`, it represents the shipping option that the payer selected during the course of checkout with PayPal. Only one `shipping.option` can be set to `selected=true`.
         /// </summary>
-        [DataMember(Name="selected", EmitDefaultValue = false)]
-        public bool? Selected;
+        [DataMember(Name = "selected", EmitDefaultValue = false)]
+        public bool? Selected
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The method by which the payer wants to get their items.
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue = false)]
-        public string ShippingType;
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string? ShippingType
+        {
+            get; set;
+        }
     }
 }
 

@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The reason for activation of a subscription. Required to reactivate the subscription.
         /// </summary>
         [DataMember(Name = "reason", EmitDefaultValue = false)]
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
         
     }
 }

@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // AuthorizationsReauthorizeRequest.cs
 // @version 0.1.0-dev+904328-dirty
 // @type request
@@ -25,17 +25,17 @@ namespace PayPalCheckoutSdk.Payments
                 Path = Path.Replace("{authorization_id}", Uri.EscapeDataString(Convert.ToString(AuthorizationId) ));
             } catch (IOException) {}
             
-            ContentType =  "application/json";
+            ContentType =  MimeTypeConstants.ApplicationJson;
         }
         public AuthorizationsReauthorizeRequest PayPalRequestId(string PayPalRequestId) 
         {
-            Headers.Add("PayPal-Request-Id", PayPalRequestId);
+            Headers.Add(HeaderNameConstants.PayPalRequestId, PayPalRequestId);
             return this;
         }
         
         public AuthorizationsReauthorizeRequest Prefer(string Prefer) 
         {
-            Headers.Add("Prefer", Prefer);
+            Headers.Add(HeaderNameConstants.Prefer, Prefer);
             return this;
         }
         

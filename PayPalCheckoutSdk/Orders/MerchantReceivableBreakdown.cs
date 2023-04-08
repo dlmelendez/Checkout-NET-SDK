@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // MerchantReceivableBreakdown.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,25 +25,25 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="gross_amount", EmitDefaultValue = false)]
-        public Money GrossAmount;
+        public Money? GrossAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="net_amount", EmitDefaultValue = false)]
-        public Money NetAmount;
+        public Money? NetAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
-        public Money PaypalFee;
+        public Money? PaypalFee { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="receivable_amount", EmitDefaultValue = false)]
-        public Money ReceivableAmount;
+        public Money? ReceivableAmount { get; set; }
     }
 }
 

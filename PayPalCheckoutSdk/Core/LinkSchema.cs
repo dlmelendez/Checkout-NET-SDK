@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 12:18:45 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // LinkSchema.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -24,7 +24,7 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// </summary>
         [DataMember(Name="additionalItems", EmitDefaultValue = false)]
-        public T AdditionalItems;
+        public T? AdditionalItems { get; set; }
 
         // /// <summary>
         // /// An array of sub-schemas. The data must validate against all sub-schemas.
@@ -41,23 +41,23 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// </summary>
         [DataMember(Name="definitions", EmitDefaultValue = false)]
-        public T Definitions;
+        public T? Definitions { get; set; }
 
         /// <summary>
         /// </summary>
         [DataMember(Name="dependencies", EmitDefaultValue = false)]
-        public T Dependencies;
+        public T? Dependencies { get; set; }
 
         /// <summary>
         /// </summary>
         [DataMember(Name="fragmentResolution", EmitDefaultValue = false)]
-        public string FragmentResolution;
+        public string? FragmentResolution { get; set; }
 
         /// <summary>
         /// An item.
         /// </summary>
         [DataMember(Name="items", EmitDefaultValue = false)]
-        public T Items;
+        public T? Items { get; set; }
 
         // /// <summary>
         // /// An array of links.
@@ -68,7 +68,7 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// </summary>
         [DataMember(Name="not", EmitDefaultValue = false)]
-        public T Not;
+        public T? Not { get; set; }
 
         // /// <summary>
         // /// An array of sub-schemas. The data must validate against one sub-schema.
@@ -80,17 +80,17 @@ namespace PayPalCheckoutSdk.Core
         /// To apply this schema to the instances' URIs, start the URIs with this value.
         /// </summary>
         [DataMember(Name="pathStart", EmitDefaultValue = false)]
-        public string PathStart;
+        public string? PathStart { get; set; }
 
         /// <summary>
         /// </summary>
         [DataMember(Name="patternProperties", EmitDefaultValue = false)]
-        public T PatternProperties;
+        public T? PatternProperties { get; set; }
 
         /// <summary>
         /// </summary>
         [DataMember(Name="properties", EmitDefaultValue = false)]
-        public T Properties;
+        public T? Properties { get; set; }
     }
 }
 

@@ -1,4 +1,4 @@
-// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
+﻿// This class was generated on Tue, 04 Sep 2018 13:47:44 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 // StatusDetails.cs
 // @version 0.1.0-dev+904328-dirty
 // @type object
@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Payments
         /// The reason why the captured payment status is `PENDING` or `DENIED`.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
-        public string Reason;
+        public string? Reason { get; set; }
     }
 }
 

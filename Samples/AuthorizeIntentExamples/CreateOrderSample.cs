@@ -10,6 +10,7 @@ using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
 using PayPalCheckoutSdk.Core;
+using PayPalCheckoutSdk;
 
 namespace Samples.AuthorizeIntentExamples
 {
@@ -138,7 +139,7 @@ namespace Samples.AuthorizeIntentExamples
         {
             Console.WriteLine("Creating Order with complete payload");
             var request = new OrdersCreateRequest();
-            request.Prefer("return=representation");
+            request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(BuildRequestBody());
             var response = await PayPalClient.client().Execute(request);
             var result = response.Result<Order>();
@@ -191,7 +192,7 @@ namespace Samples.AuthorizeIntentExamples
         {
             Console.WriteLine("Create Order with minimum payload..");
             var request = new OrdersCreateRequest();
-            request.Headers.Add("prefer", "return=representation");
+            request.Headers.Add(HeaderNameConstants.Prefer, HeaderValueConstants.PreferValueRepresentation);
             request.RequestBody(BuildRequestBodyWithMinimumFields());
             var response = await PayPalClient.client().Execute(request);
 
