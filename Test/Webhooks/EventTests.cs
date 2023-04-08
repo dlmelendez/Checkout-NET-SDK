@@ -49,7 +49,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async Task TestSimulateVerifyEvent()
+        public async Task TestSimulateEvent()
         {
             EventSimulateRequest simulateRequest = new EventSimulateRequest();
             simulateRequest.Prefer(HeaderValueConstants.PreferValueRepresentation);
@@ -65,7 +65,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             Assert.Equal(HttpStatusCode.Accepted, createResponse.StatusCode);
 
             Assert.NotNull(createResult);
-
+            Assert.False(string.IsNullOrWhiteSpace(createResult.Id));
         }
     }
 }
