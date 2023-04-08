@@ -17,7 +17,7 @@ namespace PayPalCheckoutSdk.Core
     public class Patch<T>
     {
         /// <summary>
-	    /// Required default constructor
+	    /// https://developer.paypal.com/docs/api/webhooks/v1/#definition-patch
 		/// </summary>
         public Patch() {}
 
@@ -30,6 +30,12 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// REQUIRED
         /// The operation.
+        /// add
+        /// remove
+        /// replace
+        /// move
+        /// copy
+        /// test
         /// </summary>
         [DataMember(Name="op", EmitDefaultValue = false)]
         public string? Op;

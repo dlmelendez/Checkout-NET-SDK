@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Core;
 using PayPalCheckoutSdk.Test;
 using Xunit;
 using Xunit.Abstractions;
@@ -33,7 +35,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async Task TestCreateGetDeleteWebhooksRequest()
+        public async Task TestCreatePatchGetDeleteWebhooksRequest()
         {
             WebhookCreateRequest request = new WebhookCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
@@ -45,8 +47,8 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             request.RequestBody(webhook);
             
             var createResponse = await TestHarness.client().Execute(request);
-            var createResult = createResponse.Result<Webhook>();
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
+            var createResult = createResponse.Result<Webhook>();
 
             Assert.NotNull(createResult);
             Assert.False(string.IsNullOrWhiteSpace(createResult.Id));
@@ -54,6 +56,25 @@ namespace PayPalCheckoutSdk.Webhooks.Test
 
             try
             {
+                //Patch Webhook
+                //Get Webhook Details
+                const string urlNew = "https://example.com/65432123456-new";
+                var patchRequest = new WebhookPatchRequest<string>(createResult.Id);
+                
+                patchRequest.RequestBody(new List<Patch<string>>() 
+                {
+                    new Patch<string>() 
+                    { 
+                         Op = "replace",
+                         Path = "/url",
+                         Value = urlNew
+                    } 
+                });
+                var patchResponse = await TestHarness.client().Execute(patchRequest);
+                Assert.Equal(HttpStatusCode.OK, patchResponse.StatusCode);
+                var patchResult = createResponse.Result<Webhook>();
+                Assert.NotNull(patchResult);
+                //
                 //Get Webhook Details
                 var getDetailsRequest = new WebhookGetRequest(createResult.Id);
                 var getResponse = await TestHarness.client().Execute(getDetailsRequest);
@@ -62,7 +83,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
                 var getDetailsResult = getResponse.Result<Webhook>();
                 var eventType = getDetailsResult.EventTypes.FirstOrDefault(f => f.Name == EventType.Wildcard);
                 Assert.NotNull(eventType);
-                Assert.Equal<string>(createResult.Url, getDetailsResult.Url, StringComparer.OrdinalIgnoreCase);
+                Assert.Equal<string>(urlNew, getDetailsResult.Url, StringComparer.OrdinalIgnoreCase);
                 Assert.Equal<string>(createResult.Id, getDetailsResult.Id, StringComparer.OrdinalIgnoreCase);
                 //
                 // Get Event Types by Webhook

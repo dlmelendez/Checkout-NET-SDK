@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async void TestWebhooksLookupGetEmptyRequest()
+        public async void TestLookupGetEmptyRequest()
         {
             LookupsGetRequest request = new LookupsGetRequest();
 
@@ -32,7 +32,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async Task TestCreateGetDeleteWebhooksLookupRequest()
+        public async Task TestCreateGetDeleteLookupRequest()
         {
             LookupCreateRequest request = new LookupCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
