@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// An array of webhook account IDs.
         /// </summary>
         [DataMember(Name = "webhook_ids", EmitDefaultValue = false)]
-        public List<WebhookId>? WebhookIds { get; set; }
+        public List<string>? WebhookIds { get; set; }
 
     }
 }

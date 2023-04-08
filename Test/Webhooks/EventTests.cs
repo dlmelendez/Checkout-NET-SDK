@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using PayPalCheckoutSdk.Test;
+using PayPalHttp;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -60,12 +60,82 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             };
             simulateRequest.RequestBody(simulate);
 
-            var createResponse = await TestHarness.client().Execute(simulateRequest);
-            var createResult = createResponse.Result<Event>();
-            Assert.Equal(HttpStatusCode.Accepted, createResponse.StatusCode);
+            var simulateResponse = await TestHarness.client().Execute(simulateRequest);
+            var simulateResult = simulateResponse.Result<Event>();
+            Assert.Equal(HttpStatusCode.Accepted, simulateResponse.StatusCode);
 
-            Assert.NotNull(createResult);
-            Assert.False(string.IsNullOrWhiteSpace(createResult.Id));
+            Assert.NotNull(simulateResult);
+            Assert.False(string.IsNullOrWhiteSpace(simulateResult.Id));
+        }
+
+        [Fact]
+        public async Task TestResendNegative()
+        {
+            WebhookCreateRequest createWebhookRequest = new WebhookCreateRequest();
+            createWebhookRequest.Prefer(HeaderValueConstants.PreferValueRepresentation);
+            var webhook = new Webhook()
+            {
+                Url = "https://example.com/65432123456-787887adsf23333",
+            };
+            webhook.EventTypes.Add(new EventType() { Name = EventType.Wildcard });
+            createWebhookRequest.RequestBody(webhook);
+
+            var createWebhookResponse = await TestHarness.client().Execute(createWebhookRequest);
+            var createWebhookResult = createWebhookResponse.Result<Webhook>();
+            Assert.Equal(HttpStatusCode.Created, createWebhookResponse.StatusCode);
+
+            Assert.NotNull(createWebhookResult);
+            Assert.False(string.IsNullOrWhiteSpace(createWebhookResult.Id));
+            _output.WriteLine($"webhookId: {createWebhookResult.Id}");
+
+            try
+            {
+                //Simulate Event
+                EventSimulateRequest simulateRequest = new EventSimulateRequest();
+                simulateRequest.Prefer(HeaderValueConstants.PreferValueRepresentation);
+                var simulate = new EventSimulate()
+                {
+                    WebhookId = createWebhookResult.Id,
+                    EventType = "PAYMENT.CAPTURE.COMPLETED"
+                };
+                simulateRequest.RequestBody(simulate);
+
+                var simulateResponse = await TestHarness.client().Execute(simulateRequest);
+                var simulateResult = simulateResponse.Result<Event>();
+                Assert.Equal(HttpStatusCode.Accepted, simulateResponse.StatusCode);
+
+                Assert.NotNull(simulateResult);
+                Assert.False(string.IsNullOrWhiteSpace(simulateResult.Id));
+                _output.WriteLine($"simulateEventId: {simulateResult.Id}");
+
+                //
+                // Resend Event by Webhook
+                var resendRequest = new EventResendRequest(simulateResult.Id);
+                resendRequest.RequestBody(new EventResend()
+                {
+                    WebhookIds = new List<string>()
+                    {
+                        createWebhookResult.Id
+                    }
+                });
+                var resendResponse = await TestHarness.client().Execute(resendRequest);
+                //Resource Invalid Exception here
+                //
+            }
+            catch (PayPalHttp.HttpException ppEx)
+                when (ppEx.GetError()?.Name == "INVALID_RESOURCE_ID")
+            {
+                // noop
+                //Ignore Invalid Resource Id message because resend doesn't work with simulated events
+                //Pattern can be used by valid events.
+            }
+            finally
+            {
+                var deleteRequest = new WebhookDeleteRequest(createWebhookResult.Id);
+                var deleteResponse = await TestHarness.client().Execute(deleteRequest);
+                Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
+            }
+
         }
 
         [Fact]
