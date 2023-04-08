@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The funds that are held on behalf of the merchant.
         /// </summary>
         [DataMember(Name="disbursement_mode", EmitDefaultValue = false)]
-        public string? DisbursementMode;
+        public string? DisbursementMode { get; set; }
     }
 }
 
