@@ -25,19 +25,19 @@ namespace PayPalCheckoutSdk.Payments
         /// The [three-character ISO-4217 currency code](/docs/integration/direct/rest/currency-codes/) that identifies the currency.
         /// </summary>
         [DataMember(Name="PayPalCheckoutSdk_currency", EmitDefaultValue = false)]
-        public string? PayPalCheckoutSdkCurrency;
+        public string? PayPalCheckoutSdkCurrency { get; set; }
 
         /// <summary>
         /// The [three-character ISO-4217 currency code](/docs/integration/direct/rest/currency-codes/) that identifies the currency.
         /// </summary>
         [DataMember(Name="target_currency", EmitDefaultValue = false)]
-        public string? TargetCurrency;
+        public string? TargetCurrency { get; set; }
 
         /// <summary>
         /// The target currency amount. Equivalent to one unit of the PayPalCheckoutSdk currency. Formatted as integer or decimal value with one to 15 digits to the right of the decimal point.
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue = false)]
-        public string? Value;
+        public string? Value { get; set; }
     }
 }
 

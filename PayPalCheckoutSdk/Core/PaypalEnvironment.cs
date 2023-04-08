@@ -22,22 +22,22 @@ namespace PayPalCheckoutSdk.Core
             _webUrl = webUrl;
         }
 
-        public string? BaseUrl()
+        public string BaseUrl()
         {
             return _baseUrl;
         }
 
-        public string? AuthorizationString()
+        public string AuthorizationString()
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}"));
         }
 
-        public string? ClientId()
+        public string ClientId()
         {
             return _clientId;
         }
 
-        public string? WebUrl()
+        public string WebUrl()
         {
             return _webUrl;
         }

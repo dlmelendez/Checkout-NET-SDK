@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // AmountBreakdown.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,43 +25,43 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="discount", EmitDefaultValue = false)]
-        public Money? Discount;
+        public Money? Discount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="handling", EmitDefaultValue = false)]
-        public Money? Handling;
+        public Money? Handling { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="insurance", EmitDefaultValue = false)]
-        public Money? Insurance;
+        public Money? Insurance { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="item_total", EmitDefaultValue = false)]
-        public Money? ItemTotal;
+        public Money? ItemTotal { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="shipping", EmitDefaultValue = false)]
-        public Money? Shipping;
+        public Money? Shipping { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="shipping_discount", EmitDefaultValue = false)]
-        public Money? ShippingDiscount;
+        public Money? ShippingDiscount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="tax_total", EmitDefaultValue = false)]
-        public Money? TaxTotal;
+        public Money? TaxTotal { get; set; }
     }
 }
 

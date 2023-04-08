@@ -53,7 +53,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>brand_name</code> and <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
         /// </summary>
         [DataMember(Name = "application_context", EmitDefaultValue = false)]
-        public ApplicationContext? ApplicationContext;
+        public ApplicationContext? ApplicationContext { get; set; }
 
         /// <summary>
         /// Inline plan details.

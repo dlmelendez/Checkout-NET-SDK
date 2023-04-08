@@ -19,14 +19,20 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// The merchant-preferred payment sources.
         /// </summary>
-        [DataMember(Name="payee_preferred", EmitDefaultValue = false)]
-        public string? PayeePreferred;
+        [DataMember(Name = "payee_preferred", EmitDefaultValue = false)]
+        public string? PayeePreferred
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The customer-selected payment method on the merchant site.
         /// </summary>
-        [DataMember(Name="payer_selected", EmitDefaultValue = false)]
-        public string? PayerSelected;
+        [DataMember(Name = "payer_selected", EmitDefaultValue = false)]
+        public string? PayerSelected
+        {
+            get; set;
+        }
     }
 }
 

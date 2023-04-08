@@ -10,9 +10,11 @@ namespace PayPalCheckoutSdk.Test
 {
     public class TestHarness
     {
+#pragma warning disable CA2211 // Non-constant fields should not be visible, Test class, not relevant
         public static IServiceCollection services = new ServiceCollection();
 
         public static IConfigurationRoot root;
+#pragma warning restore CA2211 // Non-constant fields should not be visible
 
         public static string ClientId { get; private set; }
 

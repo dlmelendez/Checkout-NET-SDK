@@ -24,8 +24,11 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
         /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location from which to move the value. Required for the <code>move</code> operation.
         /// </summary>
-        [DataMember(Name="from", EmitDefaultValue = false)]
-        public string? From;
+        [DataMember(Name = "from", EmitDefaultValue = false)]
+        public string? From
+        {
+            get; set;
+        }
 
         /// <summary>
         /// REQUIRED
@@ -37,20 +40,29 @@ namespace PayPalCheckoutSdk.Core
         /// copy
         /// test
         /// </summary>
-        [DataMember(Name="op", EmitDefaultValue = false)]
-        public string? Op;
+        [DataMember(Name = "op", EmitDefaultValue = false)]
+        public string? Op
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location at which to complete the operation.
         /// </summary>
-        [DataMember(Name="path", EmitDefaultValue = false)]
-        public string? Path;
+        [DataMember(Name = "path", EmitDefaultValue = false)]
+        public string? Path
+        {
+            get; set;
+        }
 
         /// <summary>
         /// The value to apply. The <code>remove</code> operation does not require a value.
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue = false)]
-        public T? Value;
+        [DataMember(Name = "value", EmitDefaultValue = false)]
+        public T? Value
+        {
+            get; set;
+        }
     }
 }
 

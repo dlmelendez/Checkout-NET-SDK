@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // Token.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -26,14 +26,14 @@ namespace PayPalCheckoutSdk.Core
         /// The PayPal-generated ID for the token.
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue = false)]
-        public string? Id;
+        public string? Id { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// The tokenization method that generated the ID.
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue = false)]
-        public string? Type;
+        public string? Type { get; set; }
     }
 }
 

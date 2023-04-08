@@ -1,4 +1,4 @@
-// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
+﻿// This class was generated on Tue, 21 May 2019 11:25:19 PDT by version 0.1.0-dev+8fcb5f of Braintree SDK Generator
 // RefundStatusDetails.cs
 // @version 0.1.0-dev+8fcb5f
 // @type object
@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The reason why the refund has the `PENDING` or `FAILED` status.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
-        public string? Reason;
+        public string? Reason { get; set; }
     }
 }
 

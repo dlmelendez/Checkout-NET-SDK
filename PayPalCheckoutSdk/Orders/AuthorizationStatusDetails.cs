@@ -25,7 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The reason why the authorized status is `PENDING`.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
-        public string? Reason;
+        public string? Reason { get; set; }
     }
 }
 
