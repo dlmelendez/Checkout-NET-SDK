@@ -67,5 +67,29 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             Assert.NotNull(createResult);
             Assert.False(string.IsNullOrWhiteSpace(createResult.Id));
         }
+
+        [Fact]
+        public async Task TestVerifySignatureEventNegative()
+        {
+            VerifyWebhookSignatureRequest simulateRequest = new VerifyWebhookSignatureRequest();
+            
+            var verifySignature = new VerifyWebhookSignature()
+            {
+                CertUrl = "https://example.com/65432123456-3467678768768",
+                AuthAlgo = Guid.NewGuid().ToString("N"),
+                TransmissionId = Guid.NewGuid().ToString("N"),
+                TransmissionSig = Guid.NewGuid().ToString("N"),
+                TransmissionTime = DateTime.UtcNow.ToPaypalString(),
+                WebhookId = "3RD03749806828333",
+                WebhookEvent = new Event() { Id = Guid.NewGuid().ToString(), EventType = "PAYMENT.CAPTURE.COMPLETED" }
+            };
+            simulateRequest.RequestBody(verifySignature);
+
+            var createResponse = await TestHarness.client().Execute(simulateRequest);
+            var createResult = createResponse.Result<VerifyWebhookSignatureResponse>();
+            Assert.Equal(HttpStatusCode.OK, createResponse.StatusCode);
+
+            Assert.False(createResult.ValidSignature);
+        }
     }
 }
