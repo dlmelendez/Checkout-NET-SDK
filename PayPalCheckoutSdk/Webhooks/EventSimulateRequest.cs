@@ -53,7 +53,7 @@ namespace PayPalCheckoutSdk.Webhooks
             return this;
         }
 
-        public EventSimulateRequest RequestBody(Webhook body)
+        public EventSimulateRequest RequestBody(EventSimulate body)
         {
             Body = body;
             return this;

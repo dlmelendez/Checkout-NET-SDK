@@ -48,5 +48,24 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             Assert.NotNull(eventsList);
         }
 
+        [Fact]
+        public async Task TestSimulateVerifyEvent()
+        {
+            EventSimulateRequest simulateRequest = new EventSimulateRequest();
+            simulateRequest.Prefer(HeaderValueConstants.PreferValueRepresentation);
+            var simulate = new EventSimulate()
+            {
+                Url = "https://example.com/65432123456-3467678768768",
+                EventType = "PAYMENT.CAPTURE.COMPLETED"
+            };
+            simulateRequest.RequestBody(simulate);
+
+            var createResponse = await TestHarness.client().Execute(simulateRequest);
+            var createResult = createResponse.Result<Event>();
+            Assert.Equal(HttpStatusCode.Accepted, createResponse.StatusCode);
+
+            Assert.NotNull(createResult);
+
+        }
     }
 }
