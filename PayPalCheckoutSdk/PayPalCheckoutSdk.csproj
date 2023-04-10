@@ -47,8 +47,5 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\paypalhttp_dotnet\PayPalHttp-Dotnet\PayPalHttp-Dotnet.csproj" />
-  </ItemGroup>
 
 </Project>
