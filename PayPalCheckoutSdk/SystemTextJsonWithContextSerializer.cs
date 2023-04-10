@@ -26,12 +26,14 @@ namespace PayPalCheckoutSdk
 
         public async Task<object?> DecodeAsync(HttpContent content, Type responseType)
         {
-            return await System.Text.Json.JsonSerializer.DeserializeAsync(await content.ReadAsStreamAsync().ConfigureAwait(false), responseType, context: JsonWebSourceGenerator).ConfigureAwait(false);
+            return await System.Text.Json.JsonSerializer.DeserializeAsync(await content.ReadAsStreamAsync().ConfigureAwait(false), responseType, context: JsonWebSourceGenerator)
+                .ConfigureAwait(false);
         }
 
         public async Task<HttpContent> EncodeAsync(HttpRequest request)
         {            
-            return await Task.FromResult(new StringContent(System.Text.Json.JsonSerializer.Serialize(request.Body, request.Body.GetType(), context: JsonWebSourceGenerator), System.Text.Encoding.UTF8, RegExPattern));
+            return await Task.FromResult(new StringContent(System.Text.Json.JsonSerializer.Serialize(request.Body, request.Body.GetType(), context: JsonWebSourceGenerator), System.Text.Encoding.UTF8, RegExPattern))
+                .ConfigureAwait(false);
         }
 
         public Regex GetContentRegEx()

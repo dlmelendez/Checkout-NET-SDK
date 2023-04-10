@@ -29,7 +29,8 @@ namespace PayPalCheckoutSdk
 
         public async Task<HttpContent> EncodeAsync(HttpRequest request)
         {
-            return await Task.FromResult(new StringContent(System.Text.Json.JsonSerializer.Serialize(request.Body, request.Body.GetType(), options: JsonWebOptions), System.Text.Encoding.UTF8, RegExPattern));
+            return await Task.FromResult(new StringContent(System.Text.Json.JsonSerializer.Serialize(request.Body, request.Body.GetType(), options: JsonWebOptions), System.Text.Encoding.UTF8, RegExPattern))
+                .ConfigureAwait(false);
         }
 
         public Regex GetContentRegEx()
