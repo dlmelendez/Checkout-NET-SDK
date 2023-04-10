@@ -6,6 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 
 namespace PayPalCheckoutSdk.Payments
@@ -25,12 +26,14 @@ namespace PayPalCheckoutSdk.Payments
         /// The funds that are held on behalf of the merchant.
         /// </summary>
         [DataMember(Name="disbursement_mode", EmitDefaultValue = false)]
+        [JsonPropertyName("disbursement_mode")]
         public string? DisbursementMode { get; set; }
 
         /// <summary>
         /// An array of various fees, commissions, tips, or donations.
         /// </summary>
         [DataMember(Name="platform_fees", EmitDefaultValue = false)]
+        [JsonPropertyName("platform_fees")]
         public List<PlatformFee>? PlatformFees { get; set; }
     }
 }

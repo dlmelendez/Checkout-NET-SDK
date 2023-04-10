@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -19,42 +19,48 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
-        public AddressDetails() {}
+        public AddressDetails() { }
 
         /// <summary>
         /// A named locations that represents the premise. Usually a building name or number or collection of buildings with a common name or number. For example, <code>Craven House</code>.
         /// </summary>
-        [DataMember(Name="building_name", EmitDefaultValue = false)]
+        [DataMember(Name = "building_name", EmitDefaultValue = false)]
+        [JsonPropertyName("building_name")]
         public string? BuildingName { get; set; }
 
         /// <summary>
         /// The delivery service. Post office box, bag number, or post office name.
         /// </summary>
-        [DataMember(Name="delivery_service", EmitDefaultValue = false)]
+        [DataMember(Name = "delivery_service", EmitDefaultValue = false)]
+        [JsonPropertyName("delivery_service")]
         public string? DeliveryService { get; set; }
 
         /// <summary>
         /// The street name. Just `Drury` in `Drury Lane`.
         /// </summary>
-        [DataMember(Name="street_name", EmitDefaultValue = false)]
+        [DataMember(Name = "street_name", EmitDefaultValue = false)]
+        [JsonPropertyName("street_name")]
         public string? StreetName { get; set; }
 
         /// <summary>
         /// The street number.
         /// </summary>
-        [DataMember(Name="street_number", EmitDefaultValue = false)]
+        [DataMember(Name = "street_number", EmitDefaultValue = false)]
+        [JsonPropertyName("street_number")]
         public string? StreetNumber { get; set; }
 
         /// <summary>
         /// The street type. For example, avenue, boulevard, road, or expressway.
         /// </summary>
-        [DataMember(Name="street_type", EmitDefaultValue = false)]
+        [DataMember(Name = "street_type", EmitDefaultValue = false)]
+        [JsonPropertyName("street_type")]
         public string? StreetType { get; set; }
 
         /// <summary>
         /// The first-order entity below a named building or location that represents the sub-premise. Usually a single building within a collection of buildings with a common name. Can be a flat, story, floor, room, or apartment.
         /// </summary>
-        [DataMember(Name="sub_building", EmitDefaultValue = false)]
+        [DataMember(Name = "sub_building", EmitDefaultValue = false)]
+        [JsonPropertyName("sub_building")]
         public string? SubBuilding { get; set; }
     }
 }

@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Payments
 {
@@ -14,7 +15,7 @@ namespace PayPalCheckoutSdk.Payments
     /// Refunds a captured payment, by ID. For a full refund, include an empty request body. For a partial refund, include an <code>amount</code> object in the request body.
     /// </summary>
     [DataContract]
-    public class RefundRequest
+    public class RefundRequest 
     {
         /// <summary>
 	    /// Required default constructor
@@ -25,18 +26,21 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
         /// <summary>
         /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="invoice_id", EmitDefaultValue = false)]
+        [JsonPropertyName("invoice_id")]
         public string? InvoiceId { get; set; }
 
         /// <summary>
         /// The reason for the refund. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="note_to_payer", EmitDefaultValue = false)]
+        [JsonPropertyName("note_to_payer")]
         public string? NoteToPayer { get; set; }
     }
 }

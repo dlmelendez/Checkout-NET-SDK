@@ -57,7 +57,6 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             try
             {
                 //Patch Webhook
-                //Get Webhook Details
                 const string urlNew = "https://example.com/65432123456-new";
                 var patchRequest = new WebhookPatchRequest<string>(createResult.Id);
                 

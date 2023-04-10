@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -19,77 +19,90 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
-        public LinkSchema() {}
+        public LinkSchema() { }
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="additionalItems", EmitDefaultValue = false)]
+        [DataMember(Name = "additionalItems", EmitDefaultValue = false)]
+        [JsonPropertyName("additionalItems")]
         public T? AdditionalItems { get; set; }
 
         // /// <summary>
         // /// An array of sub-schemas. The data must validate against all sub-schemas.
         // /// </summary>
         // [DataMember(Name="allOf", EmitDefaultValue = false)]
+        // [JsonPropertyName("allOf")]
         // public List<AllOfItem> AllOf;
 
         // /// <summary>
         // /// An array of sub-schemas. The data must validate against one or more sub-schemas.
         // /// </summary>
         // [DataMember(Name="anyOf", EmitDefaultValue = false)]
+        // [JsonPropertyName("anyOf")]
         // public List<AnyOfItem> AnyOf;
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="definitions", EmitDefaultValue = false)]
+        [DataMember(Name = "definitions", EmitDefaultValue = false)]
+        [JsonPropertyName("definitions")]
         public T? Definitions { get; set; }
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="dependencies", EmitDefaultValue = false)]
+        [DataMember(Name = "dependencies", EmitDefaultValue = false)]
+        [JsonPropertyName("dependencies")]
         public T? Dependencies { get; set; }
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="fragmentResolution", EmitDefaultValue = false)]
+        [DataMember(Name = "fragmentResolution", EmitDefaultValue = false)]
+        [JsonPropertyName("fragmentResolution")]
         public string? FragmentResolution { get; set; }
 
         /// <summary>
         /// An item.
         /// </summary>
-        [DataMember(Name="items", EmitDefaultValue = false)]
+        [DataMember(Name = "items", EmitDefaultValue = false)]
+        [JsonPropertyName("items")]
         public T? Items { get; set; }
 
         // /// <summary>
         // /// An array of links.
         // /// </summary>
         // [DataMember(Name="links", EmitDefaultValue = false)]
+        // [JsonPropertyName("links")]
         // public List<Link> Links;
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="not", EmitDefaultValue = false)]
+        [DataMember(Name = "not", EmitDefaultValue = false)]
+        [JsonPropertyName("not")]
         public T? Not { get; set; }
 
         // /// <summary>
         // /// An array of sub-schemas. The data must validate against one sub-schema.
         // /// </summary>
         // [DataMember(Name="oneOf", EmitDefaultValue = false)]
+        // [JsonPropertyName("oneOf")]
         // public List<OneOfItem> OneOf;
 
         /// <summary>
         /// To apply this schema to the instances' URIs, start the URIs with this value.
         /// </summary>
-        [DataMember(Name="pathStart", EmitDefaultValue = false)]
+        [DataMember(Name = "pathStart", EmitDefaultValue = false)]
+        [JsonPropertyName("pathStart")]
         public string? PathStart { get; set; }
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="patternProperties", EmitDefaultValue = false)]
+        [DataMember(Name = "patternProperties", EmitDefaultValue = false)]
+        [JsonPropertyName("patternProperties")]
         public T? PatternProperties { get; set; }
 
         /// <summary>
         /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue = false)]
+        [DataMember(Name = "properties", EmitDefaultValue = false)]
+        [JsonPropertyName("properties")]
         public T? Properties { get; set; }
     }
 }

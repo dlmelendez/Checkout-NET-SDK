@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,6 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The funds that are held on behalf of the merchant.
         /// </summary>
         [DataMember(Name="disbursement_mode", EmitDefaultValue = false)]
+        [JsonPropertyName("disbursement_mode")]
         public string? DisbursementMode { get; set; }
     }
 }

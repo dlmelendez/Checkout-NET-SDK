@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Products
 {
@@ -9,24 +10,27 @@ namespace PayPalCheckoutSdk.Products
     /// The Product.
     /// </summary>
     [DataContract]
-    public class ProductRequest
+    public class ProductRequest 
     {
         /// <summary>
         /// The ID of the order.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// The plan name.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// The detailed description of the plan.
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -37,6 +41,7 @@ namespace PayPalCheckoutSdk.Products
         /// SERVICE.Product representing a service.Example: Tech Support
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -490,18 +495,21 @@ namespace PayPalCheckoutSdk.Products
         /// WOMEN_CLOTHING.Women's clothing
         /// </summary>
         [DataMember(Name = "category", EmitDefaultValue = false)]
+        [JsonPropertyName("category")]
         public string? Category { get; set; }
 
         /// <summary>
         /// The image URL for the product.
         /// </summary>
         [DataMember(Name = "image_url", EmitDefaultValue = false)]
+        [JsonPropertyName("image_url")]
         public string? ImageUrl { get; set; }
 
         /// <summary>
         /// The home page URL for the product.
         /// </summary>
         [DataMember(Name = "home_url", EmitDefaultValue = false)]
+        [JsonPropertyName("home_url")]
         public string? HomeUrl { get; set; }
 
     }

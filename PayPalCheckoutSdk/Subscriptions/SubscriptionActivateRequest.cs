@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Subscriptions
 {
@@ -9,7 +10,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// The SubscriptionActivateRequest.
     /// </summary>
     [DataContract]
-    public class SubscriptionActivateRequest
+    public class SubscriptionActivateRequest 
     {
         /// <summary>
 	    /// Required default constructor
@@ -20,6 +21,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The reason for activation of a subscription. Required to reactivate the subscription.
         /// </summary>
         [DataMember(Name = "reason", EmitDefaultValue = false)]
+        [JsonPropertyName("reason")]
         public string? Reason { get; set; }
         
     }

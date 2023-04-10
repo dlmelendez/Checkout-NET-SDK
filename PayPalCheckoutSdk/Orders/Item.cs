@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,12 +26,14 @@ namespace PayPalCheckoutSdk.Orders
         /// The item category type.
         /// </summary>
         [DataMember(Name="category", EmitDefaultValue = false)]
+        [JsonPropertyName("category")]
         public string? Category { get; set; }
 
         /// <summary>
         /// The detailed item description.
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue = false)]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -38,6 +41,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The item name or title.
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue = false)]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -45,18 +49,21 @@ namespace PayPalCheckoutSdk.Orders
         /// The item quantity. Must be a whole number.
         /// </summary>
         [DataMember(Name="quantity", EmitDefaultValue = false)]
+        [JsonPropertyName("quantity")]
         public string? Quantity { get; set; }
 
         /// <summary>
         /// The stock keeping unit (SKU) for the item.
         /// </summary>
         [DataMember(Name="sku", EmitDefaultValue = false)]
+        [JsonPropertyName("sku")]
         public string? Sku { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="tax", EmitDefaultValue = false)]
+        [JsonPropertyName("tax")]
         public Money? Tax { get; set; }
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="unit_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("unit_amount")]
         public Money? UnitAmount { get; set; }
     }
 }

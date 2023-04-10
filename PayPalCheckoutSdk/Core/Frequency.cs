@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -22,6 +22,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^[A-Z_]+$.
         /// </summary>
         [DataMember(Name = "interval_unit", EmitDefaultValue = false)]
+        [JsonPropertyName("interval_unit")]
         public string? IntervalUnit { get; set; }
 
         /// <summary>
@@ -36,6 +37,7 @@ namespace PayPalCheckoutSdk.Core
         /// Maximum value: 365.
         /// </summary>
         [DataMember(Name = "interval_count", EmitDefaultValue = false)]
+        [JsonPropertyName("interval_count")]
         public int? IntervalCount { get; set; }
 
     }

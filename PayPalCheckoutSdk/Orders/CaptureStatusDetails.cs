@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,6 +25,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The reason why the captured payment status is `PENDING` or `DENIED`.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
+        [JsonPropertyName("reason")]
         public string? Reason;
     }
 }

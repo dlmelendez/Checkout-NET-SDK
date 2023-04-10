@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -14,6 +14,7 @@ namespace PayPalCheckoutSdk.Core
         /// The version of the pricing scheme.
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
+        [JsonPropertyName("version")]
         public int? Version { get; set; }
 
         /// <summary>
@@ -22,6 +23,7 @@ namespace PayPalCheckoutSdk.Core
         /// For existing subscriptions, payments within 10 days of price change are not affected.
         /// </summary>
         [DataMember(Name = "fixed_price", EmitDefaultValue = false)]
+        [JsonPropertyName("fixed_price")]
         public Money? FixedPrice { get; set; }
 
         /// <summary>
@@ -31,24 +33,28 @@ namespace PayPalCheckoutSdk.Core
         /// TIERED.A tiered pricing model.
         /// </summary>
         [DataMember(Name = "pricing_model", EmitDefaultValue = false)]
+        [JsonPropertyName("pricing_model")]
         public string? PricingModel { get; set; }
 
         /// <summary>
         /// An array of pricing tiers which are used for billing volume/tiered plans. pricing_model field has to be specified.
         /// </summary>
         [DataMember(Name = "tiers", EmitDefaultValue = false)]
+        [JsonPropertyName("tiers")]
         public List<PricingTier>? Tiers { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "update_time", EmitDefaultValue = false)]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
     }
 }

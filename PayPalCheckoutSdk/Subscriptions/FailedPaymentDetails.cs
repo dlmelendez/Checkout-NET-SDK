@@ -3,22 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Subscriptions
 {
     [DataContract]
-    public class FailedPaymentDetails
+    public class FailedPaymentDetails 
     {
         /// <summary>
         /// The last payment amount.
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "time", EmitDefaultValue = false)]
+        [JsonPropertyName("time")]
         public string? Time { get; set; }
 
         /// <summary>
@@ -34,12 +37,14 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// CURRENCY_MISMATCH.The transaction is declined due to a currency mismatch.
         /// </summary>
         [DataMember(Name = "reason_code", EmitDefaultValue = false)]
+        [JsonPropertyName("reason_code")]
         public string? ReasonCode { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "next_payment_retry_time", EmitDefaultValue = false)]
+        [JsonPropertyName("next_payment_retry_time")]
         public string? NextPaymentRetryTime { get; set; }
 
     }

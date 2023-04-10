@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Payments
 {
@@ -14,8 +15,9 @@ namespace PayPalCheckoutSdk.Payments
     /// The breakdown of the refund.
     /// </summary>
     [DataContract]
-    public class MerchantPayableBreakdown
+    public class MerchantPayableBreakdown 
     {
+
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
@@ -25,36 +27,42 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="gross_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("gross_amount")]
         public Money? GrossAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="net_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("net_amount")]
         public Money? NetAmount { get; set; }
 
         /// <summary>
         /// An array of breakdown values for the net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
         /// </summary>
         [DataMember(Name="net_amount_breakdown", EmitDefaultValue = false)]
+        [JsonPropertyName("net_amount_breakdown")]
         public List<NetAmountBreakdownItem>? NetAmountBreakdown { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
+        [JsonPropertyName("paypal_fee")]
         public Money? PaypalFee { get; set; }
 
         /// <summary>
         /// An array of platform or partner fees, commissions, or brokerage fees for the refund.
         /// </summary>
         [DataMember(Name="platform_fees", EmitDefaultValue = false)]
+        [JsonPropertyName("platform_fees")]
         public List<PlatformFee>? PlatformFees { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="total_refunded_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("total_refunded_amount")]
         public Money? TotalRefundedAmount { get; set; }
     }
 }
