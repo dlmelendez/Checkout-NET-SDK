@@ -1,12 +1,13 @@
 ﻿## ElCamino.PayPalCheckoutSdk
+- New! Adding System.Text.Json serialization options
 - New! Full support of the Webhooks Management API https://developer.paypal.com/docs/api/webhooks/v1/
 - Added recurring billing support via products, plans and subscriptions https://developer.paypal.com/docs/api/subscriptions/v1/
 - Uses the regex and threading performance and current .NET frameworks in [ElCamino.PayPalHttp library](https://github.com/dlmelendez/paypalhttp_dotnet).
-- Supports .netstandard2.0, .net6 and higher
+- Supports .net6 and higher
 - Check the unit tests for the latest examples for using Subscription and Webhooks APIs
 - Forked from deprecated https://github.com/paypal/Checkout-NET-SDK
 
-## REST API SDK for Dotnet V2
+## REST API SDK for Dotnet 6 and greater
 
 ![Home Image](homepage.jpg)
 
@@ -21,11 +22,11 @@ Please refer to the [PayPal Checkout Integration Guide](https://developer.paypal
 
 ## Prerequisites
 
-.NET .netstandard2.0, .net6 and higher
+.NET .net6 and higher
 
 An environment which supports TLS 1.2 (see the TLS-update site for more information)
 
-ElCamino.PayPalHttp 1.9
+ElCamino.PayPalHttp 2.0
 
 ## Usage
 
