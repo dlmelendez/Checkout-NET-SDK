@@ -8,16 +8,32 @@ namespace PayPalCheckoutSdk.Core
         private readonly IInjector _gzipInjector;
         private readonly IInjector _authorizationInjector;
 
-        public PayPalHttpClient(PayPalEnvironment environment) : this(environment, null)
+        public PayPalHttpClient(PayPalEnvironment environment, JsonSerializerType? jsonSerializerType = JsonSerializerType.DefaultDataContract) : this(environment, null, jsonSerializerType)
         { }
 
-        public PayPalHttpClient(PayPalEnvironment environment, string? refreshToken) : base(environment)
+        public PayPalHttpClient(PayPalEnvironment environment, string? refreshToken, JsonSerializerType? jsonSerializerType = JsonSerializerType.DefaultDataContract) : base(environment)
         {
             _gzipInjector = new GzipInjector();
             _authorizationInjector = new AuthorizationInjector(environment, refreshToken);
 
             AddInjector(_gzipInjector);
             AddInjector(_authorizationInjector);
+            if (jsonSerializerType != null)
+            {
+                switch (jsonSerializerType.Value)
+                {
+                    case JsonSerializerType.SystemJsonText: 
+                        Encoder.RegisterSerializer(new SystemTextJsonSerializer());
+                        break;
+#if NET7_0_OR_GREATER
+                    //Experimental!
+                    case JsonSerializerType.SystemJsonTextWithDataContext:
+                        Encoder.RegisterSerializer(new SystemTextJsonWithContextSerializer());
+                        break;
+#endif
+                }
+            }
+            //else - loads the existing DataContract Json Serializer in the Encoder
         }
 
         protected override string GetUserAgent()

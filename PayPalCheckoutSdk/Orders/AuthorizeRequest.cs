@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,18 +26,21 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
         /// <summary>
         /// The payment source definition.
         /// </summary>
         [DataMember(Name="payment_source", EmitDefaultValue = false)]
+        [JsonPropertyName("payment_source")]
         public PaymentSource? PaymentSource { get; set; }
 
         /// <summary>
         /// The API caller-provided external ID for the purchase unit. Required for multiple purchase units.
         /// </summary>
         [DataMember(Name="reference_id", EmitDefaultValue = false)]
+        [JsonPropertyName("reference_id")]
         public string? ReferenceId { get; set; }
     }
 }

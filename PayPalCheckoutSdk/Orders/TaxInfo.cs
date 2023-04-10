@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -26,6 +26,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The customer's tax ID. Supported for the PayPal payment method only. Typically, the tax ID is 11 characters long for individuals and 14 characters long for businesses.
         /// </summary>
         [DataMember(Name="tax_id", EmitDefaultValue = false)]
+        [JsonPropertyName("tax_id")]
         public string? TaxId { get; set; }
 
         /// <summary>
@@ -33,6 +34,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The customer's tax ID type. Supported for the PayPal payment method only.
         /// </summary>
         [DataMember(Name="tax_id_type", EmitDefaultValue = false)]
+        [JsonPropertyName("tax_id_type")]
         public string? TaxIdType { get; set; }
     }
 }

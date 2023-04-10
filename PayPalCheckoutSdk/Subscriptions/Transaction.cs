@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Subscriptions
 {
     [DataContract]
-    public class Transaction
+    public class Transaction 
     {
         /// <summary>
         /// The status of the captured payment.
@@ -19,36 +20,42 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// REFUNDED. An amount greater than or equal to this captured payment's amount was refunded to the payer.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
         /// The PayPal-generated transaction ID.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// The breakdown details for the amount. Includes the gross, tax, fee, and shipping amounts.
         /// </summary>
         [DataMember(Name = "amount_with_breakdown", EmitDefaultValue = false)]
+        [JsonPropertyName("amount_with_breakdown")]
         public AmountWithBreakdown? AmountWithBreakdown { get; set; }
 
         /// <summary>
         /// The name of the customer.
         /// </summary>
         [DataMember(Name = "payer_name", EmitDefaultValue = false)]
+        [JsonPropertyName("payer_name")]
         public Name? PayerName { get; set; }
 
         /// <summary>
         /// The PayPal-generated transaction ID.
         /// </summary>
         [DataMember(Name = "payer_email", EmitDefaultValue = false)]
+        [JsonPropertyName("payer_email")]
         public string? PayerEmail { get; set; }
 
         /// <summary>
         /// The date and time, in Internet date and time format. https://tools.ietf.org/html/rfc3339#section-5.6 Seconds are required while fractional seconds are optional.
         /// </summary>
         [DataMember(Name = "time", EmitDefaultValue = false)]
+        [JsonPropertyName("time")]
         public string? Time { get; set; }
 
     }

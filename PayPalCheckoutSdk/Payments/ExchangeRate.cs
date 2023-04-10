@@ -6,6 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 
 namespace PayPalCheckoutSdk.Payments
@@ -14,8 +15,9 @@ namespace PayPalCheckoutSdk.Payments
     /// The exchange rate that determines the amount to convert from one currency to another currency.
     /// </summary>
     [DataContract]
-    public class ExchangeRate
+    public class ExchangeRate 
     {
+
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
@@ -25,18 +27,21 @@ namespace PayPalCheckoutSdk.Payments
         /// The [three-character ISO-4217 currency code](/docs/integration/direct/rest/currency-codes/) that identifies the currency.
         /// </summary>
         [DataMember(Name="PayPalCheckoutSdk_currency", EmitDefaultValue = false)]
+        [JsonPropertyName("PayPalCheckoutSdk_currency")]
         public string? PayPalCheckoutSdkCurrency { get; set; }
 
         /// <summary>
         /// The [three-character ISO-4217 currency code](/docs/integration/direct/rest/currency-codes/) that identifies the currency.
         /// </summary>
         [DataMember(Name="target_currency", EmitDefaultValue = false)]
+        [JsonPropertyName("target_currency")]
         public string? TargetCurrency { get; set; }
 
         /// <summary>
         /// The target currency amount. Equivalent to one unit of the PayPalCheckoutSdk currency. Formatted as integer or decimal value with one to 15 digits to the right of the decimal point.
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue = false)]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 }

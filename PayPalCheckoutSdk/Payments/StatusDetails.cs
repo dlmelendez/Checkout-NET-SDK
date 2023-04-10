@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Payments
 {
@@ -14,7 +14,7 @@ namespace PayPalCheckoutSdk.Payments
     /// The details of the captured payment status.
     /// </summary>
     [DataContract]
-    public class StatusDetails
+    public class StatusDetails 
     {
         /// <summary>
 	    /// Required default constructor
@@ -25,6 +25,7 @@ namespace PayPalCheckoutSdk.Payments
         /// The reason why the captured payment status is `PENDING` or `DENIED`.
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue = false)]
+        [JsonPropertyName("reason")]
         public string? Reason { get; set; }
     }
 }

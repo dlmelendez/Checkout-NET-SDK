@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Orders;
 using PayPalCheckoutSdk.Test;
 using PayPalHttp;
 using Xunit;
@@ -64,8 +65,9 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             var simulateResult = simulateResponse.Result<Event>();
             Assert.Equal(HttpStatusCode.Accepted, simulateResponse.StatusCode);
 
-            Assert.NotNull(simulateResult);
-            Assert.False(string.IsNullOrWhiteSpace(simulateResult.Id));
+            Capture? capture = simulateResult.GetResource<Capture>();
+            Assert.NotNull(capture);
+            Assert.False(string.IsNullOrWhiteSpace(capture.Id));
         }
 
         [Fact]

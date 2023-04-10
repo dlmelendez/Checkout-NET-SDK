@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -25,12 +25,14 @@ namespace PayPalCheckoutSdk.Core
         /// The payment card to use to fund a payment. Can be a credit or debit card.
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue = false)]
+        [JsonPropertyName("card")]
         public Card? Card { get; set; }
 
         /// <summary>
         /// The tokenized payment source to fund a payment.
         /// </summary>
         [DataMember(Name="token", EmitDefaultValue = false)]
+        [JsonPropertyName("token")]
         public Token? Token { get; set; }
     }
 }

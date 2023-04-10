@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -26,12 +26,14 @@ namespace PayPalCheckoutSdk.Orders
         /// The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
         /// </summary>
         [DataMember(Name="phone_number", EmitDefaultValue = false)]
+        [JsonPropertyName("phone_number")]
         public Phone? PhoneNumber { get; set; }
 
         /// <summary>
         /// The phone type.
         /// </summary>
         [DataMember(Name="phone_type", EmitDefaultValue = false)]
+        [JsonPropertyName("phone_type")]
         public string? PhoneType { get; set; }
     }
 }

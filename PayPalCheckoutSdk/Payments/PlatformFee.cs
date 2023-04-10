@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Payments
 {
@@ -14,7 +15,7 @@ namespace PayPalCheckoutSdk.Payments
     /// The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
     /// </summary>
     [DataContract]
-    public class PlatformFee
+    public class PlatformFee 
     {
         /// <summary>
 	    /// Required default constructor
@@ -26,12 +27,14 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
         /// <summary>
         /// The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
         /// </summary>
         [DataMember(Name="payee", EmitDefaultValue = false)]
+        [JsonPropertyName("payee")]
         public MerchantBase? Payee { get; set; }
     }
 }

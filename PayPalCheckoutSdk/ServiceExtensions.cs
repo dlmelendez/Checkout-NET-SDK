@@ -13,10 +13,11 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddPayPalHttpClient(this IServiceCollection services, 
             string clientId,
             string clientSecret,
-            bool useSandBox = false)
+            bool useSandBox = false,
+            JsonSerializerType? jsonSerializerType = JsonSerializerType.DefaultDataContract)
         {
-            services.AddSingleton<PayPalHttpClient>(useSandBox ? new PayPalHttpClient(new SandboxEnvironment(clientId, clientSecret)) :
-                new PayPalHttpClient(new LiveEnvironment(clientId, clientSecret)));
+            services.AddSingleton<PayPalHttpClient>(useSandBox ? new PayPalHttpClient(new SandboxEnvironment(clientId, clientSecret), jsonSerializerType) :
+                new PayPalHttpClient(new LiveEnvironment(clientId, clientSecret), jsonSerializerType));
             return services;
         }
     }

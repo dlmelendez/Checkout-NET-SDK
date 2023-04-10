@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Subscriptions
 {
@@ -9,7 +10,7 @@ namespace PayPalCheckoutSdk.Subscriptions
     /// The SubscriptionSaveRequest.
     /// </summary>
     [DataContract]
-    public class SubscriptionSaveRequest
+    public class SubscriptionSaveRequest 
     {
         /// <summary>
 	    /// Required default constructor
@@ -20,6 +21,7 @@ namespace PayPalCheckoutSdk.Subscriptions
         /// The identifier of session for which subscription needs to be saved.
         /// </summary>
         [DataMember(Name = "token_id", EmitDefaultValue = false)]
+        [JsonPropertyName("token_id")]
         public string? TokenId { get; set; }
         
     }

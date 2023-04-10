@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,12 +25,14 @@ namespace PayPalCheckoutSdk.Orders
         /// An array of conditions that are covered for the transaction.
         /// </summary>
         [DataMember(Name="dispute_categories", EmitDefaultValue = false)]
+        [JsonPropertyName("dispute_categories")]
         public List<string>? DisputeCategories { get; set; }
 
         /// <summary>
         /// Indicates whether the transaction is eligible for seller protection. For information, see [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
     }
 }

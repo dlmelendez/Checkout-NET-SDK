@@ -6,7 +6,7 @@
 // DO NOT EDIT
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -26,6 +26,7 @@ namespace PayPalCheckoutSdk.Core
         /// The PayPal-generated ID for the token.
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue = false)]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -33,6 +34,7 @@ namespace PayPalCheckoutSdk.Core
         /// The tokenization method that generated the ID.
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue = false)]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
     }
 }

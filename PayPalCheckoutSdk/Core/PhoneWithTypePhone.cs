@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -14,6 +15,7 @@ namespace PayPalCheckoutSdk.Core
         /// The national number consists of a national destination code (NDC) and subscriber number (SN).
         /// </summary>
         [DataMember(Name = "national_number", EmitDefaultValue = false)]
+        [JsonPropertyName("national_number")]
         public string? NationalNumber { get; set; }
     }
 }

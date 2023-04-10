@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,24 +26,28 @@ namespace PayPalCheckoutSdk.Orders
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="gross_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("gross_amount")]
         public Money? GrossAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="net_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("net_amount")]
         public Money? NetAmount { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="paypal_fee", EmitDefaultValue = false)]
+        [JsonPropertyName("paypal_fee")]
         public Money? PaypalFee { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="receivable_amount", EmitDefaultValue = false)]
+        [JsonPropertyName("receivable_amount")]
         public Money? ReceivableAmount { get; set; }
     }
 }

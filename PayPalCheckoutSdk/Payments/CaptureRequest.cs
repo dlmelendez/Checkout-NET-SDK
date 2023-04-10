@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Payments
 {
@@ -14,8 +15,9 @@ namespace PayPalCheckoutSdk.Payments
     /// Captures either a portion or the full authorized amount of an authorized payment.
     /// </summary>
     [DataContract]
-    public class CaptureRequest
+    public class CaptureRequest 
     {
+
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
@@ -25,24 +27,28 @@ namespace PayPalCheckoutSdk.Payments
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
         /// <summary>
         /// Indicates whether you can make additional captures against the authorized payment. Set to `true` if you do not intend to capture additional payments against the authorization. Set to `false` if you intend to capture additional payments against the authorization.
         /// </summary>
         [DataMember(Name="final_capture", EmitDefaultValue = false)]
+        [JsonPropertyName("final_capture")]
         public bool? FinalCapture { get; set; }
 
         /// <summary>
         /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives.
         /// </summary>
         [DataMember(Name="invoice_id", EmitDefaultValue = false)]
+        [JsonPropertyName("invoice_id")]
         public string? InvoiceId { get; set; }
 
         /// <summary>
         /// Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
         /// </summary>
         [DataMember(Name="payment_instruction", EmitDefaultValue = false)]
+        [JsonPropertyName("payment_instruction")]
         public PaymentInstruction? PaymentInstruction { get; set; }
     }
 }

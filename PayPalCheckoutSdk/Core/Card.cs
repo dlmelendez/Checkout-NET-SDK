@@ -1,7 +1,7 @@
 ﻿
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -14,56 +14,64 @@ namespace PayPalCheckoutSdk.Core
         /// <summary>
 	    /// Required default constructor
 		/// </summary>
-        public Card() {}
+        public Card() { }
 
         /// <summary>
         /// The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute).
         /// </summary>
-        [DataMember(Name="billing_address", EmitDefaultValue = false)]
+        [DataMember(Name = "billing_address", EmitDefaultValue = false)]
+        [JsonPropertyName("billing_address")]
         public AddressPortable? AddressPortable { get; set; }
 
         /// <summary>
         /// The card network or brand. Applies to credit, debit, gift, and payment cards.
         /// </summary>
-        [DataMember(Name="card_type", EmitDefaultValue = false)]
+        [DataMember(Name = "card_type", EmitDefaultValue = false)]
+        [JsonPropertyName("card_type")]
         public string? CardType { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// The year and month, in ISO-8601 `YYYY-MM` date format. See [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6).
         /// </summary>
-        [DataMember(Name="expiry", EmitDefaultValue = false)]
+        [DataMember(Name = "expiry", EmitDefaultValue = false)]
+        [JsonPropertyName("expiry")]
         public string? Expiry { get; set; }
 
         /// <summary>
         /// The PayPal-generated ID for the card.
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// The last digits of the payment card.
         /// </summary>
-        [DataMember(Name="last_digits", EmitDefaultValue = false)]
+        [DataMember(Name = "last_digits", EmitDefaultValue = false)]
+        [JsonPropertyName("last_digits")]
         public string? LastDigits { get; set; }
 
         /// <summary>
         /// The card holder's name as it appears on the card.
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// REQUIRED
         /// The primary account number (PAN) for the payment card.
         /// </summary>
-        [DataMember(Name="number", EmitDefaultValue = false)]
+        [DataMember(Name = "number", EmitDefaultValue = false)]
+        [JsonPropertyName("number")]
         public string? Number { get; set; }
 
         /// <summary>
         /// The three- or four-digit security code of the card. Also known as the CVV, CVC, CVN, CVE, or CID.
         /// </summary>
-        [DataMember(Name="security_code", EmitDefaultValue = false)]
+        [DataMember(Name = "security_code", EmitDefaultValue = false)]
+        [JsonPropertyName("security_code")]
         public string? SecurityCode { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -14,12 +14,14 @@ namespace PayPalCheckoutSdk.Core
         /// The active pricing scheme for this billing cycle. A free trial billing cycle does not require a pricing scheme.
         /// </summary>
         [DataMember(Name = "pricing_scheme", EmitDefaultValue = false)]
+        [JsonPropertyName("pricing_scheme")]
         public PricingScheme? PricingScheme { get; set; }
 
         /// <summary>
         /// The frequency details for this billing cycle.
         /// </summary>
         [DataMember(Name = "frequency", EmitDefaultValue = false)]
+        [JsonPropertyName("frequency")]
         public Frequency? Frequency { get; set; }
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace PayPalCheckoutSdk.Core
         /// TRIAL.A trial billing cycle.
         /// </summary>
         [DataMember(Name = "tenure_type", EmitDefaultValue = false)]
+        [JsonPropertyName("tenure_type")]
         public string? TenureType { get; set; }
 
         /// <summary>
@@ -37,6 +40,7 @@ namespace PayPalCheckoutSdk.Core
         /// so that trial cycle runs before the regular cycle.
         /// </summary>
         [DataMember(Name = "sequence", EmitDefaultValue = false)]
+        [JsonPropertyName("sequence")]
         public int? Sequence { get; set; }
 
         /// <summary>
@@ -44,6 +48,7 @@ namespace PayPalCheckoutSdk.Core
         /// Regular billing cycles can be executed infinite times (value of 0 for total_cycles) or a finite number of times (value between 1 and 999 for total_cycles).
         /// </summary>
         [DataMember(Name = "total_cycles", EmitDefaultValue = false)]
+        [JsonPropertyName("total_cycles")]
         public int? TotalCycles { get; set; }
     }
 }

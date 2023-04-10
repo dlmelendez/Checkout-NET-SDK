@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -7,12 +8,15 @@ namespace PayPalCheckoutSdk.Core
     public class AccessToken
     {
         [DataMember(Name = "access_token")]
+        [JsonPropertyName("access_token")]
         public string? Token { get; set; }
 
         [DataMember(Name = "token_type")]
+        [JsonPropertyName("token_type")]
         public string? TokenType { get; set; }
 
         [DataMember(Name = "expires_in")]
+        [JsonPropertyName("expires_in")]
         public int ExpiresIn { get; set; }
 
         private readonly DateTime _createDate;

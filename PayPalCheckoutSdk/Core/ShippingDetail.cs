@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -25,18 +26,21 @@ namespace PayPalCheckoutSdk.Core
         /// The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute).
         /// </summary>
         [DataMember(Name="address", EmitDefaultValue = false)]
+        [JsonPropertyName("address")]
         public AddressPortable? Address { get; set; }
 
         /// <summary>
         /// The name of the party.
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue = false)]
+        [JsonPropertyName("name")]
         public Name? Name { get; set; }
 
         /// <summary>
         /// An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items
         /// </summary>
         [DataMember(Name="options", EmitDefaultValue = false)]
+        [JsonPropertyName("options")]
         public List<ShippingOption>? Options { get; set; }
     }
 }

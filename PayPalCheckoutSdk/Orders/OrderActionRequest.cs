@@ -7,6 +7,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Orders
 {
@@ -25,6 +26,7 @@ namespace PayPalCheckoutSdk.Orders
         /// The payment source definition.
         /// </summary>
         [DataMember(Name="payment_source", EmitDefaultValue = false)]
+        [JsonPropertyName("payment_source")]
         public PaymentSource? PaymentSource { get; set; }
     }
 }

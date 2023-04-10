@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using PayPalCheckoutSdk.Core;
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Products
 {
@@ -9,7 +10,7 @@ namespace PayPalCheckoutSdk.Products
     /// The Product.
     /// </summary>
     [DataContract]
-    public class Product
+    public class Product 
     {
         /// <summary>
 	    /// Required default constructor
@@ -20,18 +21,21 @@ namespace PayPalCheckoutSdk.Products
         /// The ID of the order.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// The plan name.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// The detailed description of the plan.
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -42,6 +46,7 @@ namespace PayPalCheckoutSdk.Products
         /// SERVICE.Product representing a service.Example: Tech Support
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -495,36 +500,42 @@ namespace PayPalCheckoutSdk.Products
         /// WOMEN_CLOTHING.Women's clothing
         /// </summary>
         [DataMember(Name = "category", EmitDefaultValue = false)]
+        [JsonPropertyName("category")]
         public string? Category { get; set; }
 
         /// <summary>
         /// The image URL for the product.
         /// </summary>
         [DataMember(Name = "image_url", EmitDefaultValue = false)]
+        [JsonPropertyName("image_url")]
         public string? ImageUrl { get; set; }
 
         /// <summary>
         /// The home page URL for the product.
         /// </summary>
         [DataMember(Name = "home_url", EmitDefaultValue = false)]
+        [JsonPropertyName("home_url")]
         public string? HomeUrl { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
   
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
         /// </summary>
         [DataMember(Name = "update_time", EmitDefaultValue = false)]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
         /// An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links). To complete payer approval, use the `approve` link with the `GET` method.
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = false)]
+        [JsonPropertyName("links")]
         public List<LinkDescription>? Links { get; set; }
 
     }

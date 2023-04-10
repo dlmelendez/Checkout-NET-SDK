@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk.Core
 {
@@ -17,6 +17,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^([0 - 9]+|([0 - 9]+)?[.] [0-9]+)$.
         /// </summary>
         [DataMember(Name = "starting_quantity", EmitDefaultValue = false)]
+        [JsonPropertyName("starting_quantity")]
         public string? StartingQuantity { get; set; }
 
         /// <summary>
@@ -26,6 +27,7 @@ namespace PayPalCheckoutSdk.Core
         /// Pattern: ^([0 - 9]+|([0 - 9]+)?[.] [0-9]+)$.
         /// </summary>
         [DataMember(Name = "ending_quantity", EmitDefaultValue = false)]
+        [JsonPropertyName("ending_quantity")]
         public string? EndingQuantity { get; set; }
 
         /// <summary>
@@ -35,6 +37,7 @@ namespace PayPalCheckoutSdk.Core
         /// TIERED.A tiered pricing model.
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
+        [JsonPropertyName("amount")]
         public Money? Amount { get; set; }
 
     }
