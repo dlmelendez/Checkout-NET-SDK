@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <LangVersion>11.0</LangVersion>
-    <Version>2.0.1</Version>
+    <Version>2.1.0</Version>
     <Nullable>enable</Nullable>
     <Owners>David Melendez</Owners>
     <RepositoryType>git</RepositoryType>
@@ -27,7 +27,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Webhooks\DigiCertSHA2ExtendedValidationServerCA.crt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Webhooks\DigiCertSHA2ExtendedValidationServerCA.crt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ElCamino.PayPalHttp" Version="2.0.0" />
+    <PackageReference Include="Crc32.NET" Version="1.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>
 

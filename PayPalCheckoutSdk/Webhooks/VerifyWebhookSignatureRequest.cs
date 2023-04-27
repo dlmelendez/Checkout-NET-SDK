@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Mime;
@@ -7,6 +7,7 @@ using PayPalHttp;
 
 namespace PayPalCheckoutSdk.Webhooks
 {
+    [Obsolete("Replaced with VerifyWebhookEvent.ValidateReceivedEventAsync, to be removed in future version.")]
     public class VerifyWebhookSignatureRequest : HttpRequest
     {
 

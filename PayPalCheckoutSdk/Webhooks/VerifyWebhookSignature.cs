@@ -53,9 +53,17 @@ namespace PayPalCheckoutSdk.Webhooks
         /// <summary>
         /// A webhook event notification.
         /// </summary>
+        [Obsolete("Please use the WebhooEventRequestBody property instead with VerifyWebhookEvent.ValidateReceivedEventAsync")]
         [DataMember(Name = "webhook_event", EmitDefaultValue = false)]
         [JsonPropertyName("webhook_event")]
         public Event? WebhookEvent { get; set; }
+
+        /// <summary>
+        /// Add the entire request body from the webhook post as a string
+        /// e.g. StreamReader.ReadToEnd() from the request body stream
+        /// </summary>
+        [JsonIgnore]
+        public string? WebhookEventRequestBody { get; set; }
 
         /// <summary>
         /// The ID of the webhook as configured in your Developer Portal account.
