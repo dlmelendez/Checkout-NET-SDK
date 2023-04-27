@@ -9,6 +9,7 @@ namespace PayPalCheckoutSdk.Webhooks
     /// <summary>
     /// https://developer.paypal.com/docs/api/webhooks/v1/#definition-verify_webhook_signature_response
     /// </summary>
+    [Obsolete("Replaced with VerifyWebhookEvent.ValidateReceivedEventAsync, to be removed in future version.")]
     [DataContract]
     public class VerifyWebhookSignatureResponse 
     {
