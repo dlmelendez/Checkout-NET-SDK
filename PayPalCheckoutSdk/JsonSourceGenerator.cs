@@ -165,7 +165,6 @@ namespace PayPalCheckoutSdk
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.VerificationStatus))]
     [JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.VerifyWebhookSignature), TypeInfoPropertyName = "Webhooks_VerifyWebhookSignature")]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.VerifyWebhookSignatureRequest))]
-    [JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.VerifyWebhookSignatureResponse), TypeInfoPropertyName = "Webhooks_VerifyWebhookSignatureResponse")]
     [JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.Webhook), TypeInfoPropertyName = "Webhooks_Webhook")]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.WebhookCreateRequest))]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.WebhookDeleteRequest))]

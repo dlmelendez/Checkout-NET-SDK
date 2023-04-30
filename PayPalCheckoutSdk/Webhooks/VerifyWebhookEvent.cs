@@ -12,6 +12,8 @@ namespace PayPalCheckoutSdk.Webhooks
     {
         private const string WithRSAToken = "withRSA";
 
+        private static string? _publicLocalCertificateThumbprint;
+
         public static async Task<bool> ValidateReceivedEventAsync(VerifyWebhookSignature verifySignature)
         {
             if (string.IsNullOrWhiteSpace(verifySignature.TransmissionTime))
@@ -75,11 +77,15 @@ namespace PayPalCheckoutSdk.Webhooks
             X509Certificate2Collection remoteCertificateCollection = new X509Certificate2Collection();
             remoteCertificateCollection.Import(certificateBytes);
 
-            using var publicCertStream = typeof(Event).Assembly.GetManifestResourceStream("PayPalCheckoutSdk.Webhooks.DigiCertSHA2ExtendedValidationServerCA.crt");
-            byte[] resourceBytes = new byte[publicCertStream!.Length];
-            _ = await publicCertStream.ReadAsync(resourceBytes, 0, resourceBytes.Length);
+            if (string.IsNullOrWhiteSpace(_publicLocalCertificateThumbprint))
+            {
+                using var publicCertStream = typeof(Event).Assembly.GetManifestResourceStream("PayPalCheckoutSdk.Webhooks.DigiCertSHA2ExtendedValidationServerCA.crt");
+                byte[] resourceBytes = new byte[publicCertStream!.Length];
+                _ = await publicCertStream.ReadAsync(resourceBytes);
 
-            X509Certificate2 publicLocalCertificate = new X509Certificate2(resourceBytes);
+                X509Certificate2 publicLocalCertificate = new X509Certificate2(resourceBytes);
+                _publicLocalCertificateThumbprint = publicLocalCertificate.Thumbprint;
+            }
             // Create and configure the X509Chain object
             using X509Chain chain = new X509Chain();
             chain.ChainPolicy.RevocationMode = X509RevocationMode.Online; 
@@ -93,7 +99,7 @@ namespace PayPalCheckoutSdk.Webhooks
             }
 
             // Validate the certificate chain.
-            bool validateChain = chain.ChainElements.Any(a => a.Certificate.Thumbprint == publicLocalCertificate.Thumbprint);
+            bool validateChain = chain.ChainElements.Any(a => a.Certificate.Thumbprint == (_publicLocalCertificateThumbprint?? string.Empty));
             if (!validateChain)
             {
                 throw new Exception($"Invalid remote certificate, public key not found in chain {verifySignature.CertUrl}");
