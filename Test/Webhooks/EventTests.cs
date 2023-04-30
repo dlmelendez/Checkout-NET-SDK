@@ -65,7 +65,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             var simulateResult = simulateResponse.Result<Event>();
             Assert.Equal(HttpStatusCode.Accepted, simulateResponse.StatusCode);
 
-            Capture? capture = simulateResult.GetResource<Capture>();
+            Capture capture = simulateResult.GetResource<Capture>();
             Assert.NotNull(capture);
             Assert.False(string.IsNullOrWhiteSpace(capture.Id));
         }
@@ -138,34 +138,10 @@ namespace PayPalCheckoutSdk.Webhooks.Test
                 Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
             }
 
-        }
+        }        
 
         [Fact]
-        public async Task TestVerifySignatureEventNegative()
-        {
-            VerifyWebhookSignatureRequest simulateRequest = new VerifyWebhookSignatureRequest();
-
-            var verifySignature = new VerifyWebhookSignature()
-            {
-                CertUrl = "https://api.sandbox.paypal.com/v1/notifications/certs/CERT-360caa42-fca2a594-2d7ab011",
-                AuthAlgo = "SHA256withRSA",
-                TransmissionId = "d0a19f40-e46b-11ed-af6d-5d1995803275",
-                TransmissionSig = "Tg9131sVOAPVYn5XjQsR8C/tcOWuPkc//VkifmPX7TZD24\u002BkuRLIZ\u002BzfbMxkeuS0er1EzLHw4MRG83xkYoEGLe9QWD4nfvg/HIAvXDNgEZCG2BrPIwPaiFrA9G0SX22\u002BvpOiy4\u002BbWNrKAFZdt/gobEairdaqVe1unsCxCJQT6czTFiOBBAn85yDCSIhctk6RbEkprxjwTrgLDf1Cq41AgxZ72RwVuZlJHbMQF5Dl/cRQ9pU38I0HOq0DRXiiaJwrp7UJXkLRdu3ge4ivN3Th1Wq8D\u002BL/0xYrub9lFB0TKI2a7XBKlaua9aT7XrtuwZeI1cNz/jr0luz7K6JYdiZSlQ==",
-                TransmissionTime = "2023-04-26T19:52:03Z",
-                WebhookId = "3RY87287BU229431J",
-                WebhookEvent = new Event() { Id = Guid.NewGuid().ToString(), EventType = "PAYMENT.CAPTURE.COMPLETED" }
-            };
-            simulateRequest.RequestBody(verifySignature);
-
-            var createResponse = await TestHarness.client().Execute(simulateRequest);
-            var createResult = createResponse.Result<VerifyWebhookSignatureResponse>();
-            Assert.Equal(HttpStatusCode.OK, createResponse.StatusCode);
-
-            Assert.False(createResult.ValidSignature);
-        }
-
-        [Fact]
-        public async Task TestVerifySignatureEventCert()
+        public async Task TestVerifySignatureEventCertNegative()
         {
             var verifySignature = new VerifyWebhookSignature()
             {

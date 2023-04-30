@@ -52,8 +52,8 @@ namespace PayPalCheckoutSdk.Webhooks
 
         /// <summary>
         /// A webhook event notification.
+        /// Please use the WebhooEventRequestBody property instead with <see cref="VerifyWebhookEvent.ValidateReceivedEventAsync"/> 
         /// </summary>
-        [Obsolete("Please use the WebhooEventRequestBody property instead with VerifyWebhookEvent.ValidateReceivedEventAsync")]
         [DataMember(Name = "webhook_event", EmitDefaultValue = false)]
         [JsonPropertyName("webhook_event")]
         public Event? WebhookEvent { get; set; }
