@@ -13,8 +13,6 @@ variables:
   solution: '**/CheckoutNETSDK.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  PAYPAL_CLIENT_ID: $(PAYPALCLIENTID)
-  PAYPAL_CLIENT_SECRET: $(PAYPALCLIENTSECRET)
 steps:
 
 - task: UseDotNet@2
@@ -39,6 +37,9 @@ steps:
     publishTestResults: true
     projects: '**/Test.csproj'
     arguments: '--no-build --collect:"XPlat Code Coverage" -c $(BuildConfiguration) -v d'
+  env:
+    PAYPAL_CLIENT_ID: $(PAYPALCLIENTID)
+    PAYPAL_CLIENT_SECRET: $(PAYPALCLIENTSECRET)
 
 - task: PublishCodeCoverageResults@2
   displayName: 'Publish Code Coverage'
