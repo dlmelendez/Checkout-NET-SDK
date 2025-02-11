@@ -15,7 +15,9 @@ variables:
   buildConfiguration: 'Release'
 steps:
 
-env:
+- powershell: |
+    Write-Host "Mapping PayPal Environment Variables"
+  env:
     PAYPAL_CLIENT_ID: $(PAYPALCLIENTID)
     PAYPAL_CLIENT_SECRET: $(PAYPALCLIENTSECRET)
 
