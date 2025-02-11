@@ -13,13 +13,9 @@ variables:
   solution: '**/CheckoutNETSDK.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  PAYPAL_CLIENT_ID: $(PAYPALCLIENTID)
+  PAYPAL_CLIENT_SECRET: $(PAYPALCLIENTSECRET)
 steps:
-
-- powershell: |
-    Write-Host "Mapping PayPal Environment Variables"
-  env:
-    PAYPAL_CLIENT_ID: $(PAYPALCLIENTID)
-    PAYPAL_CLIENT_SECRET: $(PAYPALCLIENTSECRET)
 
 - task: UseDotNet@2
   displayName: 'Use .Net Core sdk 8.x'
