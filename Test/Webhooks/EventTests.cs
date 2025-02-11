@@ -78,7 +78,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             createWebhookRequest.Prefer(HeaderValueConstants.PreferValueRepresentation);
             var webhook = new Webhook()
             {
-                Url = "https://example.com/65432123456-787887adsf23333",
+                Url = $"https://example.com/65432123456-787887adsf23333/{Guid.NewGuid()}",
             };
             webhook.EventTypes.Add(new EventType() { Name = EventType.Wildcard });
             createWebhookRequest.RequestBody(webhook);

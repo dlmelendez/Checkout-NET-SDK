@@ -41,7 +41,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             var webhook = new Webhook()
             {
-                Url = "https://example.com/65432123456",
+                Url = $"https://example.com/65432123456/{Guid.NewGuid()}",
             };
             webhook.EventTypes.Add(new EventType() { Name = EventType.Wildcard });
             request.RequestBody(webhook);
@@ -57,7 +57,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
             try
             {
                 //Patch Webhook
-                const string urlNew = "https://example.com/65432123456-new";
+                string urlNew = $"https://example.com/65432123456-new/{Guid.NewGuid()}";
                 var patchRequest = new WebhookPatchRequest<string>(createResult.Id);
                 
                 patchRequest.RequestBody(
