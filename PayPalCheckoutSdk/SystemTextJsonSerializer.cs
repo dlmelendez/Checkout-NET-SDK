@@ -14,13 +14,9 @@ namespace PayPalCheckoutSdk
         public static JsonSerializerOptions JsonWebOptions => new JsonSerializerOptions(JsonSerializerDefaults.Web);
 
         private const string RegExPattern = MimeTypeConstants.ApplicationJson;
-#if NET7_0_OR_GREATER
         public static JsonSourceGenerator JsonWebSourceGenerator = new JsonSourceGenerator(JsonWebOptions);
 
         private static readonly Regex _pattern = ContextTypeRegEx();
-#else
-        private static readonly Regex _pattern = new(RegExPattern, RegexOptions.Compiled);
-#endif
 
         public async Task<object?> DecodeAsync(HttpContent content, Type responseType)
         {
@@ -43,9 +39,7 @@ namespace PayPalCheckoutSdk
             return RegExPattern;
         }
 
-#if NET7_0_OR_GREATER
         [GeneratedRegex(RegExPattern, RegexOptions.Compiled)]
         private static partial Regex ContextTypeRegEx();
-#endif
     }
 }

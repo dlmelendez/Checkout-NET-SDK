@@ -87,7 +87,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
         }       
 
         [Fact]
-        public async void TestSubscriptionsCreateRequest()
+        public async Task TestSubscriptionsCreateRequest()
         {
             Product product2 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId2);
 

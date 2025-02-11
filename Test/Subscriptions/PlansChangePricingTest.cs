@@ -20,18 +20,18 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
     {
         private List<UpdatePricingSchemeRequest> buildRequestBody()
         {
-            return  new List<UpdatePricingSchemeRequest>() { new UpdatePricingSchemeRequest()
+            return  [ new UpdatePricingSchemeRequest()
             {
 
-            }};
+            }];
         }
 
         [Theory]
-        [InlineData(new object[] { "ERRSUB023", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRSUB024", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRSUB026", "RESOURCE_NOT_FOUND" })]
-        [InlineData(new object[] { "ERRSUB025", "INVALID_REQUEST" })]
-        public async void TestPlansNegativeChangePricing(string planId, string errorName)
+        [InlineData(["ERRSUB023", "INTERNAL_SERVER_ERROR"])]
+        [InlineData(["ERRSUB024", "NOT_AUTHORIZED"])]
+        [InlineData(["ERRSUB026", "RESOURCE_NOT_FOUND"])]
+        [InlineData(["ERRSUB025", "INVALID_REQUEST"])]
+        public async Task TestPlansNegativeChangePricing(string planId, string errorName)
         {
             // - Change Plan Pricing
             PlansChangePricingRequest patchRequest = new PlansChangePricingRequest(planId);

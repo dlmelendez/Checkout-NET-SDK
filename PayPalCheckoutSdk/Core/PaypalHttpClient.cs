@@ -25,12 +25,10 @@ namespace PayPalCheckoutSdk.Core
                     case JsonSerializerType.SystemJsonText: 
                         Encoder.RegisterSerializer(new SystemTextJsonSerializer());
                         break;
-#if NET7_0_OR_GREATER
                     //Experimental!
                     case JsonSerializerType.SystemJsonTextWithDataContext:
                         Encoder.RegisterSerializer(new SystemTextJsonWithContextSerializer());
                         break;
-#endif
                 }
             }
             //else - loads the existing DataContract Json Serializer in the Encoder

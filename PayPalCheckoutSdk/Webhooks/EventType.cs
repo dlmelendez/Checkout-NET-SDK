@@ -33,7 +33,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// </summary>
         [DataMember(Name = "resource_versions", EmitDefaultValue = false)]
         [JsonPropertyName("resource_versions")]
-        public List<ResourceVersion>? ResourceVersions { get; set; } 
+        public List<string>? ResourceVersions { get; set; } 
 
         /// <summary>
         /// The status of a webhook event.

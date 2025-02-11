@@ -23,7 +23,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         [Theory]
         [InlineData(AnchorType.APPLICATION)]
         [InlineData(AnchorType.ACCOUNT)]
-        public async void TestWebhooksGetEmptyRequest(AnchorType anchor)
+        public async Task TestWebhooksGetEmptyRequest(AnchorType anchor)
         {
             WebhooksGetRequest request = new WebhooksGetRequest(anchor);
 
@@ -60,15 +60,15 @@ namespace PayPalCheckoutSdk.Webhooks.Test
                 const string urlNew = "https://example.com/65432123456-new";
                 var patchRequest = new WebhookPatchRequest<string>(createResult.Id);
                 
-                patchRequest.RequestBody(new List<Patch<string>>() 
-                {
+                patchRequest.RequestBody(
+                [
                     new Patch<string>() 
                     { 
                          Op = "replace",
                          Path = "/url",
                          Value = urlNew
                     } 
-                });
+                ]);
                 var patchResponse = await TestHarness.client().Execute(patchRequest);
                 Assert.Equal(HttpStatusCode.OK, patchResponse.StatusCode);
                 var patchResult = createResponse.Result<Webhook>();

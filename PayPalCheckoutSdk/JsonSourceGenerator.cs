@@ -1,9 +1,4 @@
-﻿#if NET7_0_OR_GREATER
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace PayPalCheckoutSdk
@@ -142,6 +137,7 @@ namespace PayPalCheckoutSdk
     [JsonSerializable(typeof(PayPalCheckoutSdk.Subscriptions.Transaction), TypeInfoPropertyName = "Subscriptions_Transaction")]
     [JsonSerializable(typeof(PayPalCheckoutSdk.Subscriptions.TransactionList), TypeInfoPropertyName = "Subscriptions_TransactionList")]
     [JsonSerializable(typeof(PayPalCheckoutSdk.Subscriptions.UpdatePricingSchemeRequest), TypeInfoPropertyName = "Subscriptions_UpdatePricingSchemeRequest")]
+    [JsonSerializable(typeof(List<PayPalCheckoutSdk.Subscriptions.UpdatePricingSchemeRequest>))]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.AnchorType))]
     [JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.Event), TypeInfoPropertyName = "Webhooks_Event")]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.EventGetRequest))]
@@ -172,9 +168,8 @@ namespace PayPalCheckoutSdk
     [JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.WebhookList), TypeInfoPropertyName = "Webhooks_WebhookList")]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.WebhookPatchRequest))]
     //[JsonSerializable(typeof(PayPalCheckoutSdk.Webhooks.WebhooksGetRequest))]
-
+    
     public partial class JsonSourceGenerator : JsonSerializerContext
     {
     }
 }
-#endif

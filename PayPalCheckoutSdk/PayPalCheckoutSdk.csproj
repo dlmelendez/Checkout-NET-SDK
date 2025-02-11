@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
-    <LangVersion>11.0</LangVersion>
-    <Version>2.2.0</Version>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <LangVersion>13.0</LangVersion>
+    <Version>2.3.0</Version>
     <Nullable>enable</Nullable>
     <Owners>David Melendez</Owners>
     <RepositoryType>git</RepositoryType>
@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ElCamino.PayPalHttp" Version="2.0.0" />
+    <PackageReference Include="ElCamino.PayPalHttp" Version="2.1.0" />
     <PackageReference Include="Crc32.NET" Version="1.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>

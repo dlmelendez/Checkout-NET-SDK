@@ -19,7 +19,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async void TestEventTypesAvailableRequest()
+        public async Task TestEventTypesAvailableRequest()
         {
             EventTypesAvailableGetRequest request = new EventTypesAvailableGetRequest();
 

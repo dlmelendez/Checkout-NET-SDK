@@ -28,7 +28,7 @@ namespace PayPalCheckoutSdk.Test
                 root.GetSection("PAYPAL_CLIENT_ID").Value : System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_ID");
             string clientSecret = root.GetSection("PAYPAL_CLIENT_SECRET") != null ?
                 root.GetSection("PAYPAL_CLIENT_SECRET").Value : System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_SECRET");
-#if NET7_0_OR_GREATER
+#if NET9_0_OR_GREATER
             services.AddPayPalHttpClient(ClientId, clientSecret, useSandBox: true, JsonSerializerType.SystemJsonTextWithDataContext);
 #else
             services.AddPayPalHttpClient(ClientId, clientSecret, useSandBox: true, JsonSerializerType.SystemJsonText);

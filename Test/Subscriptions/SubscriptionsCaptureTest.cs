@@ -22,12 +22,12 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
     {
 
         [Theory]
-        [InlineData(new object[] { "ERRSUB071", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRSUB072", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRSUB073", "RESOURCE_NOT_FOUND" })]
-        [InlineData(new object[] { "ERRSUB074", "INVALID_REQUEST" })]
-        [InlineData(new object[] { "ERRSUB075", "INVALID_REQUEST" })]
-        public async void TestSubscriptionsNegativeCapture(string subscriptionId, string errorName)
+        [InlineData(["ERRSUB071", "INTERNAL_SERVER_ERROR"])]
+        [InlineData(["ERRSUB072", "NOT_AUTHORIZED"])]
+        [InlineData(["ERRSUB073", "RESOURCE_NOT_FOUND"])]
+        [InlineData(["ERRSUB074", "INVALID_REQUEST"])]
+        [InlineData(["ERRSUB075", "INVALID_REQUEST"])]
+        public async Task TestSubscriptionsNegativeCapture(string subscriptionId, string errorName)
         {
             // - Capture Subscription
             SubscriptionsCaptureRequest captureRequest = new SubscriptionsCaptureRequest(subscriptionId);

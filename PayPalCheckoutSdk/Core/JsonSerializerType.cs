@@ -16,11 +16,9 @@ namespace PayPalCheckoutSdk.Core
         /// System.Text.Json polymophic serialization
         /// </summary>
         SystemJsonText = 1,
-#if NET7_0_OR_GREATER
         /// <summary>
         /// Experimental!, System.Text.Json with code generated context
         /// </summary>
         SystemJsonTextWithDataContext = 2
-#endif
     }
 }

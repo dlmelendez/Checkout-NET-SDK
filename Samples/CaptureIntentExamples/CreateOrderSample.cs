@@ -31,8 +31,8 @@ namespace Samples.CaptureIntentExamples
                     UserAction = "CONTINUE",
                     ShippingPreference = "SET_PROVIDED_ADDRESS"
                 },
-                PurchaseUnits = new List<PurchaseUnitRequest>
-                {
+                PurchaseUnits =
+                [
                     new PurchaseUnitRequest{
                         ReferenceId =  "PUHF",
                         Description = "Sporting Goods",
@@ -71,8 +71,8 @@ namespace Samples.CaptureIntentExamples
                                 }
                             }
                         },
-                        Items = new List<Item>
-                        {
+                        Items =
+                        [
                             new Item
                             {
                                 Name = "T-shirt",
@@ -109,7 +109,7 @@ namespace Samples.CaptureIntentExamples
                                 Quantity = "2",
                                 Category = "PHYSICAL_GOODS"
                             }
-                        },
+                        ],
                         ShippingDetail = new ShippingDetail
                         {
                             Name = new Name
@@ -127,7 +127,7 @@ namespace Samples.CaptureIntentExamples
                             }
                         }
                     }
-                }
+                ]
             };
 
             return orderRequest;

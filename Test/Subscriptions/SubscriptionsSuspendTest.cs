@@ -22,11 +22,11 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
     {
 
         [Theory]
-        [InlineData(new object[] { "ERRSUB059", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRSUB060", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRSUB061", "RESOURCE_NOT_FOUND" })]
-        [InlineData(new object[] { "ERRSUB062", "UNPROCESSABLE_ENTITY" })]
-        public async void TestSubscriptionsNegativeSuspend(string subscriptionId, string errorName)
+        [InlineData(["ERRSUB059", "INTERNAL_SERVER_ERROR"])]
+        [InlineData(["ERRSUB060", "NOT_AUTHORIZED"])]
+        [InlineData(["ERRSUB061", "RESOURCE_NOT_FOUND"])]
+        [InlineData(["ERRSUB062", "UNPROCESSABLE_ENTITY"])]
+        public async Task TestSubscriptionsNegativeSuspend(string subscriptionId, string errorName)
         {
             // - Suspend Subscription
             SubscriptionsSuspendRequest suspendRequest = new SubscriptionsSuspendRequest(subscriptionId);
