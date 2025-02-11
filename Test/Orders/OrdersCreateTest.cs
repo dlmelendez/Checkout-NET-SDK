@@ -20,8 +20,8 @@ namespace PayPalCheckoutSdk.Orders.Test
         {
             var order = new OrderRequest() {
                 CheckoutPaymentIntent = "CAPTURE",
-                PurchaseUnits = new List<PurchaseUnitRequest>()
-                {
+                PurchaseUnits =
+                [
                     new PurchaseUnitRequest()
                     {
                         ReferenceId = "test_ref_id1",
@@ -31,7 +31,7 @@ namespace PayPalCheckoutSdk.Orders.Test
                             Value = "100.00"
                         }
                     }
-                }, 
+                ], 
                 ApplicationContext = new ApplicationContext()
                 {
                     ReturnUrl = "https://www.example.com",
@@ -40,7 +40,7 @@ namespace PayPalCheckoutSdk.Orders.Test
             };
             return order;
         }
-        public async static Task<HttpResponse> CreateOrder() 
+        public static async Task<HttpResponse> CreateOrder() 
         {
             var request = new OrdersCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
@@ -49,7 +49,7 @@ namespace PayPalCheckoutSdk.Orders.Test
         }
 
         [Fact]
-        public async void TestOrdersCreateRequest()
+        public async Task TestOrdersCreateRequest()
         {
             var response = await CreateOrder();
 

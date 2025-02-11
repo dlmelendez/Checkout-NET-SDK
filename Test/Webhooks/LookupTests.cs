@@ -20,7 +20,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
         }
 
         [Fact]
-        public async void TestLookupGetEmptyRequest()
+        public async Task TestLookupGetEmptyRequest()
         {
             LookupsGetRequest request = new LookupsGetRequest();
 

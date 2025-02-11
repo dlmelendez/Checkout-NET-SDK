@@ -74,11 +74,11 @@ namespace PayPalCheckoutSdk.Products.Test
         {
             Product product1 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId1);
             Product product2 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId2);
-            return new List<Product>() { product1, product2 };
+            return [product1, product2];
         }
 
         [Fact]
-        public async void TestProductsCreateRequest()
+        public async Task TestProductsCreateRequest()
         {
             var response = await CreateProduct();
 

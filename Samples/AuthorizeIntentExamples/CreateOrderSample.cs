@@ -32,8 +32,8 @@ namespace Samples.AuthorizeIntentExamples
                     UserAction = "CONTINUE",
                     ShippingPreference = "SET_PROVIDED_ADDRESS"
                 },
-                PurchaseUnits = new List<PurchaseUnitRequest>
-                {
+                PurchaseUnits =
+                [
                     new PurchaseUnitRequest{
                         ReferenceId =  "PUHF",
                         Description = "Sporting Goods",
@@ -72,8 +72,8 @@ namespace Samples.AuthorizeIntentExamples
                                 }
                             }
                         },
-                        Items = new List<Item>
-                        {
+                        Items =
+                        [
                             new Item
                             {
                                 Name = "T-shirt",
@@ -110,7 +110,7 @@ namespace Samples.AuthorizeIntentExamples
                                 Quantity = "2",
                                 Category = "PHYSICAL_GOODS"
                             }
-                        },
+                        ],
                         ShippingDetail = new ShippingDetail
                         {
                             Name = new Name
@@ -128,7 +128,7 @@ namespace Samples.AuthorizeIntentExamples
                             }
                         }
                     }
-                }
+                ]
             };
 
             return orderRequest;
@@ -171,8 +171,8 @@ namespace Samples.AuthorizeIntentExamples
                     CancelUrl = "https://www.example.com",
                     ReturnUrl = "https://www.example.com"
                 },
-                PurchaseUnits = new List<PurchaseUnitRequest>
-                {
+                PurchaseUnits =
+                [
                     new PurchaseUnitRequest{
                         AmountWithBreakdown = new AmountWithBreakdown
                         {
@@ -181,7 +181,7 @@ namespace Samples.AuthorizeIntentExamples
                         }
                         
                     }
-                }
+                ]
             };
 
             return orderRequest;

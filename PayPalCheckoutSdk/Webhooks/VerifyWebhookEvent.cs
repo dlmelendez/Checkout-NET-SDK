@@ -74,16 +74,23 @@ namespace PayPalCheckoutSdk.Webhooks
             using System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient();
             byte[] certificateBytes = await httpClient.GetByteArrayAsync(verifySignature.CertUrl);
 
-            X509Certificate2Collection remoteCertificateCollection = new X509Certificate2Collection();
+            X509Certificate2Collection remoteCertificateCollection = [];
+#if NET9_0_OR_GREATER
+            remoteCertificateCollection.Add(X509CertificateLoader.LoadCertificate(certificateBytes));
+#else
             remoteCertificateCollection.Import(certificateBytes);
-
+#endif
             if (string.IsNullOrWhiteSpace(_publicLocalCertificateThumbprint))
             {
                 using var publicCertStream = typeof(Event).Assembly.GetManifestResourceStream("PayPalCheckoutSdk.Webhooks.DigiCertSHA2ExtendedValidationServerCA.crt");
                 byte[] resourceBytes = new byte[publicCertStream!.Length];
                 _ = await publicCertStream.ReadAsync(resourceBytes);
 
+#if NET9_0_OR_GREATER
+                X509Certificate2 publicLocalCertificate = X509CertificateLoader.LoadCertificate(resourceBytes);
+#else
                 X509Certificate2 publicLocalCertificate = new X509Certificate2(resourceBytes);
+#endif
                 _publicLocalCertificateThumbprint = publicLocalCertificate.Thumbprint;
             }
             // Create and configure the X509Chain object

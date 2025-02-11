@@ -1,12 +1,7 @@
-using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
-using PayPalHttp;
-using Xunit;
+﻿using System;
+using System.Threading.Tasks;
 using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
+using Xunit;
 
 
 namespace PayPalCheckoutSdk.Orders.Test
@@ -15,7 +10,7 @@ namespace PayPalCheckoutSdk.Orders.Test
     public class OrdersGetTest
     {
         [Fact]
-        public async void TestOrdersGetRequest()
+        public async Task TestOrdersGetRequest()
         {
             var response = await OrdersCreateTest.CreateOrder();
             Order createdOrder = response.Result<Order>();

@@ -22,23 +22,23 @@ namespace PayPalCheckoutSdk.Products.Test
     {
         private List<Patch<string>> buildRequestBody()
         {
-            return new List<Patch<string>>()
-            {
+            return
+            [
                 new Patch<string>()
                 {
                     Op = "replace",
                     Path = "description",
                     Value = "added_description"
                 }
-            };
+            ];
         }
 
         [Theory]
-        [InlineData(new object[] { "ERRCAT011", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRCAT012", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRCAT013", "INVALID_REQUEST" })]
-        [InlineData(new object[] { "ERRCAT014", "UNPROCESSABLE_ENTITY" })]
-        public async void TestProductsNegativeUpdate(string productId, string errorName)
+        [InlineData(["ERRCAT011", "INTERNAL_SERVER_ERROR"])]
+        [InlineData(["ERRCAT012", "NOT_AUTHORIZED"])]
+        [InlineData(["ERRCAT013", "INVALID_REQUEST"])]
+        [InlineData(["ERRCAT014", "UNPROCESSABLE_ENTITY"])]
+        public async Task TestProductsNegativeUpdate(string productId, string errorName)
         {
             // - Update Product
             ProductsPatchRequest<string> patchRequest = new ProductsPatchRequest<string>(productId);

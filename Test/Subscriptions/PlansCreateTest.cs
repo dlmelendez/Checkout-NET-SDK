@@ -90,7 +90,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
                     },
                     SetupFeeFailureAction = "CONTINUE"
                 },
-                BillingCycles = freeTrial ? cycles : new List<BillingCycle>() { cycles.Last() },
+                BillingCycles = freeTrial ? cycles : [cycles.Last()],
             };
             if (!freeTrial)
             {
@@ -107,7 +107,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
         }       
 
         [Fact]
-        public async void TestPlansCreateRequest()
+        public async Task TestPlansCreateRequest()
         {
             Product product1 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId1);
 

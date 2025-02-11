@@ -15,7 +15,7 @@ namespace PayPalCheckoutSdk.Products.Test
     public class ProductsGetTest
     {
         [Fact]
-        public async void TestProductsGetRequest()
+        public async Task TestProductsGetRequest()
         {
             var products = await ProductsCreateTest.CreateDefaultProductsIfNotExitsAsync();
             int pageSize = 2;
@@ -36,7 +36,7 @@ namespace PayPalCheckoutSdk.Products.Test
 
 
         [Fact]
-        public async void TestProductsGetEmptyRequest()
+        public async Task TestProductsGetEmptyRequest()
         {
             int pageSize = 2;
             ProductsGetRequest request = new ProductsGetRequest(page: 1, pageSize: pageSize, totalRequired: true);

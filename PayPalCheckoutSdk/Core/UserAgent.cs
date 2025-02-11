@@ -16,14 +16,14 @@ namespace PayPalCheckoutSdk.Core
         public static string GetUserAgentHeader()
         {
             var header = new StringBuilder("PayPalSDK/PayPal-NET-SDK " + Version.VERSION + " (");
-            header.Append(string.Join(";", new string[] 
-            {
+            header.Append(string.Join(";",
+            [
                 FormatUserAgentParameter("lang", "DOTNET"),
                 FormatUserAgentParameter("v", DotNetVersion),
                 FormatUserAgentParameter("clr", DotNetClrVersion),
                 FormatUserAgentParameter("bit", OperatingSystemBitness),
                 FormatUserAgentParameter("os", OperatingSystemName)
-            }));
+            ]));
             header.Append(")");
             return header.ToString();
         }

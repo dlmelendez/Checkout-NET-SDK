@@ -42,7 +42,7 @@ namespace PayPalCheckoutSdk.Webhooks
         /// </summary>
         [DataMember(Name = "event_types", EmitDefaultValue = false)]
         [JsonPropertyName("event_types")]
-        public List<EventType> EventTypes { get; set; } = new List<EventType>();
+        public List<EventType> EventTypes { get; set; } = [];
 
     }
 }

@@ -1,12 +1,7 @@
-using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
+using PayPalCheckoutSdk.Test;
 using PayPalHttp;
 using Xunit;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
 
 
 namespace PayPalCheckoutSdk.Orders.Test
@@ -15,7 +10,7 @@ namespace PayPalCheckoutSdk.Orders.Test
     public class OrdersAuthorizeTest
     {
         [Fact(Skip = "This test is an example. In production, you will need payer approval")]
-        public async void TestOrdersAuthorizeRequest()
+        public async Task TestOrdersAuthorizeRequest()
         {
             OrdersAuthorizeRequest request = new OrdersAuthorizeRequest("ORDER-ID");
 

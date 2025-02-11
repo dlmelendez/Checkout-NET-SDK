@@ -1,5 +1,4 @@
-﻿#if NET7_0_OR_GREATER
-
+﻿
 using System;
 using System.IO;
 using System.Net.Http;
@@ -50,5 +49,3 @@ namespace PayPalCheckoutSdk
         private static partial Regex ContextTypeRegEx();
     }
 }
-
-#endif

@@ -1,34 +1,29 @@
-using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
-using PayPalHttp;
-using Xunit;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using PayPalCheckoutSdk.Core;
+using PayPalCheckoutSdk.Test;
+using Xunit;
 
 namespace PayPalCheckoutSdk.Orders.Test
 {
     [Collection("Orders")]
     public class OrdersPatchTest
     {
-        private List<Patch<string>> buildRequestBody()
+        private static List<Patch<string>> buildRequestBody()
         {
-            return new List<Patch<string>>()
-            {
+            return
+            [
                 new Patch<string>()
                 {
                     Op = "add",
                     Path = "/purchase_units/@reference_id=='test_ref_id1'/description",
                     Value = "added_description"
                 }
-            };
+            ];
         }
 
         [Fact]
-        public async void TestOrdersPatchRequest()
+        public async Task TestOrdersPatchRequest()
         {   
             var response = await OrdersCreateTest.CreateOrder();
             Order createdOrder = response.Result<Order>();

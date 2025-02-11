@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Net.Http;
@@ -20,23 +20,23 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
     {
         private List<Patch<string>> buildRequestBody()
         {
-            return new List<Patch<string>>()
-            {
+            return
+            [
                 new Patch<string>()
                 {
                     Op = "replace",
                     Path = "description",
                     Value = "added_description"
                 }
-            };
+            ];
         }
 
         [Theory]
-        [InlineData(new object[] { "ERRSUB011", "INTERNAL_SERVER_ERROR" })]
-        [InlineData(new object[] { "ERRSUB012", "NOT_AUTHORIZED" })]
-        [InlineData(new object[] { "ERRSUB013", "RESOURCE_NOT_FOUND" })]
-        [InlineData(new object[] { "ERRSUB014", "INVALID_REQUEST" })]
-        public async void TestPlansNegativeUpdate(string planId, string errorName)
+        [InlineData(["ERRSUB011", "INTERNAL_SERVER_ERROR"])]
+        [InlineData(["ERRSUB012", "NOT_AUTHORIZED"])]
+        [InlineData(["ERRSUB013", "RESOURCE_NOT_FOUND"])]
+        [InlineData(["ERRSUB014", "INVALID_REQUEST"])]
+        public async Task TestPlansNegativeUpdate(string planId, string errorName)
         {
             // - Update Plan
             PlansPatchRequest<string> patchRequest = new PlansPatchRequest<string>(planId);
