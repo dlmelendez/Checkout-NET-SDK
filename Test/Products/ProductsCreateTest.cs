@@ -40,7 +40,7 @@ namespace Test.Products
         public static async Task<Product> CreateProductIfNotExists(string id)
         {
             var getRequest = new ProductGetRequest(id);
-            Product getProduct = null;
+            Product getProduct;
             try
             {
                 var getResponse = await TestHarness.client().Execute(getRequest);

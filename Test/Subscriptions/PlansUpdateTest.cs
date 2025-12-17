@@ -1,24 +1,16 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Core;
+using PayPalCheckoutSdk.Subscriptions;
 using PayPalHttp;
 using Xunit;
-using Xunit.Abstractions;
-using static Test.TestHarness;
-using System.Diagnostics;
-using PayPalCheckoutSdk.Core;
-using System.Linq;
-using PayPalCheckoutSdk.Subscriptions;
 
 namespace Test.Subscriptions
 {
     [Collection("Subscriptions")]
     public class PlansUpdateTest
     {
-        private List<Patch<string>> buildRequestBody()
+        private static List<Patch<string>> buildRequestBody()
         {
             return
             [

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -12,14 +11,9 @@ using Xunit.Abstractions;
 namespace Test.Webhooks
 {
     [Collection("Webhooks")]
-    public class WebhooksTests
+    public class WebhooksTests(ITestOutputHelper output)
     {
-        private readonly ITestOutputHelper _output;
-
-        public WebhooksTests(ITestOutputHelper output)
-        {
-            _output = output;
-        }
+        private readonly ITestOutputHelper _output = output;
 
         [Theory]
         [InlineData(AnchorType.APPLICATION)]

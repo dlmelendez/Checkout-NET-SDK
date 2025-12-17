@@ -39,17 +39,9 @@ namespace PayPalCheckoutSdk.Core
             return UserAgent.GetUserAgentHeader();
         }
 
-        class AuthorizationInjector : IInjector
+        class AuthorizationInjector(PayPalEnvironment environment, string? refreshToken) : IInjector
         {
-            private readonly PayPalEnvironment _environment;
             private AccessToken? _accessToken;
-            private readonly string? _refreshToken;
-
-            public AuthorizationInjector(PayPalEnvironment environment, string? refreshToken)
-            {
-                _environment = environment;
-                _refreshToken = refreshToken;
-            }
 
             public async Task<T> InjectAsync<T>(T request) where T : HttpRequest
             {
@@ -67,8 +59,8 @@ namespace PayPalCheckoutSdk.Core
             private async Task<AccessToken> FetchAccessTokenAsync()
             {
                 //create a new client for access token.
-                HttpClient AccessTokenClient = new HttpClient(_environment);
-                AccessTokenRequest request = new AccessTokenRequest(_environment, _refreshToken);
+                HttpClient AccessTokenClient = new HttpClient(environment);
+                AccessTokenRequest request = new AccessTokenRequest(environment, refreshToken);
                 //make fetch access token call sync to avoid deadlock.
                 var accessTokenResponse = await AccessTokenClient.Execute(request).ConfigureAwait(false);
                 return accessTokenResponse.Result<AccessToken>();
