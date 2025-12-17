@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk;
 using PayPalCheckoutSdk.Orders;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk.Webhooks;
 using PayPalHttp;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PayPalCheckoutSdk.Webhooks.Test
+namespace Test.Webhooks
 {
     [Collection("Event")]
     public class EventTests

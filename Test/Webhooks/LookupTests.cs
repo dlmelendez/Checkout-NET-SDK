@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk;
 using PayPalCheckoutSdk.Webhooks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PayPalCheckoutSdk.Webhooks.Test
+namespace Test.Webhooks
 {
     [Collection("WebhooksLookup")]
     public class LookupTests

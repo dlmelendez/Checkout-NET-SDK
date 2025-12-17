@@ -1,17 +1,12 @@
 ﻿using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk;
+using PayPalCheckoutSdk.Products;
 using PayPalHttp;
 using Xunit;
-using Xunit.Abstractions;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
-using System.Diagnostics;
 
-namespace PayPalCheckoutSdk.Products.Test
+namespace Test.Products
 {
     [Collection("Products")]
     public class ProductsCreateTest
@@ -37,7 +32,7 @@ namespace PayPalCheckoutSdk.Products.Test
             };
             return product;
         }
-        public async static Task<HttpResponse> CreateProduct(string id = null)
+        public static async Task<HttpResponse> CreateProduct(string id = null)
         {
             var request = new ProductsCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
@@ -45,7 +40,7 @@ namespace PayPalCheckoutSdk.Products.Test
             return await TestHarness.client().Execute(request);
         }
 
-        public async static Task<Product> CreateProductIfNotExists(string id)
+        public static async Task<Product> CreateProductIfNotExists(string id)
         {
             var getRequest = new ProductGetRequest(id);
             Product getProduct = null;
@@ -70,7 +65,7 @@ namespace PayPalCheckoutSdk.Products.Test
             return getProduct;
         }
 
-        public async static Task<List<Product>> CreateDefaultProductsIfNotExitsAsync()
+        public static async Task<List<Product>> CreateDefaultProductsIfNotExitsAsync()
         {
             Product product1 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId1);
             Product product2 = await ProductsCreateTest.CreateProductIfNotExists(ProductsCreateTest.ProductId2);

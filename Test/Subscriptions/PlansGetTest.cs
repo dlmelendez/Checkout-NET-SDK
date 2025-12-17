@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PayPalCheckoutSdk.Products;
-using PayPalCheckoutSdk.Products.Test;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk.Subscriptions;
+using Test.Products;
 using Xunit;
 
-namespace PayPalCheckoutSdk.Subscriptions.Test
+namespace Test.Subscriptions
 {
     [Collection("Subscriptions")]
     public class PlansGetTest

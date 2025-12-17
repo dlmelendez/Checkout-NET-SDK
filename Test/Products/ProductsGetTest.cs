@@ -5,11 +5,11 @@ using System.Net.Http;
 using System.Collections.Generic;
 using PayPalHttp;
 using Xunit;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
+using static Test.TestHarness;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Products;
 
-namespace PayPalCheckoutSdk.Products.Test
+namespace Test.Products
 {
     [Collection("Products")]
     public class ProductsGetTest

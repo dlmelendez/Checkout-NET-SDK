@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Net.Http;
@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using PayPalHttp;
 using Xunit;
 using Xunit.Abstractions;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
+using static Test.TestHarness;
 using System.Diagnostics;
 using PayPalCheckoutSdk.Core;
 using System.Linq;
+using PayPalCheckoutSdk.Subscriptions;
 
-namespace PayPalCheckoutSdk.Subscriptions.Test
+namespace Test.Subscriptions
 {
     [Collection("Subscriptions")]
     public class PlansChangePricingTest

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk.Orders;
 using Xunit;
 
 
-namespace PayPalCheckoutSdk.Orders.Test
+namespace Test.Orders
 {
     [Collection("Orders")]
     public class OrdersGetTest
