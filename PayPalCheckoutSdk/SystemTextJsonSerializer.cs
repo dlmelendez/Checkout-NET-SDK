@@ -1,20 +1,20 @@
 ﻿using System;
-using System.IO;
 using System.Net.Http;
-using System.Runtime.Serialization.Json;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PayPalHttp;
-using System.Text.Json;
 
 namespace PayPalCheckoutSdk
 {
     public partial class SystemTextJsonSerializer : ISerializer
     {
-        public static JsonSerializerOptions JsonWebOptions => new(JsonSerializerDefaults.Web);
+        private static readonly JsonSerializerOptions _jsonWebOptions = new(JsonSerializerDefaults.Web);
+        public static JsonSerializerOptions JsonWebOptions => _jsonWebOptions;
 
         private const string RegExPattern = MimeTypeConstants.ApplicationJson;
-        public static JsonSourceGenerator JsonWebSourceGenerator => new(JsonWebOptions);
+        private static readonly JsonSourceGenerator _jsonWebSourceGenerator = new(_jsonWebOptions);
+        public static JsonSourceGenerator JsonWebSourceGenerator => _jsonWebSourceGenerator;
 
         private static readonly Regex _pattern = ContextTypeRegEx();
 
