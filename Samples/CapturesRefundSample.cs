@@ -14,7 +14,7 @@ namespace Samples
             Method for refund the capture. Valid capture Id should be
 	         passed an argument to this method.
         */
-        public async static Task<HttpResponse> CapturesRefund(string CaptureId, bool debug = false)
+        public static async Task<HttpResponse> CapturesRefund(string CaptureId, bool debug = false)
         {
             var request = new CapturesRefundRequest(CaptureId);
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);

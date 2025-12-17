@@ -14,7 +14,7 @@ namespace Samples.AuthorizeIntentExamples
     {
 
         //This function can be used to perform authorization on the approved order.
-        public async static Task<HttpResponse> AuthorizeOrder(string OrderId, bool debug = false)
+        public static async Task<HttpResponse> AuthorizeOrder(string OrderId, bool debug = false)
         {
             var request = new OrdersAuthorizeRequest(OrderId);
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);

@@ -140,7 +140,7 @@ namespace Samples.CaptureIntentExamples
             @return HttpResponse<Order> response received from API
             @throws IOException Exceptions from API if any
         */
-        public async static Task<HttpResponse> CreateOrder(bool debug = false)
+        public static async Task<HttpResponse> CreateOrder(bool debug = false)
         {
             var request = new OrdersCreateRequest();
             request.Headers.Add(HeaderNameConstants.Prefer, HeaderValueConstants.PreferValueRepresentation);

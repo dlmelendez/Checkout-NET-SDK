@@ -15,7 +15,7 @@ namespace Samples.CaptureIntentExamples
             Method to capture order after creation. Valid approved order Id should be
 	         passed an argument to this method.
         */
-        public async static Task<HttpResponse> CaptureOrder(string OrderId, bool debug = false)
+        public static async Task<HttpResponse> CaptureOrder(string OrderId, bool debug = false)
         {
             var request = new OrdersCaptureRequest(OrderId);
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);

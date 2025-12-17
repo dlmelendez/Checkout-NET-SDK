@@ -39,7 +39,7 @@ namespace Samples
         /*
             This method cn be used to patch an order by passing the order id.
          */
-        public async static Task<HttpResponse> PatchOrder(string orderId, bool debug = false)
+        public static async Task<HttpResponse> PatchOrder(string orderId, bool debug = false)
         {
             var request = new OrdersPatchRequest<Object>(orderId);
             request.RequestBody(BuildPatchRequest());
