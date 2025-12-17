@@ -16,24 +16,22 @@ namespace Samples
          */
          private static List<Patch<Object>> BuildPatchRequest()
          {
-             var patches = new List<Patch<Object>>
-             {
-                 new Patch<Object>
-                 {
+            List<Patch<Object>> patches =
+             [
+                 new() {
                      Op= "replace",
                      Path= "/intent",
                      Value= "CAPTURE"
 
                  },
-                 new Patch<Object>
-                 {
+                 new() {
                      Op= "replace",
                      Path= "/purchase_units/@reference_id=='PUHF'/description",
                      Value= "Physical Goods"
                      
                  }
 
-             }; 
+             ]; 
              return patches;
          }
         /*

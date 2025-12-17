@@ -16,10 +16,7 @@ namespace Test.Products
 
         private static ProductRequest buildRequestBody(string id)
         {
-            if (id == null)
-            {
-                id = Guid.NewGuid().ToString();
-            }
+            id ??= Guid.NewGuid().ToString();
             var product = new ProductRequest()
             {
                 Category = "COMPUTER_AND_DATA_PROCESSING_SERVICES",

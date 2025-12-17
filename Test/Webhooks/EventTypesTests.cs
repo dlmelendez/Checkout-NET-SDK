@@ -28,7 +28,7 @@ namespace Test.Webhooks
 
             EventTypeList eventTypesList = response.Result<EventTypeList>();
             Assert.NotNull(eventTypesList?.EventTypes);
-            Assert.True(eventTypesList?.EventTypes.Any());
+            Assert.NotEmpty(eventTypesList.EventTypes);
             foreach (var eventType in eventTypesList.EventTypes)
             {
                 _output.WriteLine(eventType.Name);

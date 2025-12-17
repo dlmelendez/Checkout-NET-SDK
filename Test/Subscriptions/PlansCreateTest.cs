@@ -27,9 +27,9 @@ namespace Test.Subscriptions
         private static PlanRequest buildRequestBody(string productId, bool freeTrial = true, bool qtySupported = true)
         {
             string id = Guid.NewGuid().ToString();
-            var cycles = new List<BillingCycle>()
-                {
-                    new BillingCycle()
+            List<BillingCycle> cycles =
+                [
+                    new()
                     {
                          Frequency = new Frequency()
                          {
@@ -48,7 +48,7 @@ namespace Test.Subscriptions
                          TenureType = "TRIAL",
                          TotalCycles = 1
                     },
-                     new BillingCycle()
+                     new()
                     {
                          Frequency = new Frequency()
                          {
@@ -67,7 +67,7 @@ namespace Test.Subscriptions
                          TenureType = "REGULAR",
                          TotalCycles = 0
                     }
-                };
+                ];
 
             var plan = new PlanRequest()
             {
