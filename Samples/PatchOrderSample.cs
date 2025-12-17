@@ -35,7 +35,7 @@ namespace Samples
              return patches;
          }
         /*
-            This method cn be used to patch an order by passing the order id.
+            This method can be used to patch an order by passing the order id.
          */
         public static async Task<HttpResponse> PatchOrder(string orderId, bool debug = false)
         {
