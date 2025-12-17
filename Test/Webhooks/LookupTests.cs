@@ -34,6 +34,19 @@ namespace Test.Webhooks
         [Fact]
         public async Task TestCreateGetDeleteLookupRequest()
         {
+            //Query for existing webhook lookup or create a new one
+            LookupsGetRequest getListRequest = new LookupsGetRequest();
+            var getListResponse = await TestHarness.client().Execute(getListRequest);
+            Assert.Equal(HttpStatusCode.OK, getListResponse.StatusCode);
+            LookupList lookupList = getListResponse.Result<LookupList>();
+            Assert.NotNull(lookupList);
+            //Cleanup any existing webhook lookups for this client id
+            foreach (var lookup in lookupList.WebhookLookups)
+            {
+                var deleteRequest = new LookupDeleteRequest(lookup.Id);
+                var deleteResponse = await TestHarness.client().Execute(deleteRequest);
+            }
+
             LookupCreateRequest request = new LookupCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);
             var webhookLookup = new Lookup()
@@ -41,7 +54,7 @@ namespace Test.Webhooks
                 ClientId = TestHarness.ClientId
             };
             request.RequestBody(webhookLookup);
-            
+
             var createResponse = await TestHarness.client().Execute(request);
             var createResult = createResponse.Result<Lookup>();
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
@@ -49,6 +62,7 @@ namespace Test.Webhooks
             Assert.NotNull(createResult);
             Assert.False(string.IsNullOrWhiteSpace(createResult.Id));
             _output.WriteLine($"webhookLookupId: {createResult.Id}");
+           
 
             try
             {
