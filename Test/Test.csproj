@@ -1,20 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-    <LangVersion>13.0</LangVersion>
-    <PackageVersion>2.3.0</PackageVersion>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <LangVersion>14.0</LangVersion>
+    <Version>2.5.0</Version>
     <IsPackable>false</IsPackable>
     <UserSecretsId>4dbe0d9e-0d79-4e71-b5dd-44b90dbe3ee9</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'net10.0'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.*" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2">
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
