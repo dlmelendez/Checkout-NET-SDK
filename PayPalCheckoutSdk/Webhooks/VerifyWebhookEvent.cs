@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO.Hashing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Force.Crc32;
 
 namespace PayPalCheckoutSdk.Webhooks
 {
@@ -64,7 +64,7 @@ namespace PayPalCheckoutSdk.Webhooks
             }
             // Calculate a CRC32 checksum using the request body.
             byte[] bytes = Encoding.UTF8.GetBytes(verifySignature.WebhookEventRequestBody);
-            uint crc32 = Crc32Algorithm.Compute(bytes);
+            uint crc32 = Crc32.HashToUInt32(bytes);
 
             // Generate the expected signature.
             var expectedSignature = string.Format("{0}|{1}|{2}|{3}", verifySignature.TransmissionId, verifySignature.TransmissionTime, verifySignature.WebhookId, crc32);
