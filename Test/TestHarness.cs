@@ -6,7 +6,7 @@ using PayPalHttp;
 using Xunit;
 [assembly: CollectionBehavior(MaxParallelThreads = -1)]
 
-namespace PayPalCheckoutSdk.Test
+namespace Test
 {
     public class TestHarness
     {

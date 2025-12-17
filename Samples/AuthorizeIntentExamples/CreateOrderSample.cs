@@ -135,7 +135,7 @@ namespace Samples.AuthorizeIntentExamples
         }
 
         //Below function can be used to create an order with complete payload.
-        public async static Task<HttpResponse> CreateOrder(bool debug=false)
+        public static async Task<HttpResponse> CreateOrder(bool debug=false)
         {
             Console.WriteLine("Creating Order with complete payload");
             var request = new OrdersCreateRequest();
@@ -188,7 +188,7 @@ namespace Samples.AuthorizeIntentExamples
         }
 
         //Below function can be used to create an order with minimum payload.
-        public async static Task<HttpResponse> CreateOrderWithMinimumFields(bool debug=false)
+        public static async Task<HttpResponse> CreateOrderWithMinimumFields(bool debug=false)
         {
             Console.WriteLine("Create Order with minimum payload..");
             var request = new OrdersCreateRequest();

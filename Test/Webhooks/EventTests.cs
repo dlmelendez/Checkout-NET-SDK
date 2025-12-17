@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk;
 using PayPalCheckoutSdk.Orders;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk.Webhooks;
 using PayPalHttp;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PayPalCheckoutSdk.Webhooks.Test
+namespace Test.Webhooks
 {
     [Collection("Event")]
-    public class EventTests
+    public class EventTests(ITestOutputHelper output)
     {
-        private readonly ITestOutputHelper _output;
-
-        public EventTests(ITestOutputHelper output)
-        {
-            _output = output;
-        }
+        private readonly ITestOutputHelper _output = output;
 
         [Fact]
         public async Task TestEventsRequest()

@@ -16,30 +16,28 @@ namespace Samples
          */
          private static List<Patch<Object>> BuildPatchRequest()
          {
-             var patches = new List<Patch<Object>>
-             {
-                 new Patch<Object>
-                 {
+            List<Patch<Object>> patches =
+             [
+                 new() {
                      Op= "replace",
                      Path= "/intent",
                      Value= "CAPTURE"
 
                  },
-                 new Patch<Object>
-                 {
+                 new() {
                      Op= "replace",
                      Path= "/purchase_units/@reference_id=='PUHF'/description",
                      Value= "Physical Goods"
                      
                  }
 
-             }; 
+             ]; 
              return patches;
          }
         /*
-            This method cn be used to patch an order by passing the order id.
+            This method can be used to patch an order by passing the order id.
          */
-        public async static Task<HttpResponse> PatchOrder(string orderId, bool debug = false)
+        public static async Task<HttpResponse> PatchOrder(string orderId, bool debug = false)
         {
             var request = new OrdersPatchRequest<Object>(orderId);
             request.RequestBody(BuildPatchRequest());

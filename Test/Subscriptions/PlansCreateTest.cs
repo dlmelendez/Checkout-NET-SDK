@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 using PayPalHttp;
 using Xunit;
 using Xunit.Abstractions;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
+using static Test.TestHarness;
 using System.Diagnostics;
 using PayPalCheckoutSdk.Core;
 using System.Linq;
 using PayPalCheckoutSdk.Products;
-using PayPalCheckoutSdk.Products.Test;
+using Test.Products;
+using PayPalCheckoutSdk;
+using PayPalCheckoutSdk.Subscriptions;
 
-namespace PayPalCheckoutSdk.Subscriptions.Test
+namespace Test.Subscriptions
 {
     [Collection("Subscriptions")]
     public class PlansCreateTest
@@ -26,9 +27,9 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
         private static PlanRequest buildRequestBody(string productId, bool freeTrial = true, bool qtySupported = true)
         {
             string id = Guid.NewGuid().ToString();
-            var cycles = new List<BillingCycle>()
-                {
-                    new BillingCycle()
+            List<BillingCycle> cycles =
+                [
+                    new()
                     {
                          Frequency = new Frequency()
                          {
@@ -47,7 +48,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
                          TenureType = "TRIAL",
                          TotalCycles = 1
                     },
-                     new BillingCycle()
+                     new()
                     {
                          Frequency = new Frequency()
                          {
@@ -66,7 +67,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
                          TenureType = "REGULAR",
                          TotalCycles = 0
                     }
-                };
+                ];
 
             var plan = new PlanRequest()
             {
@@ -98,7 +99,7 @@ namespace PayPalCheckoutSdk.Subscriptions.Test
             }
             return plan;
         }
-        public async static Task<HttpResponse> CreatePlan(string productId, bool freeTrial, bool qtySupported)
+        public static async Task<HttpResponse> CreatePlan(string productId, bool freeTrial, bool qtySupported)
         {
             var request = new PlansCreateRequest();
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);

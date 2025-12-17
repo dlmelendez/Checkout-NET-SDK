@@ -1,17 +1,12 @@
 ﻿using System;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk;
+using PayPalCheckoutSdk.Core;
+using PayPalCheckoutSdk.Orders;
 using PayPalHttp;
 using Xunit;
-using Xunit.Abstractions;
-using PayPalCheckoutSdk.Test;
-using static PayPalCheckoutSdk.Test.TestHarness;
-using PayPalCheckoutSdk.Core;
 
-namespace PayPalCheckoutSdk.Orders.Test
+namespace Test.Orders
 {
     [Collection("Orders")]
     public class OrdersCreateTest

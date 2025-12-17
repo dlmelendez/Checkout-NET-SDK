@@ -1,22 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
-using PayPalCheckoutSdk.Test;
+using PayPalCheckoutSdk.Webhooks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PayPalCheckoutSdk.Webhooks.Test
+namespace Test.Webhooks
 {
     [Collection("EventTypes")]
-    public class EventTypesTests
+    public class EventTypesTests(ITestOutputHelper output)
     {
-        private readonly ITestOutputHelper _output;
-
-        public EventTypesTests(ITestOutputHelper output)
-        {
-            _output = output;
-        }
+        private readonly ITestOutputHelper _output = output;
 
         [Fact]
         public async Task TestEventTypesAvailableRequest()
@@ -28,7 +21,7 @@ namespace PayPalCheckoutSdk.Webhooks.Test
 
             EventTypeList eventTypesList = response.Result<EventTypeList>();
             Assert.NotNull(eventTypesList?.EventTypes);
-            Assert.True(eventTypesList?.EventTypes.Any());
+            Assert.NotEmpty(eventTypesList.EventTypes);
             foreach (var eventType in eventTypesList.EventTypes)
             {
                 _output.WriteLine(eventType.Name);

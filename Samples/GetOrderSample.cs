@@ -11,9 +11,9 @@ namespace Samples
     public class GetOrderSample
     {
         /*
-            This method cn be used to retrieve an order by passing the order id.
+            This method can be used to retrieve an order by passing the order id.
          */
-        public async static Task<HttpResponse> GetOrder(string orderId, bool debug = false)
+        public static async Task<HttpResponse> GetOrder(string orderId, bool debug = false)
         {
             OrdersGetRequest request = new OrdersGetRequest(orderId);
 

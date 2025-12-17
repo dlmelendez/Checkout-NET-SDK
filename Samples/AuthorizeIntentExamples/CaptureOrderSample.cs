@@ -9,7 +9,7 @@ namespace Samples.AuthorizeIntentExamples
     public class CaptureOrderSample
     {
         //This method  can be used to capture the payment on the approved authorization.
-        public async static Task<HttpResponse> CaptureOrder(string AuthorizationId, bool debug = false)
+        public static async Task<HttpResponse> CaptureOrder(string AuthorizationId, bool debug = false)
         {
             var request = new AuthorizationsCaptureRequest(AuthorizationId);
             request.Prefer(HeaderValueConstants.PreferValueRepresentation);

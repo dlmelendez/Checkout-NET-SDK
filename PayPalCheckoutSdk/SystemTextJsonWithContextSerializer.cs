@@ -16,10 +16,12 @@ namespace PayPalCheckoutSdk
     /// </summary>
     public partial class SystemTextJsonWithContextSerializer : ISerializer
     {
-        public static JsonSerializerOptions JsonWebOptions => new JsonSerializerOptions(JsonSerializerDefaults.Web);
+        private static readonly JsonSerializerOptions _jsonWebOptions = new(JsonSerializerDefaults.Web);
+        public static JsonSerializerOptions JsonWebOptions => _jsonWebOptions;
 
         private const string RegExPattern = MimeTypeConstants.ApplicationJson;
-        public static JsonSourceGenerator JsonWebSourceGenerator = new JsonSourceGenerator(JsonWebOptions);
+        private static readonly JsonSourceGenerator _jsonWebSourceGenerator = new(_jsonWebOptions);
+        public static JsonSourceGenerator JsonWebSourceGenerator => _jsonWebSourceGenerator;
 
         private static readonly Regex _pattern = ContextTypeRegEx();
 
